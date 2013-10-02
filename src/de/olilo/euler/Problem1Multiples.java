@@ -17,12 +17,13 @@ public class Problem1Multiples {
     }
 
     public long solveByAlgorithm(int number) {
-        long maxThreeDivisible = (number - (number % 3));
-        long maxFiveDivisible = (number - (number % 5));
-        long maxFifteenDivisible = (number - (number % 15));
-        return 3 * ((maxThreeDivisible / 3) * (maxThreeDivisible / 3 - 1) / 2)
-                + 5 * ((maxFiveDivisible / 5) * (maxFiveDivisible / 5 - 1) / 2)
-                - 15 * ((maxFifteenDivisible / 15) * (maxFifteenDivisible / 15 - 1) / 2);
+        long maxThreeDivisible = (number - 1 - ((number - 1) % 3));
+        long maxFiveDivisible = (number - 1 - ((number - 1) % 5));
+        long maxFifteenDivisible = (number - 1 - ((number - 1) % 15));
+        long sumThrees = 3 * (((maxThreeDivisible / 3) * (maxThreeDivisible / 3 + 1)) / 2);
+        long sumFives = 5 * (((maxFiveDivisible / 5) * (maxFiveDivisible / 5 + 1)) / 2);
+        long sumFifteens = 15 * ((maxFifteenDivisible / 15) * (maxFifteenDivisible / 15 + 1) / 2);
+        return sumThrees + sumFives - sumFifteens;
     }
 
 }

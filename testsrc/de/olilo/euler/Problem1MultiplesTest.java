@@ -33,4 +33,10 @@ public class Problem1MultiplesTest {
         Assert.assertEquals(233168L, result);
     }
 
+    @Test
+    public void testSolveAlgorithm100000() throws Exception {
+        long result = new Problem1Multiples().solveByAlgorithm(100000);
+        Assert.assertEquals(2333316668L, result);
+    }
+
 }
