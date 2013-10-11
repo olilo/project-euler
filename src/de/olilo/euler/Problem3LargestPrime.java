@@ -1,5 +1,6 @@
 package de.olilo.euler;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,21 @@ public class Problem3LargestPrime {
         } else {
             return primeFactors[primeFactorIndex - 1];
         }
+    }
+
+    BigInteger findSmallestNumberWithNDistinctPrimeFactors(int numberOfPrimeFactors) {
+        List<Integer> primes = new ArrayList<Integer>();
+        primes.add(2);
+        int currentPrime = primes.get(0);
+
+        BigInteger result = BigInteger.valueOf(2);
+        for (int i = 0; i < numberOfPrimeFactors - 1; i++) {
+            currentPrime = findNextPrime(currentPrime, primes);
+            primes.add(currentPrime);
+            result = result.multiply(BigInteger.valueOf(currentPrime));
+        }
+
+        return result;
     }
 
     int findNextPrime(int currentPrime, List<Integer> primes) {

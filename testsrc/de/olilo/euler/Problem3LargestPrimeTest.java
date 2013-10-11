@@ -3,6 +3,7 @@ package de.olilo.euler;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,13 @@ public class Problem3LargestPrimeTest {
     public void testGetLargestPrimeOfPrime() throws Exception {
         long expected = 29;
         long actual = new Problem3LargestPrime().getLargestPrimeOf(29);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindSmallestNumberWithNDistinctPrimeFactors() throws Exception {
+        BigInteger expected = BigInteger.valueOf(2 * 3 * 5 * 7 * 11);
+        BigInteger actual = new Problem3LargestPrime().findSmallestNumberWithNDistinctPrimeFactors(5);
         Assert.assertEquals(expected, actual);
     }
 
