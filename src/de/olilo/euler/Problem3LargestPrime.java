@@ -9,21 +9,37 @@ import java.util.List;
  */
 public class Problem3LargestPrime {
 
-    public int getLargestPrimeOf(long number) {
+    public long getLargestPrimeOf(long number) {
+        // we have a cache of primes up to the point needed and
+        // use prime factorization of the given number
+        // to find the highest prime factor
+        int primeIndex = 0;
         List<Integer> primes = new ArrayList<Integer>();
         primes.add(2);
         primes.add(3);
         primes.add(5);
         primes.add(7);
-        int primeIndex = 0;
-        long limit = (long) Math.sqrt(number);
         int currentPrime = primes.get(0);
+
+        // optimization: highest prime factor must be at most the square root of the number itself
+        long limit = (long) Math.sqrt(number);
+
+        // the prime factors of the number
         int[] primeFactors = new int[1000];
         int primeFactorIndex = 0;
-        while (currentPrime <= limit) {
-            if (number % currentPrime == 0) {
-                number = number / currentPrime;
-                primeFactors[primeFactorIndex++] = currentPrime;
+
+        // work with a copy of the number to compare it later (check to see if number itself is prime)
+        long numberCopy = number;
+
+        // main loop
+        while (currentPrime <= limit && numberCopy != 1) {
+            if (numberCopy % currentPrime == 0) {
+                numberCopy = numberCopy / currentPrime;
+
+                // minor space optimization: only register distinct prime factors
+                if (primeFactors[primeFactorIndex] != currentPrime) {
+                    primeFactors[primeFactorIndex++] = currentPrime;
+                }
             } else {
                 primeIndex++;
                 if (primeIndex < primes.size()) {
@@ -34,11 +50,22 @@ public class Problem3LargestPrime {
                 }
             }
         }
-        return primeFactors[primeFactorIndex - 1];
+
+        // if number is still the same as we started with, it must be prime, so it is the biggest prime factor itself
+        if (number == numberCopy) {
+            return number;
+        } else {
+            return primeFactors[primeFactorIndex - 1];
+        }
     }
 
     int findNextPrime(int currentPrime, List<Integer> primes) {
-        // TODO stackoverflow?!?
+        // special case: 2
+        if (currentPrime == 2) {
+            return 3;
+        }
+
+        // FIXME: stackoverflow?!?
         int nextPrime = currentPrime + 2;
         for (int prime : primes) {
             if (nextPrime % prime == 0) {
