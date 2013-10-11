@@ -11,6 +11,8 @@ public class AllProblems {
                 new Problem1Multiples().solveIteratively(1000));
         System.out.println("Problem 2: Sum of even Fibonaccis to 4.000.000; result: " +
                 new Problem2Fibonacci().solve(4000000));
+        System.out.println("Problem 3: Largest prime factor of 600.851.475.143: " +
+                new Problem3LargestPrime().getLargestPrimeOf(600851475143L));
     }
 
 }
