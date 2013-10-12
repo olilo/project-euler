@@ -13,6 +13,8 @@ public class AllProblems {
                 new Problem2Fibonacci().solve(4000000));
         System.out.println("Problem 3: Largest prime factor of 600.851.475.143: " +
                 new Problem3LargestPrime().getLargestPrimeOf(600851475143L));
+        System.out.println("Addendum Problem 3: Smallest number with 100 unique prime factors: " +
+                new Problem3PrimeFactorsAddendum().findSmallestNumberWithNDistinctPrimeFactors(100));
     }
 
 }

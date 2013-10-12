@@ -1,8 +1,7 @@
 package de.olilo.euler;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
 /**
  * @author Oliver Lorenz
@@ -14,13 +13,8 @@ public class Problem3LargestPrime {
         // we have a cache of primes up to the point needed and
         // use prime factorization of the given number
         // to find the highest prime factor
-        int primeIndex = 0;
-        List<Integer> primes = new ArrayList<Integer>();
-        primes.add(2);
-        primes.add(3);
-        primes.add(5);
-        primes.add(7);
-        int currentPrime = primes.get(0);
+        final Iterator<Integer> primes = PrimesIterable.INSTANCE.iterator();
+        int currentPrime = primes.next();
 
         // optimization: highest prime factor must be at most the square root of the number itself
         long limit = (long) Math.sqrt(number);
@@ -42,13 +36,7 @@ public class Problem3LargestPrime {
                     primeFactors[primeFactorIndex++] = currentPrime;
                 }
             } else {
-                primeIndex++;
-                if (primeIndex < primes.size()) {
-                    currentPrime = primes.get(primeIndex);
-                } else {
-                    currentPrime = findNextPrime(currentPrime, primes);
-                    primes.add(currentPrime);
-                }
+                currentPrime = primes.next();
             }
         }
 
@@ -58,37 +46,6 @@ public class Problem3LargestPrime {
         } else {
             return primeFactors[primeFactorIndex - 1];
         }
-    }
-
-    BigInteger findSmallestNumberWithNDistinctPrimeFactors(int numberOfPrimeFactors) {
-        List<Integer> primes = new ArrayList<Integer>();
-        primes.add(2);
-        int currentPrime = primes.get(0);
-
-        BigInteger result = BigInteger.valueOf(2);
-        for (int i = 0; i < numberOfPrimeFactors - 1; i++) {
-            currentPrime = findNextPrime(currentPrime, primes);
-            primes.add(currentPrime);
-            result = result.multiply(BigInteger.valueOf(currentPrime));
-        }
-
-        return result;
-    }
-
-    int findNextPrime(int currentPrime, List<Integer> primes) {
-        // special case: 2
-        if (currentPrime == 2) {
-            return 3;
-        }
-
-        // FIXME: stackoverflow?!?
-        int nextPrime = currentPrime + 2;
-        for (int prime : primes) {
-            if (nextPrime % prime == 0) {
-                return findNextPrime(nextPrime, primes);
-            }
-        }
-        return nextPrime;
     }
 
 }

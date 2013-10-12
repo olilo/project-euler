@@ -25,23 +25,4 @@ public class Problem3LargestPrimeTest {
         long actual = new Problem3LargestPrime().getLargestPrimeOf(29);
         Assert.assertEquals(expected, actual);
     }
-
-    @Test
-    public void testFindSmallestNumberWithNDistinctPrimeFactors() throws Exception {
-        BigInteger expected = BigInteger.valueOf(2 * 3 * 5 * 7 * 11);
-        BigInteger actual = new Problem3LargestPrime().findSmallestNumberWithNDistinctPrimeFactors(5);
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testFindNextPrime() throws Exception {
-        final List<Integer> primes = new ArrayList<Integer>();
-        primes.add(2);
-        primes.add(3);
-        primes.add(5);
-        primes.add(7);
-        int expected = 11;
-        int actual = new Problem3LargestPrime().findNextPrime(7, primes);
-        Assert.assertEquals(expected, actual);
-    }
 }
