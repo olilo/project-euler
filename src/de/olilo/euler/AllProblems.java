@@ -15,6 +15,8 @@ public class AllProblems {
                 new Problem3LargestPrime().getLargestPrimeOf(600851475143L));
         System.out.println("Addendum Problem 3: Smallest number with 100 unique prime factors: " +
                 new Problem3PrimeFactorsAddendum().findSmallestNumberWithNDistinctPrimeFactors(100));
+        System.out.println("Problem 4: Biggest palindrome that is the product of two 3-digit numbers: " +
+                new Problem4Palindrome().findBiggestPalindromeFromTwoNDigitedNumbers(3));
     }
 
 }

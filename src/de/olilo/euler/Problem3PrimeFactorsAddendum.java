@@ -1,7 +1,6 @@
 package de.olilo.euler;
 
 import java.math.BigInteger;
-import java.util.Iterator;
 
 /**
  * @author Oliver Lorenz
