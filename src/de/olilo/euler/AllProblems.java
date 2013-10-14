@@ -1,5 +1,11 @@
 package de.olilo.euler;
 
+import de.olilo.euler.level1.Problem1Multiples;
+import de.olilo.euler.level1.Problem2Fibonacci;
+import de.olilo.euler.level1.Problem3LargestPrime;
+import de.olilo.euler.level1.Problem3PrimeFactorsAddendum;
+import de.olilo.euler.level1.Problem4Palindrome;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

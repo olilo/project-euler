@@ -1,4 +1,6 @@
-package de.olilo.euler;
+package de.olilo.euler.level1;
+
+import de.olilo.euler.PrimesIterable;
 
 import java.math.BigInteger;
 
@@ -8,7 +10,7 @@ import java.math.BigInteger;
  */
 public class Problem3PrimeFactorsAddendum {
 
-    BigInteger findSmallestNumberWithNDistinctPrimeFactors(int numberOfPrimeFactors) {
+    public BigInteger findSmallestNumberWithNDistinctPrimeFactors(int numberOfPrimeFactors) {
         BigInteger result = BigInteger.valueOf(1);
         int primesMultiplied = 0;
         for (int prime : PrimesIterable.INSTANCE) {

@@ -1,4 +1,6 @@
-package de.olilo.euler;
+package de.olilo.euler.level1;
+
+import de.olilo.euler.PrimesIterable;
 
 import java.util.Iterator;
 

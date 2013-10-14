@@ -1,5 +1,6 @@
-package de.olilo.euler;
+package de.olilo.euler.level1;
 
+import de.olilo.euler.level1.Problem3PrimeFactorsAddendum;
 import org.junit.Assert;
 import org.junit.Test;
 
