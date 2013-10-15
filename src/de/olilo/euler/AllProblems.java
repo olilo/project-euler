@@ -44,6 +44,9 @@ public class AllProblems {
         System.out.println("Problem 5: Smallest multiple up to 20: " +
                 new Problem5SmallestMultiple().findSmallestMultipleUpTo(20));
         timestamps.add(System.currentTimeMillis());
+        System.out.println("Problem 6: Difference between square of sum and sum of squares up to 100: " +
+                new Problem6SumSquareDIfference().getSumSquareDifference(100));
+        timestamps.add(System.currentTimeMillis());
     }
 
     static double averageOf(List<Long> timestamps, long start) {

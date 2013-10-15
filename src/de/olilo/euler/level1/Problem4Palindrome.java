@@ -3,8 +3,8 @@ package de.olilo.euler.level1;
 public class Problem4Palindrome {
 
     public long findBiggestPalindromeFromTwoNDigitedNumbers(int digits) {
-        long min = (long) Math.pow(10, digits - 1);
         long max = (long) Math.pow(10, digits) - 1;
+        long min = max - (long) Math.pow(10, digits - 1);
         long number1 = max;
         long number2 = max;
         long result = 0;
