@@ -43,9 +43,4 @@ public class AllProblemsTest {
         final LongestDurationStatistic actual = AllProblems.findLongestRuntime(timestamps, start);
         Assert.assertEquals(expected, actual);
     }
-
-    @Test
-    public void testRunLevel1() throws Exception {
-        AllProblems.runLevel1(new ArrayList<Long>());
-    }
 }

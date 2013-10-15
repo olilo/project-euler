@@ -1,26 +1,23 @@
 package de.olilo.euler;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 /**
- * An iterable over all primes. Starts at 2 and goes to infinity.
- *
- * The algorithm that finds the next prime is not very efficient,
- * but for up to 5-digit primes it's fast enough.
+ * An iterable over all primes. Starts at 2 and goes to Integer.MAX_VALUE.
  */
 public enum PrimesIterable implements Iterable<Integer> {
 
     INSTANCE;
 
-    private final List<Integer> primes = new ArrayList<Integer>();
+    private int[] primes = new int[128];
+    private int primeCount;
 
     private PrimesIterable() {
-        primes.add(2);
-        primes.add(3);
-        primes.add(5);
-        primes.add(7);
+        primes[0] = 2;
+        primes[1] = 3;
+        primes[2] = 5;
+        primes[3] = 7;
+        primeCount = 4;
     }
 
     @Override
@@ -29,26 +26,35 @@ public enum PrimesIterable implements Iterable<Integer> {
     }
 
     public int countCachedPrimes() {
-        return primes.size();
+        return primeCount;
     }
 
-    void preloadNextPrime() {
-        synchronized (primes) {
-            int nextPrime = primes.get(primes.size() - 1) + 2;
-            while (true) {
-                if (isPrime(nextPrime)) {
-                    primes.add(nextPrime);
-                    return;
-                } else {
-                    nextPrime += 2;
-                }
+    void preloadNextPrimes() {
+        // extend primes
+        if (primeCount + 4 >= primes.length) {
+            int[] newprimes = new int[(int) (primes.length * 1.5)];
+            System.arraycopy(primes, 0, newprimes, 0, primeCount);
+            primes = newprimes;
+        }
+
+        int nextPrime = primes[primeCount - 1] + 2;
+        int primesFound = 0;
+        while (primesFound < 4) {
+            if (isPrime(nextPrime)) {
+                primes[primeCount] = nextPrime;
+                primeCount++;
+                primesFound++;
             }
+
+            nextPrime += 2;
         }
     }
 
     boolean isPrime(int probablePrime) {
-        for (int prime : primes) {
-            if (probablePrime == prime) {
+        int limit = (int) Math.sqrt(probablePrime);
+        for (int i = 0; i < primeCount; i++) {
+            final int prime = primes[i];
+            if (probablePrime == prime || prime > limit) {
                 return true;
             }
             if (probablePrime % prime == 0) {
@@ -69,10 +75,10 @@ public enum PrimesIterable implements Iterable<Integer> {
 
         @Override
         public Integer next() {
-            if (primeIndex >= primes.size()) {
-                preloadNextPrime();
+            if (primeIndex >= primeCount) {
+                preloadNextPrimes();
             }
-            return primes.get(primeIndex++);
+            return primes[primeIndex++];
         }
 
         @Override

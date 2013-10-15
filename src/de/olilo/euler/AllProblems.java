@@ -47,6 +47,9 @@ public class AllProblems {
         System.out.println("Problem 6: Difference between square of sum and sum of squares up to 100: " +
                 new Problem6SumSquareDIfference().getSumSquareDifference(100));
         timestamps.add(System.currentTimeMillis());
+        System.out.println("Problem 7: 10001st prime number is: " +
+                new Problem7NthPrime().getNthPrime(10001));
+        timestamps.add(System.currentTimeMillis());
     }
 
     static double averageOf(List<Long> timestamps, long start) {

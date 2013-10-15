@@ -24,18 +24,19 @@ public class PrimesIterableTest {
     @Test
     public void testIteratorPreload() throws Exception {
         for (int prime : PrimesIterable.INSTANCE) {
-            if (prime > 100) {
+            if (prime >= 104743) {
+                Assert.assertEquals(104743, prime);
                 break;
             }
         }
     }
 
     @Test
-    public void testPreloadNextPrime() throws Exception {
+    public void testPreloadNextPrimes() throws Exception {
         int before = PrimesIterable.INSTANCE.countCachedPrimes();
-        PrimesIterable.INSTANCE.preloadNextPrime();
+        PrimesIterable.INSTANCE.preloadNextPrimes();
 
-        int expected = before + 1;
+        int expected = before + 4;
         int actual = PrimesIterable.INSTANCE.countCachedPrimes();
         Assert.assertEquals(expected, actual);
     }
