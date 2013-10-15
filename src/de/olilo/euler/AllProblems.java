@@ -2,6 +2,7 @@ package de.olilo.euler;
 
 import de.olilo.euler.level1.*;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public class AllProblems {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         final long startTime = System.currentTimeMillis();
         final List<Long> timestamps = new ArrayList<Long>();
         runLevel1(timestamps);
@@ -25,14 +26,14 @@ public class AllProblems {
                 sum(timestamps, startTime));
     }
 
-    static void runLevel1(List<Long> timestamps) {
+    static void runLevel1(List<Long> timestamps) throws Exception {
         System.out.println("Problem 1: Multiples of 3 and 5; result: " +
                 new Problem1Multiples().solveIteratively(1000));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 2: Sum of even Fibonaccis to 4.000.000; result: " +
                 new Problem2Fibonacci().solve(4000000));
         timestamps.add(System.currentTimeMillis());
-        // take problem 3 and the addendum as one result into timestamp statistic
+        // problem 3 and the addendum are merged into same timestamp statistic
         System.out.println("Problem 3: Largest prime factor of 600.851.475.143: " +
                 new Problem3LargestPrime().getLargestPrimeOf(600851475143L));
         System.out.println("Addendum Problem 3: Smallest number with 100 unique prime factors: " +
@@ -49,6 +50,18 @@ public class AllProblems {
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 7: 10001st prime number is: " +
                 new Problem7NthPrime().getNthPrime(10001));
+        timestamps.add(System.currentTimeMillis());
+        final Problem8GreatestProduct problem8 = new Problem8GreatestProduct();
+        final FileReader fileWithNumber = new FileReader("problem8number.txt");
+        System.out.println("Problem 8: Greatest product of five consecutive digits" +
+                " in 1000-digit number: " +
+                problem8.greatestProduct(problem8.readNumberFrom(fileWithNumber), 5));
+        fileWithNumber.close();
+        timestamps.add(System.currentTimeMillis());
+        // TODO add problem 9
+        timestamps.add(System.currentTimeMillis());
+        System.out.println("Problem 10: Sum of all primes up to 2.000.000: " +
+                new Problem10SumOfPrimes().sumOfPrimesUpTo(2000000));
         timestamps.add(System.currentTimeMillis());
     }
 
