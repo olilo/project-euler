@@ -1,6 +1,5 @@
 package de.olilo.euler.level1;
 
-import de.olilo.euler.level1.Problem4Palindrome;
 import junit.framework.Assert;
 import org.junit.Test;
 
