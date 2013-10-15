@@ -1,13 +1,8 @@
 package de.olilo.euler;
 
-import de.olilo.euler.level1.Problem1Multiples;
-import de.olilo.euler.level1.Problem2Fibonacci;
-import de.olilo.euler.level1.Problem3LargestPrime;
-import de.olilo.euler.level1.Problem3PrimeFactorsAddendum;
-import de.olilo.euler.level1.Problem4Palindrome;
+import de.olilo.euler.level1.*;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,34 +11,39 @@ import java.util.List;
  */
 public class AllProblems {
 
-    private AllProblems() {
-        // static-only class
-    }
-
     public static void main(String[] args) {
         final long startTime = System.currentTimeMillis();
         final List<Long> timestamps = new ArrayList<Long>();
+        runLevel1(timestamps);
+
+        System.out.println();
+        System.out.println("Solved all " + timestamps.size() + " problems");
+        LongestDurationStatistic longest = findLongestRuntime(timestamps, startTime);
+        System.out.printf("Average time needed: %.2fms; longest time: %dms (problem #%d); total time: %dms\n",
+                averageOf(timestamps, startTime),
+                longest.getDuration(), longest.getIndex() + 1,
+                sum(timestamps, startTime));
+    }
+
+    static void runLevel1(List<Long> timestamps) {
         System.out.println("Problem 1: Multiples of 3 and 5; result: " +
                 new Problem1Multiples().solveIteratively(1000));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 2: Sum of even Fibonaccis to 4.000.000; result: " +
                 new Problem2Fibonacci().solve(4000000));
         timestamps.add(System.currentTimeMillis());
+        // take problem 3 and the addendum as one result into timestamp statistic
         System.out.println("Problem 3: Largest prime factor of 600.851.475.143: " +
                 new Problem3LargestPrime().getLargestPrimeOf(600851475143L));
-        timestamps.add(System.currentTimeMillis());
         System.out.println("Addendum Problem 3: Smallest number with 100 unique prime factors: " +
                 new Problem3PrimeFactorsAddendum().findSmallestNumberWithNDistinctPrimeFactors(100));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 4: Biggest palindrome that is the product of two 3-digit numbers: " +
                 new Problem4Palindrome().findBiggestPalindromeFromTwoNDigitedNumbers(3));
         timestamps.add(System.currentTimeMillis());
-
-        System.out.println();
-        System.out.println("Solved all " + timestamps.size() + " problems");
-        System.out.println("Average time needed: " + averageOf(timestamps, startTime) + "ms; " +
-                "longest time: " + (Collections.max(timestamps) - startTime) + "ms; " +
-                "total time: " + sum(timestamps, startTime) + "ms");
+        System.out.println("Problem 5: Smallest multiple up to 20: " +
+                new Problem5SmallestMultiple().findSmallestMultipleUpTo(20));
+        timestamps.add(System.currentTimeMillis());
     }
 
     static double averageOf(List<Long> timestamps, long start) {
@@ -51,11 +51,18 @@ public class AllProblems {
     }
 
     static long sum(List<Long> timestamps, long start) {
-        long sum = 0;
-        for (Long timestamp : timestamps) {
-            sum += timestamp - start;
+        return timestamps.get(timestamps.size() - 1) - start;
+    }
+
+    static LongestDurationStatistic findLongestRuntime(List<Long> timestamps, long start) {
+        final LongestDurationStatistic statistic = new LongestDurationStatistic();
+        long previous = start;
+        for (int i = 0; i < timestamps.size(); i++) {
+            long timestamp = timestamps.get(i);
+            statistic.checkAndUpdate(timestamp - previous, i);
+            previous = timestamp;
         }
-        return sum;
+        return statistic;
     }
 
 }
