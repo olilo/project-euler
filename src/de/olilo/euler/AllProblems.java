@@ -58,7 +58,8 @@ public class AllProblems {
                 problem8.greatestProduct(problem8.readNumberFrom(fileWithNumber), 5));
         fileWithNumber.close();
         timestamps.add(System.currentTimeMillis());
-        // TODO add problem 9
+        System.out.println("Problem 9: Pythagorean triplet with sum of 1000: " +
+                new Problem9PythagoreanTriplet().findPythagoreanTriplet(1000));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 10: Sum of all primes up to 2.000.000: " +
                 new Problem10SumOfPrimes().sumOfPrimesUpTo(2000000));
