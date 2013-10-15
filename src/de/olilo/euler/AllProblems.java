@@ -60,6 +60,8 @@ public class AllProblems {
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 9: Pythagorean triplet with sum of 1000: " +
                 new Problem9PythagoreanTriplet().findPythagoreanTriplet(1000));
+        System.out.println("Problem 9 Addendum: Pythagorean triplet with sum of 100000: " +
+                new Problem9PythagoreanTriplet().findPythagoreanTriplet(100000));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 10: Sum of all primes up to 2.000.000: " +
                 new Problem10SumOfPrimes().sumOfPrimesUpTo(2000000));

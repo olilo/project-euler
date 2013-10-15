@@ -6,8 +6,8 @@ public class Problem9PythagoreanTriplet {
         int a = 1;
         int b = sum / 4;
         int c = sum - b - a;
-        while (a*a + b*b != c*c && a < b) {
-            if (a*a + b*b < c*c) {
+        while ((long) a*a + (long) b*b != (long) c*c && a < b) {
+            if ((long) a*a + (long) b*b < (long) c*c) {
                 b++;
                 c--;
             } else {
@@ -37,7 +37,7 @@ public class Problem9PythagoreanTriplet {
         }
 
         public long getProduct() {
-            return a * b * c;
+            return (long) a * b * c;
         }
 
         @Override
