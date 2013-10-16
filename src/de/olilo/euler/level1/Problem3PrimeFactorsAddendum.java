@@ -4,10 +4,6 @@ import de.olilo.euler.PrimesIterable;
 
 import java.math.BigInteger;
 
-/**
- * @author Oliver Lorenz
- * @since 0.0
- */
 public class Problem3PrimeFactorsAddendum {
 
     public BigInteger findSmallestNumberWithNDistinctPrimeFactors(int numberOfPrimeFactors) {

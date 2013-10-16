@@ -2,10 +2,6 @@ package de.olilo.euler.level1;
 
 import java.math.BigInteger;
 
-/**
- * @author Oliver Lorenz
- * @since 0.1
- */
 public class Problem1Multiples {
 
     public long solveIteratively(int number) {

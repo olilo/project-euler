@@ -4,10 +4,6 @@ import de.olilo.euler.PrimesIterable;
 
 import java.util.Iterator;
 
-/**
- * @author Oliver Lorenz
- * @since 0.0
- */
 public class Problem3LargestPrime {
 
     public long getLargestPrimeOf(long number) {

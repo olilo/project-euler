@@ -5,10 +5,6 @@ import de.olilo.euler.level1.Level1Runner;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Oliver Lorenz
- * @since 0.1
- */
 public class EulerProblems {
 
     public static void main(String[] args) throws Exception {
