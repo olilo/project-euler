@@ -1,0 +1,39 @@
+<project name="EulerProblems" default="run" basedir=".">
+	<description>
+		Builds the EulerProblems project and executes it.
+	</description>
+
+	<property name="src" location="src" />
+	<property name="bin" location="out" />
+	<property name="dist" location="dist" />
+	<property name="jarFile" location="${dist}/euler-problems.jar" />
+	<property name="manifestFile" location="MANIFEST.MF" />
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${bin}" />
+	</target>
+
+	<target name="compile" depends="init" description="compile sources">
+		<javac srcdir="${src}" destdir="${bin}" />
+	</target>
+
+	<target name="dist" depends="compile" description="Generate jar">
+		<mkdir dir="${dist}" />
+		<manifest file="${manifestFile}">
+			<attribute name="Built-By" value="${user.name}"/>
+			<attribute name="Main-Class" value="de.olilo.euler.EulerProblems" />
+		</manifest>
+
+		<jar jarfile="${jarFile}" basedir="${bin}" manifest="${manifestFile}" />
+	</target>
+
+	<target name="run" depends="clean, dist" description="Run it all">
+		<java jar="${jarFile}" classpath="${jarFile}" fork="true" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${bin}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
