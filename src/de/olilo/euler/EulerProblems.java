@@ -9,7 +9,7 @@ import java.util.List;
  * @author Oliver Lorenz
  * @since 0.1
  */
-public class AllProblems {
+public class EulerProblems {
 
     public static void main(String[] args) throws Exception {
         final long startTime = System.currentTimeMillis();
