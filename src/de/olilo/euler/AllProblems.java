@@ -66,6 +66,11 @@ public class AllProblems {
         System.out.println("Problem 10: Sum of all primes up to 2.000.000: " +
                 new Problem10SumOfPrimes().sumOfPrimesUpTo(2000000));
         timestamps.add(System.currentTimeMillis());
+        final Problem11GridProduct problem11 = new Problem11GridProduct();
+        final FileReader file11Grid = new FileReader("problem11grid.txt");
+        System.out.println("Problem 11: Greatest product in grid: " +
+                problem11.findGreatestProductIn(problem11.readGrid(file11Grid), new GridFactorCount(4)));
+        timestamps.add(System.currentTimeMillis());
     }
 
     static double averageOf(List<Long> timestamps, long start) {
