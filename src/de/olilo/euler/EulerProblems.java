@@ -5,6 +5,14 @@ import de.olilo.euler.level1.Level1Runner;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Main class that executes all problems and prints them out.
+ *
+ * Also prints out a statistic at the end with:
+ * which problem needed the longest time and
+ * what the average time needed was and
+ * the total time needed.
+ */
 public class EulerProblems {
 
     public static void main(String[] args) throws Exception {
