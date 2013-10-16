@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem10SumOfPrimesTest {

@@ -1,6 +1,6 @@
 package de.olilo.euler;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ public class AllProblemsTest {
 
         final double expected = 1.5;
         final double actual = AllProblems.averageOf(timestamps, start);
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual, 0.001);
     }
 
     @Test

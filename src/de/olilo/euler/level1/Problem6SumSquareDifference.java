@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem6SumSquareDIfference {
+public class Problem6SumSquareDifference {
 
     public long getSumSquareDifference(int limit) {
         long sumOfSquares = 0;

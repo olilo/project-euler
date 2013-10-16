@@ -46,7 +46,7 @@ public class AllProblems {
                 new Problem5SmallestMultiple().findSmallestMultipleUpTo(20));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 6: Difference between square of sum and sum of squares up to 100: " +
-                new Problem6SumSquareDIfference().getSumSquareDifference(100));
+                new Problem6SumSquareDifference().getSumSquareDifference(100));
         timestamps.add(System.currentTimeMillis());
         System.out.println("Problem 7: 10001st prime number is: " +
                 new Problem7NthPrime().getNthPrime(10001));
