@@ -22,6 +22,7 @@ public class Level1Runner {
     private final Problem9PythagoreanTriplet problem9 = new Problem9PythagoreanTriplet();
     private final Problem10SumOfPrimes problem10 = new Problem10SumOfPrimes();
     private final Problem11GridProduct problem11 = new Problem11GridProduct();
+    private final Problem12TriangularNumber problem12 = new Problem12TriangularNumber();
 
     public List<Long> runWith(final PrintStream out) throws IOException {
         out.println("Problem 1: Multiples of 3 and 5; result: " + problem1.solveIteratively(1000));
@@ -65,6 +66,10 @@ public class Level1Runner {
         final FileReader file11Grid = new FileReader("problem11grid.txt");
         out.println("Problem 11: Greatest product in grid: " +
                 problem11.findGreatestProductIn(problem11.readGrid(file11Grid), new GridFactorCount(4)));
+        problemFinished();
+
+        out.println("Problem 12: First Triangular number that has at least 500 divisors: " +
+                problem12.findFirstTriangularNumberWithNDivisors(500));
         problemFinished();
 
         // cleanup

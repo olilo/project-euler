@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Level1RunnerTest {
@@ -17,9 +18,25 @@ public class Level1RunnerTest {
             }
         });
 
-        final List<Long> result = new Level1Runner().runWith(dummyStream);
-        dummyStream.close();
-        Assert.assertFalse("No results from Level1Runner :(", result.isEmpty());
+        final List<Long> result = new ArrayList<Long>();
+        final Thread levelThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    result.addAll(new Level1Runner().runWith(dummyStream));
+                } catch (IOException e) {
+                    throw new IllegalStateException(e);
+                }
+            }
+        };
+        levelThread.start();
+        levelThread.join(10000);
+        if (levelThread.isAlive()) {
+            Assert.fail("Running level 1 needed too much time, more than 10 seconds");
+        } else {
+            dummyStream.close();
+            Assert.assertFalse("No results from Level1Runner :(", result.isEmpty());
+        }
     }
 
     @Test
