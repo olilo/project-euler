@@ -25,7 +25,28 @@ public class Level1Runner {
     private final Problem12TriangularNumber problem12 = new Problem12TriangularNumber();
     private final Problem13LargeSum problem13 = new Problem13LargeSum();
 
+    private FileReader file8Number;
+    private FileReader file11Grid;
+    private FileReader file13Numbers;
+
     public List<Long> runWith(final PrintStream out) throws IOException {
+        file8Number = new FileReader("problem8number.txt");
+        file11Grid = new FileReader("problem11grid.txt");
+        file13Numbers = new FileReader("problem13numbers.txt");
+
+        problems1To5(out);
+        problems6To10(out);
+        problems11To15(out);
+
+        // cleanup
+        file8Number.close();
+        file11Grid.close();
+        file13Numbers.close();
+
+        return timestamps;
+    }
+
+    private void problems1To5(final PrintStream out) {
         out.println("Problem 1: Multiples of 3 and 5; result: " + problem1.solveIteratively(1000));
         problemFinished();
 
@@ -44,7 +65,9 @@ public class Level1Runner {
 
         out.println("Problem 5: Smallest multiple up to 20: " + problem5.findSmallestMultipleUpTo(20));
         problemFinished();
+    }
 
+    private void problems6To10(final PrintStream out) throws IOException {
         out.println("Problem 6: Difference between square of sum and sum of squares up to 100: " +
                 problem6.getSumSquareDifference(100));
         problemFinished();
@@ -52,9 +75,8 @@ public class Level1Runner {
         out.println("Problem 7: 10001st prime number is: " + problem7.getNthPrime(10001));
         problemFinished();
 
-        final FileReader fileWithNumber = new FileReader("problem8number.txt");
         out.println("Problem 8: Greatest product of five consecutive digits in 1000-digit number: " +
-                problem8.greatestProduct(problem8.readNumberFrom(fileWithNumber), 5));
+                problem8.greatestProduct(problem8.readNumberFrom(file8Number), 5));
         problemFinished();
 
         out.println("Problem 9: Pythagorean triplet with sum of 1000: " + problem9.findPythagoreanTriplet(1000));
@@ -63,8 +85,9 @@ public class Level1Runner {
 
         out.println("Problem 10: Sum of all primes up to 2.000.000: " + problem10.sumOfPrimesUpTo(2000000));
         problemFinished();
+    }
 
-        final FileReader file11Grid = new FileReader("problem11grid.txt");
+    private void problems11To15(final PrintStream out) throws IOException {
         out.println("Problem 11: Greatest product in grid: " +
                 problem11.findGreatestProductIn(problem11.readGrid(file11Grid), new GridFactorCount(4)));
         problemFinished();
@@ -73,17 +96,9 @@ public class Level1Runner {
                 problem12.findFirstTriangularNumberWithNDivisors(500));
         problemFinished();
 
-        final FileReader file13Numbers = new FileReader("problem13numbers.txt");
         out.println("Problem 13: First ten digits of sum of numbers: " +
                 problem13.firstTenDigitsOf(problem13.sumOf(problem13.readNumbersFrom(file13Numbers))));
         problemFinished();
-
-        // cleanup
-        fileWithNumber.close();
-        file11Grid.close();
-        file13Numbers.close();
-
-        return timestamps;
     }
 
     int countFinishedProblems() {
