@@ -23,6 +23,7 @@ public class Level1Runner {
     private final Problem10SumOfPrimes problem10 = new Problem10SumOfPrimes();
     private final Problem11GridProduct problem11 = new Problem11GridProduct();
     private final Problem12TriangularNumber problem12 = new Problem12TriangularNumber();
+    private final Problem13LargeSum problem13 = new Problem13LargeSum();
 
     public List<Long> runWith(final PrintStream out) throws IOException {
         out.println("Problem 1: Multiples of 3 and 5; result: " + problem1.solveIteratively(1000));
@@ -72,9 +73,15 @@ public class Level1Runner {
                 problem12.findFirstTriangularNumberWithNDivisors(500));
         problemFinished();
 
+        final FileReader file13Numbers = new FileReader("problem13numbers.txt");
+        out.println("Problem 13: First ten digits of sum of numbers: " +
+                problem13.firstTenDigitsOf(problem13.sumOf(problem13.readNumbersFrom(file13Numbers))));
+        problemFinished();
+
         // cleanup
         fileWithNumber.close();
         file11Grid.close();
+        file13Numbers.close();
 
         return timestamps;
     }
