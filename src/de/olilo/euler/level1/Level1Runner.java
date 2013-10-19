@@ -24,6 +24,7 @@ public class Level1Runner {
     private final Problem11GridProduct problem11 = new Problem11GridProduct();
     private final Problem12TriangularNumber problem12 = new Problem12TriangularNumber();
     private final Problem13LargeSum problem13 = new Problem13LargeSum();
+    private final Problem14CollatzSequence problem14 = new Problem14CollatzSequence();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -98,6 +99,10 @@ public class Level1Runner {
 
         out.println("Problem 13: First ten digits of sum of numbers: " +
                 problem13.firstTenDigitsOf(problem13.sumOf(problem13.readNumbersFrom(file13Numbers))));
+        problemFinished();
+
+        out.println("Problem 14: Longest Collatz sequence under 1 million: " +
+                problem14.findLongestSequenceUnder(1000000));
         problemFinished();
     }
 
