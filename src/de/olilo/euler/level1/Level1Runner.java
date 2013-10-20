@@ -25,6 +25,7 @@ public class Level1Runner {
     private final Problem12TriangularNumber problem12 = new Problem12TriangularNumber();
     private final Problem13LargeSum problem13 = new Problem13LargeSum();
     private final Problem14CollatzSequence problem14 = new Problem14CollatzSequence();
+    private final Problem16PowerDigitSum problem16 = new Problem16PowerDigitSum();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -38,6 +39,7 @@ public class Level1Runner {
         problems1To5(out);
         problems6To10(out);
         problems11To15(out);
+        problems16To20(out);
 
         // cleanup
         file8Number.close();
@@ -103,6 +105,11 @@ public class Level1Runner {
 
         out.println("Problem 14: Longest Collatz sequence under 1 million: " +
                 problem14.findLongestSequenceUnder(1000000));
+        problemFinished();
+    }
+
+    private void problems16To20(final PrintStream out) throws IOException {
+        out.println("Problem 16: Power digit sum - sum of 2^1000: " + problem16.digitSumOfTwoToThePowerOf(1000));
         problemFinished();
     }
 
