@@ -27,6 +27,7 @@ public class Level1Runner {
     private final Problem14CollatzSequence problem14 = new Problem14CollatzSequence();
     private final Problem15LatticePaths problem15 = new Problem15LatticePaths();
     private final Problem16PowerDigitSum problem16 = new Problem16PowerDigitSum();
+    private final Problem17NumberLetterCounts problem17 = new Problem17NumberLetterCounts();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -114,7 +115,12 @@ public class Level1Runner {
     }
 
     private void problems16To20(final PrintStream out) throws IOException {
-        out.println("Problem 16: Power digit sum - sum of 2^1000: " + problem16.digitSumOfTwoToThePowerOf(1000));
+        out.println("Problem 16: Power digit sum - sum of digits of 2^1000: " +
+                problem16.digitSumOfTwoToThePowerOf(1000));
+        problemFinished();
+
+        out.println("Problem 17: Number letter counts; letters in numbers from 1 to 1000: " +
+                problem17.countLettersInNumberWordsFrom1To(1000));
         problemFinished();
     }
 
