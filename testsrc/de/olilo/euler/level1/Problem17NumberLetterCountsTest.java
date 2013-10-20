@@ -17,4 +17,11 @@ public class Problem17NumberLetterCountsTest {
         final long actual = new Problem17NumberLetterCounts().countLettersInNumberWordsFrom1To(10);
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testGetWordLengthOfNumber() throws Exception {
+        final long expected = 37;
+        final long actual = new Problem17NumberLetterCounts().getWordLengthOfNumber(52141);
+        Assert.assertEquals(expected, actual);
+    }
 }

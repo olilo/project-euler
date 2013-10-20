@@ -56,7 +56,7 @@ public class Problem17NumberLetterCounts {
         return sum;
     }
 
-    private long getWordLengthOfNumber(final int number) {
+    long getWordLengthOfNumber(final int number) {
         if (number == 0) {
             return 0;
         } else if (number < 20) {
@@ -66,7 +66,7 @@ public class Problem17NumberLetterCounts {
             return NUMBER_WORD_LENGTHS.get(number - lastDigit) + getWordLengthOfNumber(lastDigit);
         } else if (number < 1000) {
             // first digit + "HUNDRED" + "AND" (3) + number for last two digits
-            // e.g. three hundred and fifty-two
+            // e.g. three HUNDRED AND fifty-two
             final int firstDigit = number / 100;
             final int lastTwoDigits = number % 100;
             int result = NUMBER_WORD_LENGTHS.get(firstDigit) + NUMBER_WORD_LENGTHS.get(100);
@@ -85,7 +85,8 @@ public class Problem17NumberLetterCounts {
     }
 
     private long getWordCountAfter1000(int number, int divisor) {
-        // first part before thousands + "THOUSAND" + rest
+        // we take thousand as example for the divisor
+        // result is first part before thousands + "THOUSAND" + rest
         // e.g. fifty-two THOUSAND one hundred and forty-one
         final int firstThreeDigits = number / divisor;
         final int rest = number % divisor;
