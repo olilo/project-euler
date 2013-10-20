@@ -25,6 +25,7 @@ public class Level1Runner {
     private final Problem12TriangularNumber problem12 = new Problem12TriangularNumber();
     private final Problem13LargeSum problem13 = new Problem13LargeSum();
     private final Problem14CollatzSequence problem14 = new Problem14CollatzSequence();
+    private final Problem15LatticePaths problem15 = new Problem15LatticePaths();
     private final Problem16PowerDigitSum problem16 = new Problem16PowerDigitSum();
 
     private FileReader file8Number;
@@ -105,6 +106,10 @@ public class Level1Runner {
 
         out.println("Problem 14: Longest Collatz sequence under 1 million: " +
                 problem14.findLongestSequenceUnder(1000000));
+        problemFinished();
+
+        out.println("Problem 15: Number of lattice Paths through a 20x20 grid: " +
+                problem15.latticePathsThroughGridWithLength(20));
         problemFinished();
     }
 
