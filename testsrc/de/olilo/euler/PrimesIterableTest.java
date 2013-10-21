@@ -21,14 +21,24 @@ public class PrimesIterableTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test(expected = UnsupportedOperationException.class)
+    public void testIteratorRemove() throws Exception {
+        final Iterator<Integer> iter = PrimesIterable.INSTANCE.iterator();
+        iter.next();
+        iter.remove();
+    }
+
     @Test
     public void testIteratorPreload() throws Exception {
+        final long startTime = System.currentTimeMillis();
         for (int prime : PrimesIterable.INSTANCE) {
             if (prime >= 104743) {
                 Assert.assertEquals(104743, prime);
                 break;
             }
         }
+        final long duration = System.currentTimeMillis() - startTime;
+        System.out.println("Needed " + duration + "ms to preload the primes");
     }
 
     @Test
@@ -44,5 +54,33 @@ public class PrimesIterableTest {
     @Test
     public void testIsPrime() throws Exception {
         Assert.assertTrue(PrimesIterable.INSTANCE.isPrime(11));
+    }
+
+    @Test
+    public void testConcurrency() throws Exception {
+        final Thread thread1 = new Thread() {
+            @Override
+            public void run() {
+                for (int i : PrimesIterable.INSTANCE) {
+                    if (i > 1000000) {
+                        break;
+                    }
+                }
+            }
+        };
+        final Thread thread2 = new Thread() {
+            @Override
+            public void run() {
+                for (int i : PrimesIterable.INSTANCE) {
+                    if (i > 1000000) {
+                        break;
+                    }
+                }
+            }
+        };
+        thread1.start();
+        thread2.start();
+        thread1.join();
+        thread2.join();
     }
 }

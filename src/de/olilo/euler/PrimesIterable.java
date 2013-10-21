@@ -4,6 +4,10 @@ import java.util.Iterator;
 
 /**
  * An iterable over all primes. Starts at 2 and goes to Integer.MAX_VALUE.
+ *
+ * This class is threadsafe for all use cases.
+ *
+ * Pay attention when you go to very high numbers, as this Iterable does not clean up (yet).
  */
 public enum PrimesIterable implements Iterable<Integer> {
 
@@ -29,7 +33,7 @@ public enum PrimesIterable implements Iterable<Integer> {
         return primeCount;
     }
 
-    void preloadNextPrimes() {
+    synchronized void preloadNextPrimes() {
         // extend primes
         if (primeCount + 4 >= primes.length) {
             int[] newprimes = new int[(int) (primes.length * 1.5)];
