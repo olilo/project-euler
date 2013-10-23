@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.io.StringReader;
 
-public class Problem18MaximumPathSumOneTest {
+public class Problem18MaximumPathSumTest {
     @Test
     public void testReadTriangle() throws Exception {
         final String input = "" +
@@ -20,7 +20,7 @@ public class Problem18MaximumPathSumOneTest {
                 {2, 4, 6},
                 {8, 5, 9, 3}
         };
-        final int[][] actual = new Problem18MaximumPathSumOne().readTriangle(new StringReader(input));
+        final int[][] actual = new Problem18MaximumPathSum().readTriangle(new StringReader(input));
         Assert.assertArrayEquals(expected, actual);
     }
 
@@ -33,7 +33,7 @@ public class Problem18MaximumPathSumOneTest {
                 {8, 5, 9, 3}
         };
         final long expected = 23;
-        final long actual = new Problem18MaximumPathSumOne().maximumPathSumOf(input);
+        final long actual = new Problem18MaximumPathSum().maximumPathSumOf(input);
         Assert.assertEquals(expected, actual);
     }
 }
