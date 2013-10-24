@@ -30,15 +30,18 @@ public class Level1Runner {
     private final Problem15LatticePaths problem15 = new Problem15LatticePaths();
     private final Problem16PowerDigitSum problem16 = new Problem16PowerDigitSum();
     private final Problem17NumberLetterCounts problem17 = new Problem17NumberLetterCounts();
+    private final Problem18MaximumPathSum problem18 = new Problem18MaximumPathSum();
 
     private FileReader file8Number;
     private FileReader file11Grid;
     private FileReader file13Numbers;
+    private FileReader file18Triangle;
 
     public List<Long> runWith(final PrintStream out) throws IOException {
         file8Number = new FileReader("problem8number.txt");
         file11Grid = new FileReader("problem11grid.txt");
         file13Numbers = new FileReader("problem13numbers.txt");
+        file18Triangle = new FileReader("problem18triangle.txt");
 
         problems1To5(out);
         problems6To10(out);
@@ -49,6 +52,7 @@ public class Level1Runner {
         file8Number.close();
         file11Grid.close();
         file13Numbers.close();
+        file18Triangle.close();
 
         return timestamps;
     }
@@ -123,6 +127,10 @@ public class Level1Runner {
 
         out.println("Problem 17: Number letter counts; letters in numbers from 1 to 1000: " +
                 problem17.countLettersInNumberWordsFrom1To(1000));
+        problemFinished();
+
+        out.println("Problem 18: Maximum path sum in triangle: " +
+                problem18.maximumPathSumOf(new GridReader(file18Triangle).readGrid()));
         problemFinished();
     }
 

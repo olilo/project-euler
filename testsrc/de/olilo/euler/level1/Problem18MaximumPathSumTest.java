@@ -16,4 +16,23 @@ public class Problem18MaximumPathSumTest {
         final long actual = new Problem18MaximumPathSum().maximumPathSumOf(input);
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testMaximumPathSumOfOneElement() throws Exception {
+        final int[][] input = new int[][] {
+                {3}
+        };
+        final long expected = 3;
+        final long actual = new Problem18MaximumPathSum().maximumPathSumOf(input);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testMaximumPathSumOfEmpty() throws Exception {
+        final int[][] input = new int[][] {
+        };
+        final long expected = 0;
+        final long actual = new Problem18MaximumPathSum().maximumPathSumOf(input);
+        Assert.assertEquals(expected, actual);
+    }
 }
