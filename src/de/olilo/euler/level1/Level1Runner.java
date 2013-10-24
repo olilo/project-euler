@@ -1,5 +1,7 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.GridReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -94,7 +96,7 @@ public class Level1Runner {
 
     private void problems11To15(final PrintStream out) throws IOException {
         out.println("Problem 11: Greatest product in grid: " +
-                problem11.findGreatestProductIn(problem11.readGrid(file11Grid), new GridFactorCount(4)));
+                problem11.findGreatestProductIn(new GridReader(file11Grid).readGrid(), new GridFactorCount(4)));
         problemFinished();
 
         out.println("Problem 12: First Triangular number that has at least 500 divisors: " +

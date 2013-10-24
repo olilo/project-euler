@@ -1,46 +1,6 @@
 package de.olilo.euler.level1;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Problem11GridProduct {
-
-    public int[][] readGrid(Reader reader) throws IOException {
-        // we put everything into a list first,
-        // because we don't know how many rows/columns there are at start
-        final List<List<Integer>> grid = new ArrayList<List<Integer>>();
-
-        // read lines, put each into grid
-        try {
-            final BufferedReader bufferedReader = new BufferedReader(reader);
-            String line = bufferedReader.readLine();
-            while (line != null) {
-                final List<Integer> row = new ArrayList<Integer>();
-                grid.add(row);
-                String[] parts = line.split(" ");
-                for (String part : parts) {
-                    row.add(Integer.parseInt(part));
-                }
-                line = bufferedReader.readLine();
-            }
-        } finally {
-            reader.close();
-        }
-
-        // now copy the values from the list into a multi-dimensional array
-        final int[][] result = new int[grid.size()][];
-        for (int i = 0; i < grid.size(); i++) {
-            List<Integer> row = grid.get(i);
-            result[i] = new int[row.size()];
-            for (int j = 0; j < row.size(); j++) {
-                result[i][j] = row.get(j);
-            }
-        }
-        return result;
-    }
 
     public long findGreatestProductIn(int[][] grid, GridFactorCount factorCount) {
         // brute force approach
