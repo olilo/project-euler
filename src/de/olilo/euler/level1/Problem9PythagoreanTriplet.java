@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem9PythagoreanTriplet {
+class Problem9PythagoreanTriplet {
 
     public Triplet findPythagoreanTriplet(int sum) {
         int a = 1;

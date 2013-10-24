@@ -2,7 +2,7 @@ package de.olilo.euler.level1;
 
 import java.math.BigInteger;
 
-public class Problem16PowerDigitSum {
+class Problem16PowerDigitSum {
 
     public long digitSumOfTwoToThePowerOf(final int exponent) {
         final BigInteger power = new BigInteger("2").pow(exponent);

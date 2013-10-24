@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem13LargeSum {
+class Problem13LargeSum {
 
     public List<BigInteger> readNumbersFrom(Reader reader) throws IOException {
         try {

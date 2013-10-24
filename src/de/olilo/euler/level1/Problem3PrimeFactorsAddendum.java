@@ -4,7 +4,7 @@ import de.olilo.euler.PrimesIterable;
 
 import java.math.BigInteger;
 
-public class Problem3PrimeFactorsAddendum {
+class Problem3PrimeFactorsAddendum {
 
     public BigInteger findSmallestNumberWithNDistinctPrimeFactors(int numberOfPrimeFactors) {
         BigInteger result = BigInteger.valueOf(1);

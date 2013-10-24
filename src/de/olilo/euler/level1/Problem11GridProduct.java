@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem11GridProduct {
+class Problem11GridProduct {
 
     public long findGreatestProductIn(int[][] grid, GridFactorCount factorCount) {
         // brute force approach

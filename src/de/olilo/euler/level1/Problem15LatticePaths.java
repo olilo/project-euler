@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem15LatticePaths {
+class Problem15LatticePaths {
 
     public long latticePathsThroughGridWithLength(int length) {
         final Grid grid = new Grid(length);

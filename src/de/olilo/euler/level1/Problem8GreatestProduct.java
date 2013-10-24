@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.math.BigInteger;
 
-public class Problem8GreatestProduct {
+class Problem8GreatestProduct {
 
     public BigInteger readNumberFrom(Reader input) throws IOException {
         final StringBuilder number = new StringBuilder();

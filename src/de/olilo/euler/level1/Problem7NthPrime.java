@@ -2,7 +2,7 @@ package de.olilo.euler.level1;
 
 import de.olilo.euler.PrimesIterable;
 
-public class Problem7NthPrime {
+class Problem7NthPrime {
 
     public int getNthPrime(int n) {
         if (n <= 0) {

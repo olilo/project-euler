@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Problem12TriangularNumber {
+class Problem12TriangularNumber {
 
     public long findFirstTriangularNumberWithNDivisors(int minimumDivisors) {
         // FIXME either find a minimum to go off from or find a purely algorithmic approach

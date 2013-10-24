@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem4Palindrome {
+class Problem4Palindrome {
 
     public long findBiggestPalindromeFromTwoNDigitedNumbers(int digits) {
         long max = (long) Math.pow(10, digits) - 1;

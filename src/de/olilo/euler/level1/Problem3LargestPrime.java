@@ -4,7 +4,7 @@ import de.olilo.euler.PrimesIterable;
 
 import java.util.Iterator;
 
-public class Problem3LargestPrime {
+class Problem3LargestPrime {
 
     public long getLargestPrimeOf(long number) {
         // we have a cache of primes up to the point needed and

@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem14CollatzSequence {
+class Problem14CollatzSequence {
 
     public int findLongestSequenceUnder(int limit) {
         // make a buffer of the found lengths at each int value

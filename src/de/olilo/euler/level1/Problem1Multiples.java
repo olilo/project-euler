@@ -2,7 +2,7 @@ package de.olilo.euler.level1;
 
 import java.math.BigInteger;
 
-public class Problem1Multiples {
+class Problem1Multiples {
 
     public long solveIteratively(int number) {
         long result = 0;

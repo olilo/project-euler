@@ -2,7 +2,7 @@ package de.olilo.euler.level1;
 
 import de.olilo.euler.PrimesIterable;
 
-public class Problem10SumOfPrimes {
+class Problem10SumOfPrimes {
 
     public long sumOfPrimesUpTo(int limit) {
         long sum = 0;

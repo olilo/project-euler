@@ -3,7 +3,7 @@ package de.olilo.euler.level1;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Problem17NumberLetterCounts {
+class Problem17NumberLetterCounts {
 
     public static final int MILLION = 1000000;
     public static final int BILLION = 1000000000;

@@ -1,6 +1,6 @@
 package de.olilo.euler.level1;
 
-public class Problem2Fibonacci {
+class Problem2Fibonacci {
 
     public long solve(int max) {
         long sum = 0;
