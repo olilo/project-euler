@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Level1Runner {
@@ -31,6 +33,7 @@ public class Level1Runner {
     private final Problem16PowerDigitSum problem16 = new Problem16PowerDigitSum();
     private final Problem17NumberLetterCounts problem17 = new Problem17NumberLetterCounts();
     private final Problem18MaximumPathSum problem18 = new Problem18MaximumPathSum();
+    private final Problem19CountingSundays problem19 = new Problem19CountingSundays();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -132,6 +135,14 @@ public class Level1Runner {
         out.println("Problem 18: Maximum path sum in triangle: " +
                 problem18.maximumPathSumOf(new GridReader(file18Triangle).readGrid()));
         problemFinished();
+
+        final Calendar calendar = Calendar.getInstance();
+        calendar.set(1901, Calendar.JANUARY, 1);
+        final Date start = calendar.getTime();
+        calendar.set(2000, Calendar.DECEMBER, 31);
+        final Date finish = calendar.getTime();
+        out.println("Problem 19: Counting sundays in twentieth century: " +
+                problem19.countFirstOfMonthIsSundayBetween(start, finish));
     }
 
     int countFinishedProblems() {
