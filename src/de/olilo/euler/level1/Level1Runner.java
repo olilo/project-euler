@@ -146,8 +146,9 @@ public class Level1Runner {
                 problem19.countFirstOfMonthIsSundayBetween(start, finish));
         problemFinished();
 
-        out.println("Problem 20: Factorial digit sum of 100!: " +
+        out.println("Problem 20: Digit sum of 100!: " +
                 problem20.getFactorialDigitSum(100));
+        problemFinished();
     }
 
     int countFinishedProblems() {
