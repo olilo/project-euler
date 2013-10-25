@@ -34,6 +34,7 @@ public class Level1Runner {
     private final Problem17NumberLetterCounts problem17 = new Problem17NumberLetterCounts();
     private final Problem18MaximumPathSum problem18 = new Problem18MaximumPathSum();
     private final Problem19CountingSundays problem19 = new Problem19CountingSundays();
+    private final Problem20FactorialDigitSum problem20 = new Problem20FactorialDigitSum();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -141,8 +142,12 @@ public class Level1Runner {
         final Date start = calendar.getTime();
         calendar.set(2000, Calendar.DECEMBER, 31);
         final Date finish = calendar.getTime();
-        out.println("Problem 19: Counting sundays in twentieth century: " +
+        out.println("Problem 19: Counting sundays on first of month in twentieth century: " +
                 problem19.countFirstOfMonthIsSundayBetween(start, finish));
+        problemFinished();
+
+        out.println("Problem 20: Factorial digit sum of 100!: " +
+                problem20.getFactorialDigitSum(100));
     }
 
     int countFinishedProblems() {
