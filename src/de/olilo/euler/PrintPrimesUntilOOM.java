@@ -1,5 +1,7 @@
 package de.olilo.euler;
 
+import de.olilo.util.PrimesIterable;
+
 /**
  */
 public class PrintPrimesUntilOOM {

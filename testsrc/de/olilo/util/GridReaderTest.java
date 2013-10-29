@@ -1,4 +1,4 @@
-package de.olilo.euler;
+package de.olilo.util;
 
 import org.junit.Assert;
 import org.junit.Test;

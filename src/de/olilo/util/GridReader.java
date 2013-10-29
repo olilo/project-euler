@@ -1,4 +1,4 @@
-package de.olilo.euler;
+package de.olilo.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
