@@ -32,6 +32,10 @@
 		<java jar="${jarFile}" classpath="${jarFile}" fork="true" />
 	</target>
 
+    <target name="printPrimes" depends="clean, dist" description="Print primes until heap is full">
+        <java classname="de.olilo.euler.PrintPrimesUntilOOM" classpath="${jarFile}" fork="true" />
+    </target>
+
 	<target name="clean">
 		<delete dir="${bin}" />
 		<delete dir="${dist}" />
