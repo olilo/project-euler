@@ -13,22 +13,13 @@ public class Problem21AmicableNumbers {
 
     public long sumOfAmicableNumbersUntil(long limit) {
         final Set<Long> amicableNumber = new HashSet<Long>();
-        final Map<Long, Long> notAmicableNumber = new HashMap<Long, Long>();
         for (long i = 1; i < limit; i++) {
             for (long j = i + 1; j < i * 3; j++) {
-                final Long other = notAmicableNumber.get(i);
-                if (other != null && j == other) {
-                    continue;
-                }
                 if (areAmicableNumbers(i, j)) {
                     amicableNumber.add(i);
                     amicableNumber.add(j);
-                } else {
-                    notAmicableNumber.put(i, j);
-                    notAmicableNumber.put(j, i);
                 }
             }
-            System.out.println(i);
         }
         System.out.println(amicableNumber);
         int sum = 0;
