@@ -3,14 +3,18 @@ package de.olilo.util;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class DivisorsTest {
     @Test
     public void testOf() throws Exception {
         final long[] expected = {1, 2, 4, 7, 14, 28};
         final long[] actual = Divisors.of(28);
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testOf100() throws Exception {
+        final long[] expected = {1, 2, 4, 5, 10, 20, 25, 50, 100};
+        final long[] actual = Divisors.of(100);
         Assert.assertArrayEquals(expected, actual);
     }
 
@@ -21,16 +25,4 @@ public class DivisorsTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void testGetUniqueDivisorsFromPrimeFactors() throws Exception {
-        final Set<Long> expected = new HashSet<Long>();
-        expected.add(1L);
-        expected.add(2L);
-        expected.add(4L);
-        expected.add(7L);
-        expected.add(14L);
-        expected.add(28L);
-        final Set<Long> actual = Divisors.getUniqueDivisorsFromPrimeFactors(PrimeFactors.of(28));
-        Assert.assertEquals(expected, actual);
-    }
 }
