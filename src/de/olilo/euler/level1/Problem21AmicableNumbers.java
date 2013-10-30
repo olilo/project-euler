@@ -12,19 +12,14 @@ public class Problem21AmicableNumbers {
     private final Map<Long, Long> divisorSumCache = new HashMap<Long, Long>();
 
     public long sumOfAmicableNumbersUntil(long limit) {
-        final Set<Long> amicableNumber = new HashSet<Long>();
+        long sum = 0;
         for (long i = 1; i < limit; i++) {
-            for (long j = i + 1; j < i * 3; j++) {
-                if (areAmicableNumbers(i, j)) {
-                    amicableNumber.add(i);
-                    amicableNumber.add(j);
-                }
+            final long j = getDivisorSum(i);
+            if (i < j && areAmicableNumbers(i, j)) {
+                sum += i;
+                sum += j;
+                System.out.println("Found: " + i + "/" + j);
             }
-        }
-        System.out.println(amicableNumber);
-        int sum = 0;
-        for (long number : amicableNumber) {
-            sum += number;
         }
         return sum;
     }
