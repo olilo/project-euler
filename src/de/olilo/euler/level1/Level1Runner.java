@@ -35,6 +35,7 @@ public class Level1Runner {
     private final Problem18MaximumPathSum problem18 = new Problem18MaximumPathSum();
     private final Problem19CountingSundays problem19 = new Problem19CountingSundays();
     private final Problem20FactorialDigitSum problem20 = new Problem20FactorialDigitSum();
+    private final Problem21AmicableNumbers problem21 = new Problem21AmicableNumbers();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -51,6 +52,7 @@ public class Level1Runner {
         problems6To10(out);
         problems11To15(out);
         problems16To20(out);
+        problems21To25(out);
 
         // cleanup
         file8Number.close();
@@ -148,6 +150,12 @@ public class Level1Runner {
 
         out.println("Problem 20: Digit sum of 100!: " +
                 problem20.getFactorialDigitSum(100));
+        problemFinished();
+    }
+
+    private void problems21To25(final PrintStream out) throws IOException {
+        out.println("Problem 21: Sum of amicable numbers until 10.000: " +
+                problem21.sumOfAmicableNumbersUntil(10000));
         problemFinished();
     }
 
