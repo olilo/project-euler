@@ -36,17 +36,20 @@ public class Level1Runner {
     private final Problem19CountingSundays problem19 = new Problem19CountingSundays();
     private final Problem20FactorialDigitSum problem20 = new Problem20FactorialDigitSum();
     private final Problem21AmicableNumbers problem21 = new Problem21AmicableNumbers();
+    private final Problem22Names problem22 = new Problem22Names();
 
     private FileReader file8Number;
     private FileReader file11Grid;
     private FileReader file13Numbers;
     private FileReader file18Triangle;
+    private FileReader file22Names;
 
     public List<Long> runWith(final PrintStream out) throws IOException {
         file8Number = new FileReader("problem8number.txt");
         file11Grid = new FileReader("problem11grid.txt");
         file13Numbers = new FileReader("problem13numbers.txt");
         file18Triangle = new FileReader("problem18triangle.txt");
+        file22Names = new FileReader("problem22Names.txt");
 
         problems1To5(out);
         problems6To10(out);
@@ -59,6 +62,7 @@ public class Level1Runner {
         file11Grid.close();
         file13Numbers.close();
         file18Triangle.close();
+        file22Names.close();
 
         return timestamps;
     }
@@ -156,6 +160,10 @@ public class Level1Runner {
     private void problems21To25(final PrintStream out) throws IOException {
         out.println("Problem 21: Sum of amicable numbers until 10.000: " +
                 problem21.sumOfAmicableNumbersUntil(10000));
+        problemFinished();
+
+        out.println("Problem 22: Name score sum: " +
+                problem22.sumOfNameScores(file22Names));
         problemFinished();
     }
 
