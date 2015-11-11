@@ -2,7 +2,7 @@ package de.olilo.euler.level1;
 
 import java.math.BigInteger;
 
-public class Problem20FactorialDigitSum {
+class Problem20FactorialDigitSum {
 
     public int getFactorialDigitSum(int upTo) {
         BigInteger factorial = BigInteger.ONE;

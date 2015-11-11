@@ -16,7 +16,7 @@ public enum PrimesIterable implements Iterable<Integer> {
     private int[] primes = new int[128];
     private int primeCount;
 
-    private PrimesIterable() {
+    PrimesIterable() {
         primes[0] = 2;
         primes[1] = 3;
         primes[2] = 5;

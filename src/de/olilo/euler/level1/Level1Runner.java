@@ -37,6 +37,7 @@ public class Level1Runner {
     private final Problem20FactorialDigitSum problem20 = new Problem20FactorialDigitSum();
     private final Problem21AmicableNumbers problem21 = new Problem21AmicableNumbers();
     private final Problem22Names problem22 = new Problem22Names();
+    private final Problem23NonAbundantSums problem23 = new Problem23NonAbundantSums();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -164,6 +165,10 @@ public class Level1Runner {
 
         out.println("Problem 22: Name score sum: " +
                 problem22.sumOfNameScores(file22Names));
+        problemFinished();
+
+        out.println("Problem 23: sum of all the positive integers which cannot be written " +
+                "as the sum of two abundant numbers: " + problem23.sumOfNonAbundantSumsUntil(28123));
         problemFinished();
     }
 

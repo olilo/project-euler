@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-public class Problem19CountingSundays {
+class Problem19CountingSundays {
 
     public int countFirstOfMonthIsSundayBetween(final Date start, final Date finish) {
         final Calendar finishCalendar = new GregorianCalendar();

@@ -30,9 +30,9 @@ public class Level1RunnerTest {
             }
         };
         levelThread.start();
-        levelThread.join(10000);
+        levelThread.join(15000);
         if (levelThread.isAlive()) {
-            Assert.fail("Running level 1 needed too much time, more than 10 seconds");
+            Assert.fail("Running level 1 needed too much time, more than 15 seconds");
         } else {
             dummyStream.close();
             Assert.assertFalse("No results from Level1Runner :(", result.isEmpty());

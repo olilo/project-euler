@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Problem22Names {
+class Problem22Names {
 
     public int sumOfNameScores(Reader reader) throws IOException {
         final List<String> names = readNames(reader);

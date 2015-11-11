@@ -5,7 +5,7 @@ import de.olilo.util.Divisors;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Problem21AmicableNumbers {
+class Problem21AmicableNumbers {
 
     private final Map<Long, Long> divisorSumCache = new HashMap<Long, Long>();
 
