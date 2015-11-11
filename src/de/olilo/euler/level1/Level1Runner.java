@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Level1Runner {
     
-    private final List<Long> timestamps = new ArrayList<Long>();
+    private final List<Long> timestamps = new ArrayList<>();
 
     private final Problem1Multiples problem1 = new Problem1Multiples();
     private final Problem2Fibonacci problem2 = new Problem2Fibonacci();
@@ -36,6 +36,7 @@ public class Level1Runner {
     private final Problem22Names problem22 = new Problem22Names();
     private final Problem23NonAbundantSums problem23 = new Problem23NonAbundantSums();
     private final Problem24LexicographicPermutations problem24 = new Problem24LexicographicPermutations();
+    private final Problem25FibonacciNumber problem25 = new Problem25FibonacciNumber();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -170,7 +171,11 @@ public class Level1Runner {
         problemFinished();
 
         out.println("Problem 24: millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9: " +
-                Arrays.toString(problem24.nthPermutationOf(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 1000000)));
+                Arrays.toString(problem24.nthPermutationOf(new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 1000000)));
+        problemFinished();
+
+        out.println("Problem 25: index of the first term in the Fibonacci sequence to contain 1000 digits: " +
+                problem25.fibonacciIndexWithDigitCount(1000));
         problemFinished();
     }
 

@@ -1,10 +1,9 @@
 package de.olilo.euler.level1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class Problem24LexicographicPermutations {
+class Problem24LexicographicPermutations {
 
     public long facultyOf(int number) {
         long result = 1;
