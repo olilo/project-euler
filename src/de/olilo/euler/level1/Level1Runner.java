@@ -5,10 +5,7 @@ import de.olilo.util.GridReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Level1Runner {
     
@@ -38,6 +35,7 @@ public class Level1Runner {
     private final Problem21AmicableNumbers problem21 = new Problem21AmicableNumbers();
     private final Problem22Names problem22 = new Problem22Names();
     private final Problem23NonAbundantSums problem23 = new Problem23NonAbundantSums();
+    private final Problem24LexicographicPermutations problem24 = new Problem24LexicographicPermutations();
 
     private FileReader file8Number;
     private FileReader file11Grid;
@@ -169,6 +167,10 @@ public class Level1Runner {
 
         out.println("Problem 23: sum of all the positive integers which cannot be written " +
                 "as the sum of two abundant numbers: " + problem23.sumOfNonAbundantSumsUntil(28123));
+        problemFinished();
+
+        out.println("Problem 24: millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9: " +
+                Arrays.toString(problem24.nthPermutationOf(new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 1000000)));
         problemFinished();
     }
 
