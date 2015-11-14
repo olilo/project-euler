@@ -9,6 +9,7 @@ public class Level2Runner extends AbstractLevelRunner {
 
     private Problem26ReciprocalCycles problem26 = new Problem26ReciprocalCycles();
     private Problem27QuadraticPrimes problem27 = new Problem27QuadraticPrimes();
+    private Problem28NumberSpiralDiagonals problem28 = new Problem28NumberSpiralDiagonals();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -26,6 +27,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 27: a * b of longest chain of quadratic primes (n² + an + b): " +
                 problem27.getLongestChainOfQuadraticPrimes(1000, 1000));
+        problemFinished();
+
+        out.println("Problem 28: number spiral diagonals sum of 1001x1001 spiral: " +
+                problem28.getNumberSpiralDiagonalsFor(1001));
         problemFinished();
     }
 }

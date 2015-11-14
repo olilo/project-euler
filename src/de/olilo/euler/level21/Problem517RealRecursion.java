@@ -1,7 +1,5 @@
 package de.olilo.euler.level21;
 
-import de.olilo.util.LFUCache;
-
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;

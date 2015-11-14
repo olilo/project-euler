@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import java.math.BigInteger;
 
-import static org.junit.Assert.*;
-
 public class Problem517RealRecursionTest {
 
     @Test
