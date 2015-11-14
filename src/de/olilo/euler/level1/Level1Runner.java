@@ -1,15 +1,13 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.AbstractLevelRunner;
 import de.olilo.util.GridReader;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.*;
 
-public class Level1Runner {
-    
-    private final List<Long> timestamps = new ArrayList<>();
+public class Level1Runner extends AbstractLevelRunner {
 
     private final Problem1Multiples problem1 = new Problem1Multiples();
     private final Problem2Fibonacci problem2 = new Problem2Fibonacci();
@@ -38,36 +36,25 @@ public class Level1Runner {
     private final Problem24LexicographicPermutations problem24 = new Problem24LexicographicPermutations();
     private final Problem25FibonacciNumber problem25 = new Problem25FibonacciNumber();
 
-    private FileReader file8Number;
-    private FileReader file11Grid;
-    private FileReader file13Numbers;
-    private FileReader file18Triangle;
-    private FileReader file22Names;
-
-    public List<Long> runWith(final PrintStream out) throws IOException {
-        file8Number = new FileReader("problem8number.txt");
-        file11Grid = new FileReader("problem11grid.txt");
-        file13Numbers = new FileReader("problem13numbers.txt");
-        file18Triangle = new FileReader("problem18triangle.txt");
-        file22Names = new FileReader("problem22Names.txt");
-
-        problems1To5(out);
-        problems6To10(out);
-        problems11To15(out);
-        problems16To20(out);
-        problems21To25(out);
-
-        // cleanup
-        file8Number.close();
-        file11Grid.close();
-        file13Numbers.close();
-        file18Triangle.close();
-        file22Names.close();
-
-        return timestamps;
+    @Override
+    public void initFileReaders() throws IOException {
+        addFileReader("8", "problem8number.txt");
+        addFileReader("11", "problem11grid.txt");
+        addFileReader("13", "problem13numbers.txt");
+        addFileReader("18", "problem18triangle.txt");
+        addFileReader("22", "problem22Names.txt");
     }
 
-    private void problems1To5(final PrintStream out) {
+    @Override
+    public void runProblems(final PrintStream out) throws IOException {
+        runProblems1To5(out);
+        runProblems6To10(out);
+        runProblems11To15(out);
+        runProblems16To20(out);
+        runProblems21To25(out);
+    }
+
+    private void runProblems1To5(final PrintStream out) {
         out.println("Problem 1: Multiples of 3 and 5; result: " + problem1.solveIteratively(1000));
         problemFinished();
 
@@ -88,7 +75,7 @@ public class Level1Runner {
         problemFinished();
     }
 
-    private void problems6To10(final PrintStream out) throws IOException {
+    private void runProblems6To10(final PrintStream out) throws IOException {
         out.println("Problem 6: Difference between square of sum and sum of squares up to 100: " +
                 problem6.getSumSquareDifference(100));
         problemFinished();
@@ -97,7 +84,7 @@ public class Level1Runner {
         problemFinished();
 
         out.println("Problem 8: Greatest product of five consecutive digits in 1000-digit number: " +
-                problem8.greatestProduct(problem8.readNumberFrom(file8Number), 5));
+                problem8.greatestProduct(problem8.readNumberFrom(getFileReader("8")), 5));
         problemFinished();
 
         out.println("Problem 9: Pythagorean triplet with sum of 1000: " + problem9.findPythagoreanTriplet(1000));
@@ -108,9 +95,9 @@ public class Level1Runner {
         problemFinished();
     }
 
-    private void problems11To15(final PrintStream out) throws IOException {
+    private void runProblems11To15(final PrintStream out) throws IOException {
         out.println("Problem 11: Greatest product in grid: " +
-                problem11.findGreatestProductIn(new GridReader(file11Grid).readGrid(), new GridFactorCount(4)));
+                problem11.findGreatestProductIn(new GridReader(getFileReader("11")).readGrid(), new GridFactorCount(4)));
         problemFinished();
 
         out.println("Problem 12: First Triangular number that has at least 500 divisors: " +
@@ -118,7 +105,7 @@ public class Level1Runner {
         problemFinished();
 
         out.println("Problem 13: First ten digits of sum of numbers: " +
-                problem13.firstTenDigitsOf(problem13.sumOf(problem13.readNumbersFrom(file13Numbers))));
+                problem13.firstTenDigitsOf(problem13.sumOf(problem13.readNumbersFrom(getFileReader("13")))));
         problemFinished();
 
         out.println("Problem 14: Longest Collatz sequence under 1 million: " +
@@ -130,7 +117,7 @@ public class Level1Runner {
         problemFinished();
     }
 
-    private void problems16To20(final PrintStream out) throws IOException {
+    private void runProblems16To20(final PrintStream out) throws IOException {
         out.println("Problem 16: Power digit sum - sum of digits of 2^1000: " +
                 problem16.digitSumOfTwoToThePowerOf(1000));
         problemFinished();
@@ -140,7 +127,7 @@ public class Level1Runner {
         problemFinished();
 
         out.println("Problem 18: Maximum path sum in triangle: " +
-                problem18.maximumPathSumOf(new GridReader(file18Triangle).readGrid()));
+                problem18.maximumPathSumOf(new GridReader(getFileReader("18")).readGrid()));
         problemFinished();
 
         final Calendar calendar = Calendar.getInstance();
@@ -157,13 +144,13 @@ public class Level1Runner {
         problemFinished();
     }
 
-    private void problems21To25(final PrintStream out) throws IOException {
+    private void runProblems21To25(final PrintStream out) throws IOException {
         out.println("Problem 21: Sum of amicable numbers until 10.000: " +
                 problem21.sumOfAmicableNumbersUntil(10000));
         problemFinished();
 
         out.println("Problem 22: Name score sum: " +
-                problem22.sumOfNameScores(file22Names));
+                problem22.sumOfNameScores(getFileReader("22")));
         problemFinished();
 
         out.println("Problem 23: sum of all the positive integers which cannot be written " +
@@ -177,14 +164,6 @@ public class Level1Runner {
         out.println("Problem 25: index of the first term in the Fibonacci sequence to contain 1000 digits: " +
                 problem25.fibonacciIndexWithDigitCount(1000));
         problemFinished();
-    }
-
-    int countFinishedProblems() {
-        return timestamps.size();
-    }
-
-    void problemFinished() {
-        timestamps.add(System.currentTimeMillis());
     }
 
 }

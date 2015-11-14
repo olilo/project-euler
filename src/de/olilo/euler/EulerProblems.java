@@ -1,6 +1,7 @@
 package de.olilo.euler;
 
 import de.olilo.euler.level1.Level1Runner;
+import de.olilo.euler.level2.Level2Runner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,9 @@ public class EulerProblems {
 
     public static void main(String[] args) throws Exception {
         final long startTime = System.currentTimeMillis();
-        final List<Long> timestamps = new ArrayList<Long>();
+        final List<Long> timestamps = new ArrayList<>();
         timestamps.addAll(new Level1Runner().runWith(System.out));
+        timestamps.addAll(new Level2Runner().runWith(System.out));
 
         System.out.println();
         System.out.println("Solved all " + timestamps.size() + " problems");
