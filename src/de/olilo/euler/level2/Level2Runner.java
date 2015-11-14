@@ -10,6 +10,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem26ReciprocalCycles problem26 = new Problem26ReciprocalCycles();
     private Problem27QuadraticPrimes problem27 = new Problem27QuadraticPrimes();
     private Problem28NumberSpiralDiagonals problem28 = new Problem28NumberSpiralDiagonals();
+    private Problem29DistinctPowers problem29 = new Problem29DistinctPowers();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -31,6 +32,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 28: number spiral diagonals sum of 1001x1001 spiral: " +
                 problem28.getNumberSpiralDiagonalsFor(1001));
+        problemFinished();
+
+        out.println("Problem 29: number of distinct terms of a^b, 2 <= a <= 100, 2 <= b <= 100: " +
+                problem29.getDistinctPowersOf2To(100, 100).size());
         problemFinished();
     }
 }
