@@ -11,6 +11,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem27QuadraticPrimes problem27 = new Problem27QuadraticPrimes();
     private Problem28NumberSpiralDiagonals problem28 = new Problem28NumberSpiralDiagonals();
     private Problem29DistinctPowers problem29 = new Problem29DistinctPowers();
+    private Problem30DigitFifthPowers problem30 = new Problem30DigitFifthPowers();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -36,6 +37,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 29: number of distinct terms of a^b, 2 <= a <= 100, 2 <= b <= 100: " +
                 problem29.getDistinctPowersOf2To(100, 100).size());
+        problemFinished();
+
+        out.println("Problem 30:  sum of all the numbers that can be written as the sum of fifth powers of their digits: " +
+                problem30.sumOf(problem30.getNumbersEqualTheirDigitFifthPowers(1000000)));
         problemFinished();
     }
 }
