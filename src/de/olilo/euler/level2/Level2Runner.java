@@ -12,6 +12,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem28NumberSpiralDiagonals problem28 = new Problem28NumberSpiralDiagonals();
     private Problem29DistinctPowers problem29 = new Problem29DistinctPowers();
     private Problem30DigitFifthPowers problem30 = new Problem30DigitFifthPowers();
+    private Problem31CoinSums problem31 = new Problem31CoinSums();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -20,6 +21,7 @@ public class Level2Runner extends AbstractLevelRunner {
     @Override
     protected void runProblems(PrintStream out) throws IOException {
         runProblems26To30(out);
+        runProblems31To35(out);
     }
 
     private void runProblems26To30(final PrintStream out) throws IOException {
@@ -41,6 +43,13 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 30:  sum of all the numbers that can be written as the sum of fifth powers of their digits: " +
                 problem30.sumOf(problem30.getNumbersEqualTheirDigitFifthPowers(1000000)));
+        problemFinished();
+    }
+
+    private void runProblems31To35(final PrintStream out) throws IOException {
+        out.println("Problem 31: How many different ways can 2 pounds be made using any number of coins " +
+                "(1p, 2p, 5p, 10p, 20p, 50p, 1 pound, 2 pounds): " +
+                problem31.getPossibleSolutionsFor(200).size());
         problemFinished();
     }
 }
