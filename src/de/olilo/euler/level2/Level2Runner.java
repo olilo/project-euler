@@ -13,6 +13,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem29DistinctPowers problem29 = new Problem29DistinctPowers();
     private Problem30DigitFifthPowers problem30 = new Problem30DigitFifthPowers();
     private Problem31CoinSums problem31 = new Problem31CoinSums();
+    private Problem32PandigitalProducts problem32 = new Problem32PandigitalProducts();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -50,6 +51,10 @@ public class Level2Runner extends AbstractLevelRunner {
         out.println("Problem 31: How many different ways can 2 pounds be made using any number of coins " +
                 "(1p, 2p, 5p, 10p, 20p, 50p, 1 pound, 2 pounds): " +
                 problem31.getPossibleSolutionsFor(200).size());
+        problemFinished();
+
+        out.println("Problem 32: sum of all products whose multiplicand/multiplier/product identity " +
+                "can be written as a 1 through 9 pandigital: " + problem32.pandigitalProductSum(10000));
         problemFinished();
     }
 }

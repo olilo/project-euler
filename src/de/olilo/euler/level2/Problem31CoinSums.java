@@ -1,6 +1,5 @@
 package de.olilo.euler.level2;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 
