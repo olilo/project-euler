@@ -17,37 +17,34 @@ class Problem32PandigitalProducts {
     }
 
     public boolean isPandigitalProduct(int product) {
-        final String productString = Integer.toString(product);
         final boolean[] digits = new boolean[9];
-        for (char digit : productString.toCharArray()) {
-            if (new Integer(digit + "") == 0) continue;
-            digits[new Integer(digit + "") - 1] = true;
-        }
+        setDigitsOf(Integer.toString(product), digits);
         final long[] divisors = Divisors.of(product);
         for (int i = 1; i < divisors.length / 2; i++) {
             final boolean[] digitsCopy = Arrays.copyOf(digits, 9);
-            final String firstDivisor = Long.toString(divisors[i]);
-            final String secondDivisor = Long.toString(divisors[divisors.length - i - 1]);
-            for (char digit : firstDivisor.toCharArray()) {
-                if (new Integer(digit + "") == 0) continue;
-                digitsCopy[new Integer(digit + "") - 1] = true;
-            }
-            for (char digit : secondDivisor.toCharArray()) {
-                if (new Integer(digit + "") == 0) continue;
-                digitsCopy[new Integer(digit + "") - 1] = true;
-            }
-            boolean allSet = true;
-            for (boolean digitSet : digitsCopy) {
-                if (!digitSet) {
-                    allSet = false;
-                    break;
-                }
-            }
-            if (allSet) {
+            setDigitsOf(Long.toString(divisors[i]), digitsCopy);
+            setDigitsOf(Long.toString(divisors[divisors.length - i - 1]), digitsCopy);
+            if (isAllSet(digitsCopy)) {
                 return true;
             }
         }
         return false;
+    }
+
+    private boolean isAllSet(boolean[] digits) {
+        for (boolean digitSet : digits) {
+            if (!digitSet) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void setDigitsOf(String numberString, boolean[] digits) {
+        for (char digit : numberString.toCharArray()) {
+            if (new Integer(digit + "") == 0) continue;
+            digits[new Integer(digit + "") - 1] = true;
+        }
     }
 
 }
