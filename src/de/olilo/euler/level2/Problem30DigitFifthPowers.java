@@ -3,7 +3,7 @@ package de.olilo.euler.level2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem30DigitFifthPowers {
+class Problem30DigitFifthPowers {
 
     public int getDigitFifthPowers(int number) {
         final String numberString = Integer.toString(number);

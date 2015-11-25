@@ -3,7 +3,7 @@ package de.olilo.euler.level2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem31CoinSums {
+class Problem31CoinSums {
 
     public List<Coins> getPossibleSolutionsFor(int sum) {
         // wrapped ArrayList that "forgets" everything after the 1000th result

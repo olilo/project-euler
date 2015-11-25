@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Problem26ReciprocalCycles {
+class Problem26ReciprocalCycles {
 
     public int getUnitFractionWithLongestRecurringCycle(int unitFraction) {
         int longestCycle = 0;

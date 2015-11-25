@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Problem29DistinctPowers {
+class Problem29DistinctPowers {
 
     public Set<BigDecimal> getDistinctPowersOf2To(int a, int b) {
         final Set<BigDecimal> result = new HashSet<>();

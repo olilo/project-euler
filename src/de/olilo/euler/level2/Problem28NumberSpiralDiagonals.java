@@ -1,6 +1,6 @@
 package de.olilo.euler.level2;
 
-public class Problem28NumberSpiralDiagonals {
+class Problem28NumberSpiralDiagonals {
 
     public int getNumberSpiralDiagonalsFor(int size) {
         int length = (size - 1) / 2;

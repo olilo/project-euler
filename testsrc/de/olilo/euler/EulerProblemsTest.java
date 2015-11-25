@@ -10,7 +10,7 @@ public class EulerProblemsTest {
     @Test
     public void testAverageOf() throws Exception {
         final long start = 1L;
-        final List<Long> timestamps = new ArrayList<Long>();
+        final List<Long> timestamps = new ArrayList<>();
         timestamps.add(2L);
         timestamps.add(4L);
 
@@ -22,7 +22,7 @@ public class EulerProblemsTest {
     @Test
     public void testSum() throws Exception {
         final long start = 1L;
-        final List<Long> timestamps = new ArrayList<Long>();
+        final List<Long> timestamps = new ArrayList<>();
         timestamps.add(2L);
         timestamps.add(4L);
 
@@ -34,7 +34,7 @@ public class EulerProblemsTest {
     @Test
     public void testFindLongestRuntime() throws Exception {
         final long start = 0;
-        final List<Long> timestamps = new ArrayList<Long>();
+        final List<Long> timestamps = new ArrayList<>();
         timestamps.add(3L);
         timestamps.add(10L);
         timestamps.add(11L);

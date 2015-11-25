@@ -4,7 +4,7 @@ import de.olilo.util.PrimesIterable;
 
 import java.util.*;
 
-public class Problem27QuadraticPrimes {
+class Problem27QuadraticPrimes {
 
     private Set<Integer> primes = new HashSet<>();
 
