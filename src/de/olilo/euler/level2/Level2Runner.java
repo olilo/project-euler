@@ -15,6 +15,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem31CoinSums problem31 = new Problem31CoinSums();
     private Problem32PandigitalProducts problem32 = new Problem32PandigitalProducts();
     private Problem33DigitCancellingFractions problem33 = new Problem33DigitCancellingFractions();
+    private Problem34DigitFactorials problem34 = new Problem34DigitFactorials();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -60,6 +61,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 33: denominator of product of digit-cancelling fractions: " +
                 problem33.getProductOf(problem33.getDigitCancellingFractionsBetween(10, 99)).getValue());
+        problemFinished();
+
+        out.println("Problem 34: sum of all numbers which are equal to the sum of the factorial of their digits: " +
+                problem34.sumOfDigitFactorialsUntil(1_000_000));
         problemFinished();
     }
 }
