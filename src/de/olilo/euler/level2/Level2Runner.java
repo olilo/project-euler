@@ -16,6 +16,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem32PandigitalProducts problem32 = new Problem32PandigitalProducts();
     private Problem33DigitCancellingFractions problem33 = new Problem33DigitCancellingFractions();
     private Problem34DigitFactorials problem34 = new Problem34DigitFactorials();
+    private Problem35CircularPrimes problem35 = new Problem35CircularPrimes();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -65,6 +66,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 34: sum of all numbers which are equal to the sum of the factorial of their digits: " +
                 problem34.sumOfDigitFactorialsUntil(1_000_000));
+        problemFinished();
+
+        out.println("Problem 35: amount of circular primes are there below one million: " +
+                problem35.getCircularPrimesUntil(1_000_000).size());
         problemFinished();
     }
 }

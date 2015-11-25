@@ -9,6 +9,7 @@ import java.util.Iterator;
  * Test for PrimesIterable.
  */
 public class PrimesIterableTest {
+
     @Test
     public void testIterator() throws Exception {
         final Iterator<Integer> iter = PrimesIterable.INSTANCE.iterator();
@@ -52,8 +53,13 @@ public class PrimesIterableTest {
     }
 
     @Test
+    public void testIsPrimeInternal() throws Exception {
+        Assert.assertTrue(PrimesIterable.INSTANCE.isPrimeInternal(11));
+    }
+
+    @Test
     public void testIsPrime() throws Exception {
-        Assert.assertTrue(PrimesIterable.INSTANCE.isPrime(11));
+        Assert.assertTrue(PrimesIterable.INSTANCE.isPrime(971));
     }
 
     @Test

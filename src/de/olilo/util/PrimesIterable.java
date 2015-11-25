@@ -1,5 +1,6 @@
 package de.olilo.util;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -24,6 +25,13 @@ public enum PrimesIterable implements Iterable<Integer> {
         primeCount = 4;
     }
 
+    public boolean isPrime(int number) {
+        while (number > primes[primeCount - 1]) {
+            preloadNextPrimes();
+        }
+        return Arrays.binarySearch(primes, 0, primeCount, number) >= 0;
+    }
+
     @Override
     public Iterator<Integer> iterator() {
         return new PrimesIterator();
@@ -44,7 +52,7 @@ public enum PrimesIterable implements Iterable<Integer> {
         int nextPrime = primes[primeCount - 1] + 2;
         int primesFound = 0;
         while (primesFound < 4) {
-            if (isPrime(nextPrime)) {
+            if (isPrimeInternal(nextPrime)) {
                 primes[primeCount] = nextPrime;
                 primeCount++;
                 primesFound++;
@@ -54,7 +62,7 @@ public enum PrimesIterable implements Iterable<Integer> {
         }
     }
 
-    boolean isPrime(int probablePrime) {
+    boolean isPrimeInternal(int probablePrime) {
         int limit = (int) Math.sqrt(probablePrime);
         for (int i = 0; i < primeCount; i++) {
             final int prime = primes[i];
