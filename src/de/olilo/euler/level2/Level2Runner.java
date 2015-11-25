@@ -17,6 +17,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem33DigitCancellingFractions problem33 = new Problem33DigitCancellingFractions();
     private Problem34DigitFactorials problem34 = new Problem34DigitFactorials();
     private Problem35CircularPrimes problem35 = new Problem35CircularPrimes();
+    private Problem36DoubleBasePalindromes problem36 = new Problem36DoubleBasePalindromes();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -26,6 +27,7 @@ public class Level2Runner extends AbstractLevelRunner {
     protected void runProblems(PrintStream out) throws IOException {
         runProblems26To30(out);
         runProblems31To35(out);
+        runProblems36To40(out);
     }
 
     private void runProblems26To30(final PrintStream out) throws IOException {
@@ -68,8 +70,14 @@ public class Level2Runner extends AbstractLevelRunner {
                 problem34.sumOfDigitFactorialsUntil(1_000_000));
         problemFinished();
 
-        out.println("Problem 35: amount of circular primes are there below one million: " +
+        out.println("Problem 35: amount of circular primes below one million: " +
                 problem35.getCircularPrimesUntil(1_000_000).size());
+        problemFinished();
+    }
+
+    private void runProblems36To40(final PrintStream out) throws IOException {
+        out.println("Problem 36: sum of all numbers, less than one million, which are palindromic in base 10 and base 2: " +
+                problem36.sumOf(problem36.findPalindromesInBaseTenAndTwoUntil(1_000_000)));
         problemFinished();
     }
 }
