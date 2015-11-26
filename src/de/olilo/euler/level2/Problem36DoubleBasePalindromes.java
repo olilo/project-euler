@@ -3,7 +3,7 @@ package de.olilo.euler.level2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Problem36DoubleBasePalindromes {
+class Problem36DoubleBasePalindromes {
 
     public int sumOf(List<Integer> values) {
         int sum = 0;

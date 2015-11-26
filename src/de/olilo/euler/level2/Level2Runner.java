@@ -19,6 +19,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem35CircularPrimes problem35 = new Problem35CircularPrimes();
     private Problem36DoubleBasePalindromes problem36 = new Problem36DoubleBasePalindromes();
     private Problem37TruncatablePrimes problem37 = new Problem37TruncatablePrimes();
+    private Problem38PandigitalMultiples problem38 = new Problem38PandigitalMultiples();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -85,5 +86,8 @@ public class Level2Runner extends AbstractLevelRunner {
                 problem37.sumOf(problem37.findAllTruncatablePrimes()));
         problemFinished();
 
+        out.println("Problem 38: largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product" +
+                " of an integer with (1,2, ... , n): " + problem38.getBiggestPandigitalProduct());
+        problemFinished();
     }
 }

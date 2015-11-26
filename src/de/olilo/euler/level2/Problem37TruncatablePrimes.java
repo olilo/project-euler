@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Problem37TruncatablePrimes {
+class Problem37TruncatablePrimes {
 
     public int sumOf(List<Integer> values) {
         int sum = 0;
