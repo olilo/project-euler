@@ -18,6 +18,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem34DigitFactorials problem34 = new Problem34DigitFactorials();
     private Problem35CircularPrimes problem35 = new Problem35CircularPrimes();
     private Problem36DoubleBasePalindromes problem36 = new Problem36DoubleBasePalindromes();
+    private Problem37TruncatablePrimes problem37 = new Problem37TruncatablePrimes();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -79,5 +80,10 @@ public class Level2Runner extends AbstractLevelRunner {
         out.println("Problem 36: sum of all numbers, less than one million, which are palindromic in base 10 and base 2: " +
                 problem36.sumOf(problem36.findPalindromesInBaseTenAndTwoUntil(1_000_000)));
         problemFinished();
+
+        out.println("Problem 37: sum of the only eleven primes that are both truncatable from left to right and right to left: " +
+                problem37.sumOf(problem37.findAllTruncatablePrimes()));
+        problemFinished();
+
     }
 }
