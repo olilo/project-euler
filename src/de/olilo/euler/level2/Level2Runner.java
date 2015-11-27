@@ -20,6 +20,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem36DoubleBasePalindromes problem36 = new Problem36DoubleBasePalindromes();
     private Problem37TruncatablePrimes problem37 = new Problem37TruncatablePrimes();
     private Problem38PandigitalMultiples problem38 = new Problem38PandigitalMultiples();
+    private Problem39IntegerRightTriangles problem39 = new Problem39IntegerRightTriangles();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -88,6 +89,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 38: largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product" +
                 " of an integer with (1,2, ... , n): " + problem38.getBiggestPandigitalProduct());
+        problemFinished();
+
+        out.println("Problem 39: Maximum number of right-angle triangles for perimeter p, p <= 1000: " +
+                problem39.getMaxSolutionCountUntil(1000));
         problemFinished();
     }
 }
