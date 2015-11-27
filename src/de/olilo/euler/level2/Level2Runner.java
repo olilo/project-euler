@@ -21,6 +21,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem37TruncatablePrimes problem37 = new Problem37TruncatablePrimes();
     private Problem38PandigitalMultiples problem38 = new Problem38PandigitalMultiples();
     private Problem39IntegerRightTriangles problem39 = new Problem39IntegerRightTriangles();
+    private Problem40ChampernownesConstant problem40 = new Problem40ChampernownesConstant();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -93,6 +94,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 39: Maximum number of right-angle triangles for perimeter p, p <= 1000: " +
                 problem39.getMaxSolutionCountUntil(1000));
+        problemFinished();
+
+        out.println("Problem 40: Champernownes constant - find digit product: " +
+                problem40.getDigitProduct(10, 6));
         problemFinished();
     }
 }
