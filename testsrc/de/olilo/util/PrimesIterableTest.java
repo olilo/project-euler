@@ -63,6 +63,11 @@ public class PrimesIterableTest {
     }
 
     @Test
+    public void testIsPrimeFalse() throws Exception {
+        Assert.assertFalse(PrimesIterable.INSTANCE.isPrime(973));
+    }
+
+    @Test
     public void testConcurrency() throws Exception {
         final Thread thread1 = new Thread() {
             @Override
