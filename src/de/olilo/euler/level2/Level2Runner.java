@@ -39,7 +39,7 @@ public class Level2Runner extends AbstractLevelRunner {
                 problem26.getUnitFractionWithLongestRecurringCycle(1000));
         problemFinished();
 
-        out.println("Problem 27: a * b of longest chain of quadratic primes (n² + an + b): " +
+        out.println("Problem 27: a * b of longest chain of quadratic primes (nÂ² + an + b): " +
                 problem27.getLongestChainOfQuadraticPrimes(1000, 1000));
         problemFinished();
 
