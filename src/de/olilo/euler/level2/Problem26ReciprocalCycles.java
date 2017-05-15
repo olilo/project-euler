@@ -81,6 +81,22 @@ class Problem26ReciprocalCycles {
                 }
             } else {
                 if (cycle.length() > 0) {
+                	// test for infinite recurring digit, e.g. 0.1666666...
+                	int recurringDigit = 0;
+                	for (char cycleDigit : cycle.toString().toCharArray()) {
+                		if (cycleDigit == c) {
+                			recurringDigit++;
+                		} else {
+                			recurringDigit = 0;
+                		}
+                		if (recurringDigit > 10) {
+                			cycle.setLength(0);
+                			cycle.append(c);
+                			break;
+                		}
+                	}
+                	
+                	// test whether cycle is finished and starts again
                     if (cycle.toString().charAt(0) == c && c != '0') {
                         cycleCollected = true;
                         cycle2.append(c);
