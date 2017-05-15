@@ -3,8 +3,6 @@ package de.olilo.euler.level1;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class Problem23NonAbundantSumsTest {
 
     @Test
@@ -27,8 +25,14 @@ public class Problem23NonAbundantSumsTest {
 
     @Test
     public void testIsSumOfAbundantNumbers2() throws Exception {
-        final boolean actual = new Problem23NonAbundantSums().isSumOfAbundantNumbers(76);
-        Assert.assertFalse("76 should not be a sum of abundant numbers", actual);
+        final boolean actual = new Problem23NonAbundantSums().isSumOfAbundantNumbers(28);
+        Assert.assertFalse("28 should not be a sum of abundant numbers", actual);
+    }
+
+    @Test
+    public void testIsSumOfAbundantNumbers3() throws Exception {
+        final boolean actual = new Problem23NonAbundantSums().isSumOfAbundantNumbers(103);
+        Assert.assertFalse("103 should not be a sum of abundant numbers", actual);
     }
 
     @Test
