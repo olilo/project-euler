@@ -7,8 +7,6 @@ import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
 public class Problem33DigitCancellingFractionsTest {
 
     @Test
