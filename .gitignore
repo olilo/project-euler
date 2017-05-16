@@ -1,6 +1,13 @@
+# idea config
 .idea
 *.iml
 out
 dist
 
+# eclipse config
+.classpath
+.project
+
+# generated stuff from ant
 MANIFEST.MF
+/bin/
