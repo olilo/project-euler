@@ -4,10 +4,18 @@
 	</description>
 
 	<property name="src" location="src" />
-	<property name="bin" location="out" />
+	<property name="bin" location="out/main" />
+	<property name="test.src" value="testsrc" />
+	<property name="test.bin" location="out/test" />
 	<property name="dist" location="dist" />
 	<property name="jarFile" location="${dist}/euler-problems.jar" />
 	<property name="manifestFile" location="MANIFEST.MF" />
+
+	<path id="classpath.test">
+		<pathelement location="lib/junit-4.13.2.jar"/>
+		<pathelement location="lib/hamcrest-core-1.3.jar"/>
+		<pathelement location="${bin}"/>
+	</path>
 
 	<target name="init">
 		<tstamp />
@@ -16,6 +24,13 @@
 
 	<target name="compile" depends="init" description="compile sources">
 		<javac srcdir="${src}" destdir="${bin}" />
+	</target>
+
+	<target name="test-compile" depends="compile">
+		<mkdir dir="${test.bin}"/>
+		<javac srcdir="${test.src}" destdir="${test.bin}" includeantruntime="false">
+			<classpath refid="classpath.test"/>
+		</javac>
 	</target>
 
 	<target name="dist" depends="compile" description="Generate jar">
@@ -30,6 +45,19 @@
 
 	<target name="run" depends="clean, dist" description="Run it all">
 		<java jar="${jarFile}" classpath="${jarFile}" fork="true" />
+	</target>
+
+	<target name="test" depends="test-compile">
+		<junit printsummary="on" haltonfailure="yes" fork="true">
+			<classpath>
+				<path refid="classpath.test"/>
+				<pathelement location="${test.bin}"/>
+			</classpath>
+			<formatter type="brief" usefile="false" />
+			<batchtest>
+				<fileset dir="${test.src}" includes="**/*Test.java" />
+			</batchtest>
+		</junit>
 	</target>
 
     <target name="printPrimes" depends="clean, dist" description="Print primes until heap is full">
