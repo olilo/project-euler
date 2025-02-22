@@ -22,6 +22,7 @@ public class Level2Runner extends AbstractLevelRunner {
     private Problem38PandigitalMultiples problem38 = new Problem38PandigitalMultiples();
     private Problem39IntegerRightTriangles problem39 = new Problem39IntegerRightTriangles();
     private Problem40ChampernownesConstant problem40 = new Problem40ChampernownesConstant();
+    private final Problem41PandigitalPrime problem41 = new Problem41PandigitalPrime();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -98,6 +99,10 @@ public class Level2Runner extends AbstractLevelRunner {
 
         out.println("Problem 40: Champernownes constant - find digit product: " +
                 problem40.getDigitProduct(10, 6));
+        problemFinished();
+
+        out.println("Problem 41: Largest 9-digit pandigital prime is: " +
+                problem41.findLargestPandigitalPrime());
         problemFinished();
     }
 }

@@ -9,47 +9,36 @@ import org.junit.Test;
 import de.olilo.util.PrimesIterable;
 
 public class Problem41PandigitalPrimeTest {
-	
+
 	@Test
-	public void testIsPandigitalTrueWithInput2143() throws Exception {
-		final boolean expected = true;
-		final boolean actual = new Problem41PandigitalPrime().isPandigital(2143);
+	public void testGeneratePermutation() {
+		final List<List<Integer>> expected = List.of(
+				List.of(1, 2, 3), List.of(2, 1, 3), List.of(2, 3, 1), List.of(1, 3, 2), List.of(3, 1, 2), List.of(3, 2, 1)
+		);
+		final List<List<Integer>> actual = new Problem41PandigitalPrime().generatePermutation(List.of(1, 2, 3));
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void testIsPandigitalTrueWithInput698142375() throws Exception {
-		final boolean expected = true;
-		final boolean actual = new Problem41PandigitalPrime().isPandigital(698142375);
+	public void testGenerateAllPandigitalNumbersWithLength2() {
+		final List<List<Integer>> expected = List.of(List.of(1, 2), List.of(2, 1));
+		final List<List<Integer>> actual = new Problem41PandigitalPrime().generateAllPandigitalNumbersWithLength(2);
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void testIsPandigitalFalseWithInput4421() throws Exception {
-		final boolean expected = false;
-		final boolean actual = new Problem41PandigitalPrime().isPandigital(4421);
+	public void testGenerateAllPandigitalNumbersWithLength3() {
+		final List<List<Integer>> expected = List.of(
+				List.of(1, 2, 3), List.of(2, 1, 3), List.of(2, 3, 1), List.of(1, 3, 2), List.of(3, 1, 2), List.of(3, 2, 1)
+		);
+		final List<List<Integer>> actual = new Problem41PandigitalPrime().generateAllPandigitalNumbersWithLength(3);
 		Assert.assertEquals(expected, actual);
 	}
-	
+
 	@Test
-	public void testIsPandigitalWithPrimes() throws Exception {
-		final int prime = 4231;
-		
-		final boolean expected = true;
-		final boolean actual = new Problem41PandigitalPrime().isPandigital(4231);
-		Assert.assertEquals(expected, actual);
-		
-		final boolean expectedPrime = true;
-		final boolean actualPrime = PrimesIterable.INSTANCE.isPrime(prime);
-		Assert.assertEquals(expectedPrime, actualPrime);
-	}
-	
-	@Test
-	public void testFindPandigitalPrime() throws Exception {
-		final List<Integer> digits = Arrays.asList(4, 3, 2, 1);
-		
-		final int expected = 4231;
-		final int actual = new Problem41PandigitalPrime().findPandigitalPrime(digits, "");
+	public void testFindLargestPandigitalPrime() {
+		final int expected = 7652413;
+		final int actual = new Problem41PandigitalPrime().findLargestPandigitalPrime();
 		Assert.assertEquals(expected, actual);
 	}
 

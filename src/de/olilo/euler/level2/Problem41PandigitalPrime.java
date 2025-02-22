@@ -6,46 +6,54 @@ import java.util.List;
 import de.olilo.util.PrimesIterable;
 
 class Problem41PandigitalPrime {
-	
-	public boolean isPandigital(long number) {
-		final String numberAsString = Long.toString(number);
-		final int length = numberAsString.length();
-		final boolean[] digitPresent = new boolean[length];
-		for (int i = 0; i < length; i++) {
-			final char digitChar = numberAsString.charAt(i);
-			final int digit = Integer.parseInt(digitChar + "");
-			if (digit == 0 || digit > length || digitPresent[digit - 1]) {
-				return false;
-			} else {
-				digitPresent[digit -1] = true;
+	/**
+	 * Generate all permutations of the given list.
+	 *
+	 * @param original the original list
+	 * @return a list of all permutations of the given list
+	 * @param <E>
+	 */
+	protected <E> List<List<E>> generatePermutation(List<E> original) {
+		if (original.isEmpty()) {
+			List<List<E>> result = new ArrayList<>();
+			result.add(new ArrayList<>());
+			return result;
+		}
+		E firstElement = original.get(0);
+		List<List<E>> returnValue = new ArrayList<>();
+		List<List<E>> permutations = generatePermutation(original.subList(1, original.size()));
+		for (List<E> smallerPermutated : permutations) {
+			for (int index = 0; index <= smallerPermutated.size(); index++) {
+				List<E> temp = new ArrayList<>(smallerPermutated);
+				temp.add(index, firstElement);
+				returnValue.add(temp);
 			}
 		}
-		
-		for (int i = 0; i < length; i++) {
-			if (!digitPresent[i]) {
-				return false;
-			}
+		return returnValue;
+	}
+
+	protected List<List<Integer>> generateAllPandigitalNumbersWithLength(int length) {
+		List<Integer> digitals = new ArrayList<>();
+		for (int i = 1; i <= length; i++) {
+			digitals.add(i);
 		}
-		return true;
+		return generatePermutation(digitals);
 	}
-	
-	public int findPandigitalPrime(List<Integer> digits, String number) {
-		return -1;
-	}
-	
+
 	public int findLargestPandigitalPrime() {
-		for (int digitCount = 7; digitCount > 0; digitCount--) {
-			final List<Integer> digits = new ArrayList<>();
-			for (int i = digitCount; i > 0; i--) {
-				digits.add(i);
+		int largestFoundPandigitalPrime = 0;
+		for (List<Integer> number : generateAllPandigitalNumbersWithLength(7)) {
+			StringBuilder pandigitalAsString = new StringBuilder();
+			for (int digit : number) {
+				pandigitalAsString.append(digit);
 			}
-			
-			int pandigitalPrime = findPandigitalPrime(digits, "");
-			if (pandigitalPrime > 0) {
-				return pandigitalPrime;
+			int possiblePandigitalNumber = Integer.parseInt(pandigitalAsString.toString());
+			if (PrimesIterable.INSTANCE.isPrime(possiblePandigitalNumber) && possiblePandigitalNumber > largestFoundPandigitalPrime) {
+				largestFoundPandigitalPrime = possiblePandigitalNumber;
 			}
 		}
-		return -1;
+
+		return largestFoundPandigitalPrime;
 	}
 
 }
