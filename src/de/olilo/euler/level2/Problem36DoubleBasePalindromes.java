@@ -22,11 +22,11 @@ class Problem36DoubleBasePalindromes {
             addIfPalindrome(result, digits, counter);
 
             counter++;
-            if (counter >= Math.pow(10, (digits + 1) / 2) && digits % 2 == 1) {
+            if (counter >= Math.pow(10, (digits + 1) / 2.0) && digits % 2 == 1) {
                 digits++;
-                counter = (int) Math.pow(10, (digits - 1) / 2);
+                counter = (int) Math.pow(10, (digits - 1) / 2.0);
             }
-            if (counter >= Math.pow(10, digits / 2) && digits % 2 == 0) {
+            if (counter >= Math.pow(10, digits / 2.0) && digits % 2 == 0) {
                 digits++;
             }
         }
@@ -38,9 +38,9 @@ class Problem36DoubleBasePalindromes {
         final String secondPart = reverse(firstPart);
         int number;
         if (digits % 2 == 1) {
-            number = new Integer(firstPart + secondPart.substring(1));
+            number = Integer.parseInt(firstPart + secondPart.substring(1));
         } else {
-            number = new Integer(firstPart + secondPart);
+            number = Integer.parseInt(firstPart + secondPart);
         }
         if (isPalindrome(Integer.toBinaryString(number))) {
             result.add(number);

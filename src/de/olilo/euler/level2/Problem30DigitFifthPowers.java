@@ -9,7 +9,7 @@ class Problem30DigitFifthPowers {
         final String numberString = Integer.toString(number);
         int sum = 0;
         for (char digit : numberString.toCharArray()) {
-            sum += Math.pow(new Integer(digit + ""), 5);
+            sum += (int) Math.pow(Character.getNumericValue(digit), 5);
         }
         return sum;
     }

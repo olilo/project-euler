@@ -42,8 +42,8 @@ class Problem32PandigitalProducts {
 
     private void setDigitsOf(String numberString, boolean[] digits) {
         for (char digit : numberString.toCharArray()) {
-            if (new Integer(digit + "") == 0) continue;
-            digits[new Integer(digit + "") - 1] = true;
+            if (Character.getNumericValue(digit) == 0) continue;
+            digits[Character.getNumericValue(digit) - 1] = true;
         }
     }
 

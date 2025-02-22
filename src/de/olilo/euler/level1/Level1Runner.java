@@ -55,7 +55,7 @@ public class Level1Runner extends AbstractLevelRunner {
     }
 
     private void runProblems1To5(final PrintStream out) {
-        out.println("Problem 1: Multiples of 3 and 5; result: " + problem1.solveIteratively(1000));
+        out.println("Problem 1: Multiples of 3 and 5; result: " + problem1.solveByAlgorithm(1000));
         problemFinished();
 
         out.println("Problem 2: Sum of even Fibonaccis to 4.000.000; result: " + problem2.solve(4000000));

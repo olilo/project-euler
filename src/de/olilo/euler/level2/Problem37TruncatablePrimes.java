@@ -34,12 +34,12 @@ class Problem37TruncatablePrimes {
     public boolean isTruncatablePrime(int prime) {
         final String primeString = Integer.toString(prime);
         for (int i = 1; i < primeString.length(); i++) {
-            if (!PrimesIterable.INSTANCE.isPrime(new Integer(primeString.substring(i)))) {
+            if (!PrimesIterable.INSTANCE.isPrime(Integer.parseInt(primeString.substring(i)))) {
                 return false;
             }
         }
         for (int i = primeString.length(); i >= 1; i--) {
-            if (!PrimesIterable.INSTANCE.isPrime(new Integer(primeString.substring(0, i)))) {
+            if (!PrimesIterable.INSTANCE.isPrime(Integer.parseInt(primeString.substring(0, i)))) {
                 return false;
             }
         }

@@ -21,9 +21,9 @@ class Problem38PandigitalMultiples {
     public long getConcatenatedProduct(int number, int n) {
         StringBuilder result = new StringBuilder();
         for (int i = 1; i <= n; i++) {
-            result.append(Integer.toString(number * i));
+            result.append(number * i);
         }
-        return new Long(result.toString());
+        return Long.parseLong(result.toString());
     }
 
     public boolean isPandigital(long number) {
@@ -33,7 +33,7 @@ class Problem38PandigitalMultiples {
             if (c == '0') {
                 return false;
             }
-            digits[new Integer(c + "") - 1] += 1;
+            digits[Character.getNumericValue(c) - 1] += 1;
         }
         for (int digitNum : digits) {
             if (digitNum != 1) {

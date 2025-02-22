@@ -21,9 +21,9 @@ class Problem34DigitFactorials {
     }
 
     public boolean isDigitFactorial(int number) {
-        int result = 0;
+        long result = 0;
         for (char digit : Integer.toString(number).toCharArray()) {
-            result += factorialOf(new Integer(digit + ""));
+            result += factorialOf(Character.getNumericValue(digit));
         }
         return result == number;
     }

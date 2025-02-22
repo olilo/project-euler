@@ -23,11 +23,11 @@ class Problem35CircularPrimes {
     public boolean isCircularPrime(int number) {
         final char[] digits = Integer.toString(number).toCharArray();
         for (int i = 1; i < digits.length; i++) {
-            String probablePrime = "";
+            StringBuilder probablePrime = new StringBuilder();
             for (int j = i; j < i + digits.length; j++) {
-                probablePrime += digits[j % digits.length];
+                probablePrime.append(digits[j % digits.length]);
             }
-            if (!PrimesIterable.INSTANCE.isPrime(new Integer(probablePrime))) {
+            if (!PrimesIterable.INSTANCE.isPrime(Integer.parseInt(probablePrime.toString()))) {
                 return false;
             }
         }

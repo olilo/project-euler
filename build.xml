@@ -23,7 +23,7 @@
 	</target>
 
 	<target name="compile" depends="init" description="compile sources">
-		<javac srcdir="${src}" destdir="${bin}" />
+		<javac srcdir="${src}" destdir="${bin}" includeantruntime="false" />
 	</target>
 
 	<target name="test-compile" depends="compile">

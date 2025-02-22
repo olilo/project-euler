@@ -45,7 +45,7 @@ class Problem33DigitCancellingFractions {
             if (denStr.contains(digit + "")) {
                 final String num2Str = numStr.replaceFirst(digit + "", "");
                 final String den2Str = denStr.replaceFirst(digit + "", "");
-                final double result = new Double(num2Str) / new Double(den2Str);
+                final double result = Double.parseDouble(num2Str) / Double.parseDouble(den2Str);
                 if (Math.abs(result - ((double) numerator / (double) denominator)) < 0.000001) {
                     return true;
                 }
