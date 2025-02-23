@@ -19,8 +19,7 @@ public class Problem1Multiples implements Problem {
 
     @Override
     public Number runProblem(Runner runner) {
-        final BigInteger sum = solveByAlgorithm(1000);
-        return sum;
+        return solveByAlgorithm(1000);
     }
 
     protected long solveIteratively(int number) {
