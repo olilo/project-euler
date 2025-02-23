@@ -17,14 +17,26 @@ import java.util.List;
 public class EulerProblems {
 
     public static void main(String[] args) throws Exception {
-        final long startTime = System.currentTimeMillis();
+        final long startTime;
         final List<Long> timestamps = new ArrayList<>();
 
         if (args.length >= 1 && args[0].equals("withReflection")) {
-            timestamps.addAll(new ReflectionBasedRunner().runWith(System.out));
+            final ReflectionBasedRunner runner = new ReflectionBasedRunner();
+
+            if (args.length >= 2) {
+                final List<Integer> problemsToRun = new ArrayList<>();
+                for (String problemAsString : args[1].split(",", -1)) {
+                    problemsToRun.add(Integer.parseInt(problemAsString));
+                }
+                runner.setProblemsToRun(problemsToRun);
+            }
+
+            timestamps.addAll(runner.runProblemsWith(System.out));
+            startTime = runner.getStartTime();
         } else {
-            timestamps.addAll(new Level1Runner().runWith(System.out));
-            timestamps.addAll(new Level2Runner().runWith(System.out));
+            startTime = System.currentTimeMillis();
+            timestamps.addAll(new Level1Runner().runProblemsWith(System.out));
+            timestamps.addAll(new Level2Runner().runProblemsWith(System.out));
         }
 
         System.out.println();

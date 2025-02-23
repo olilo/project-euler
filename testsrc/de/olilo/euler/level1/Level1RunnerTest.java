@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Level1RunnerTest {
     @Test
-    public void testRunWith() throws Exception {
+    public void testRunProblemsWith() throws Exception {
         final PrintStream dummyStream = new PrintStream(new OutputStream() {
             @Override
             public void write(final int b) throws IOException {
@@ -23,7 +23,7 @@ public class Level1RunnerTest {
             @Override
             public void run() {
                 try {
-                    result.addAll(new Level1Runner().runWith(dummyStream));
+                    result.addAll(new Level1Runner().runProblemsWith(dummyStream));
                 } catch (IOException e) {
                     throw new IllegalStateException(e);
                 }

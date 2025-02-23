@@ -56,7 +56,8 @@
 				<pathelement location="lib/classgraph-4.8.179.jar"/>
 				<pathelement location="${jarFile}"/>
 			</classpath>
-			<arg value="${arg0}" />
+			<arg value="${runner}" />
+			<arg value="${problems}" />
 		</java>
 	</target>
 

@@ -32,7 +32,8 @@ public abstract class AbstractRunner implements Runner {
         }
     }
 
-    public List<Long> runWith(final PrintStream out) throws IOException {
+    @Override
+    public List<Long> runProblemsWith(final PrintStream out) throws IOException {
         initFileReaders();
         runProblems(out);
         closeFileReaders();
