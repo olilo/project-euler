@@ -20,7 +20,7 @@ public class EulerProblems {
         final long startTime;
         final List<Long> timestamps = new ArrayList<>();
 
-        if (args.length >= 1 && args[0].equals("withReflection")) {
+        if (args.length >= 1 && args[0].equals("reflection")) {
             final ReflectionBasedRunner runner = new ReflectionBasedRunner();
 
             if (args.length >= 2) {
