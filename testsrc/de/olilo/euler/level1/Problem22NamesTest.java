@@ -17,19 +17,6 @@ public class Problem22NamesTest {
     }
 
     @Test
-    public void testReadNames() throws Exception {
-        final String input = "\"MARY\",\"PATRICIA\",\"LINDA\",\"BARBARA\",\"ELIZABETH\"";
-        final List<String> expected = new ArrayList<>();
-        expected.add("MARY");
-        expected.add("PATRICIA");
-        expected.add("LINDA");
-        expected.add("BARBARA");
-        expected.add("ELIZABETH");
-        final List<String> actual = new Problem22Names().readNames(new StringReader(input));
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
     public void testValueOf() throws Exception {
         final List<String> input = new ArrayList<>();
         input.add("SVEN");

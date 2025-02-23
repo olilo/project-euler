@@ -8,23 +8,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractLevelRunner {
+public abstract class AbstractRunner implements Runner {
 
     protected final List<Long> timestamps = new ArrayList<>();
 
     protected final Map<String, FileReader> fileReaders = new HashMap<>();
 
-    protected void addFileReader(String alias, String filename) throws IOException {
+    public void addFileReader(String alias, String filename) throws IOException {
         fileReaders.put(alias, new FileReader(filename));
     }
 
-    protected FileReader getFileReader(String alias) {
+    public FileReader getFileReader(String alias) {
         return fileReaders.get(alias);
     }
 
     protected abstract void initFileReaders() throws IOException;
 
-    protected abstract void runProblems(final PrintStream out) throws IOException;
+    public abstract void runProblems(final PrintStream out) throws IOException;
 
     protected void closeFileReaders() throws IOException {
         for (final FileReader fileReader : fileReaders.values()) {

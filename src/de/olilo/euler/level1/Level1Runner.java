@@ -1,13 +1,13 @@
 package de.olilo.euler.level1;
 
-import de.olilo.euler.AbstractLevelRunner;
+import de.olilo.euler.AbstractRunner;
 import de.olilo.util.GridReader;
 
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.*;
 
-public class Level1Runner extends AbstractLevelRunner {
+public class Level1Runner extends AbstractRunner {
 
     private final Problem1Multiples problem1 = new Problem1Multiples();
     private final Problem2Fibonacci problem2 = new Problem2Fibonacci();
@@ -38,11 +38,11 @@ public class Level1Runner extends AbstractLevelRunner {
 
     @Override
     public void initFileReaders() throws IOException {
-        addFileReader("8", "problem8number.txt");
-        addFileReader("11", "problem11grid.txt");
-        addFileReader("13", "problem13numbers.txt");
-        addFileReader("18", "problem18triangle.txt");
-        addFileReader("22", "problem22Names.txt");
+        addFileReader("8", "problemfiles/problem8number.txt");
+        addFileReader("11", "problemfiles/problem11grid.txt");
+        addFileReader("13", "problemfiles/problem13numbers.txt");
+        addFileReader("18", "problemfiles/problem18triangle.txt");
+        addFileReader("22", "problemfiles/problem22Names.txt");
     }
 
     @Override

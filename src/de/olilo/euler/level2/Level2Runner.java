@@ -1,11 +1,11 @@
 package de.olilo.euler.level2;
 
-import de.olilo.euler.AbstractLevelRunner;
+import de.olilo.euler.AbstractRunner;
 
 import java.io.IOException;
 import java.io.PrintStream;
 
-public class Level2Runner extends AbstractLevelRunner {
+public class Level2Runner extends AbstractRunner {
 
     private Problem26ReciprocalCycles problem26 = new Problem26ReciprocalCycles();
     private Problem27QuadraticPrimes problem27 = new Problem27QuadraticPrimes();
@@ -29,7 +29,7 @@ public class Level2Runner extends AbstractLevelRunner {
     }
 
     @Override
-    protected void runProblems(PrintStream out) throws IOException {
+    public void runProblems(PrintStream out) throws IOException {
         runProblems26To30(out);
         runProblems31To35(out);
         runProblems36To40(out);

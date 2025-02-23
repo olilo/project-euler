@@ -19,8 +19,13 @@ public class EulerProblems {
     public static void main(String[] args) throws Exception {
         final long startTime = System.currentTimeMillis();
         final List<Long> timestamps = new ArrayList<>();
-        timestamps.addAll(new Level1Runner().runWith(System.out));
-        timestamps.addAll(new Level2Runner().runWith(System.out));
+
+        if (args.length >= 1 && args[0].equals("withReflection")) {
+            timestamps.addAll(new ReflectionBasedRunner().runWith(System.out));
+        } else {
+            timestamps.addAll(new Level1Runner().runWith(System.out));
+            timestamps.addAll(new Level2Runner().runWith(System.out));
+        }
 
         System.out.println();
         System.out.println("Solved all " + timestamps.size() + " problems");

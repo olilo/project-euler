@@ -1,10 +1,29 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Runner;
+import de.olilo.euler.Problem;
+
 import java.math.BigInteger;
 
-class Problem1Multiples {
+public class Problem1Multiples implements Problem {
 
-    public long solveIteratively(int number) {
+    @Override
+    public String getMessage() {
+        return "The sum of all multiples of 3 and 5 between 1 and 1000 are: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 1;
+    }
+
+    @Override
+    public String runProblem(Runner runner) {
+        final BigInteger sum = solveByAlgorithm(1000);
+        return sum.toString();
+    }
+
+    protected long solveIteratively(int number) {
         long result = 0;
         for (int i = 0; i < number; ++i) {
             if (i % 3 == 0 || i % 5 == 0) {
@@ -14,7 +33,7 @@ class Problem1Multiples {
         return result;
     }
 
-    public BigInteger solveByAlgorithm(long number) {
+    protected BigInteger solveByAlgorithm(long number) {
         long maxThreeDivisible = (number - 1 - ((number - 1) % 3));
         long maxFiveDivisible = (number - 1 - ((number - 1) % 5));
         long maxFifteenDivisible = (number - 1 - ((number - 1) % 15));

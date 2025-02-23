@@ -28,7 +28,7 @@ class Problem8GreatestProduct {
         for (int i = 0; i < numString.length() - digits; i++) {
             long current = 1;
             for (int j = i; j < i + digits; j++) {
-                current *= Integer.valueOf(numString.substring(j, j + 1));
+                current *= Integer.parseInt(numString.substring(j, j + 1));
             }
             max = Math.max(max, current);
         }

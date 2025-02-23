@@ -1,5 +1,7 @@
 package de.olilo.euler.level1;
 
+import de.olilo.util.Readers;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -10,26 +12,13 @@ import java.util.List;
 class Problem22Names {
 
     public int sumOfNameScores(Reader reader) throws IOException {
-        final List<String> names = readNames(reader);
+        final List<String> names = Readers.readCommaSeparatedValues(reader);
         Collections.sort(names);
         int sum = 0;
         for (int i = 1; i <= names.size(); i++) {
             sum += valueOf(names, i);
         }
         return sum;
-    }
-
-    public List<String> readNames(Reader reader) throws IOException {
-        final List<String> names = new ArrayList<>();
-        final BufferedReader bufferedReader = new BufferedReader(reader);
-        String line = bufferedReader.readLine();
-        while (line != null) {
-            for (String name : line.split(",")) {
-                names.add(name.substring(1, name.length() - 1));
-            }
-            line = bufferedReader.readLine();
-        }
-        return names;
     }
 
     public int valueOf(List<String> names, int position) {
