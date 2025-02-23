@@ -16,8 +16,8 @@ public class Problem2Fibonacci implements Problem {
     }
 
     @Override
-    public String runProblem(Runner runner) {
-        return Long.toString(solve(4_000_000));
+    public Number runProblem(Runner runner) {
+        return solve(4_000_000);
     }
 
     protected long solve(int max) {

@@ -18,9 +18,9 @@ public class Problem1Multiples implements Problem {
     }
 
     @Override
-    public String runProblem(Runner runner) {
+    public Number runProblem(Runner runner) {
         final BigInteger sum = solveByAlgorithm(1000);
-        return sum.toString();
+        return sum;
     }
 
     protected long solveIteratively(int number) {
