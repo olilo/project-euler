@@ -16,6 +16,16 @@ class Problem32PandigitalProducts {
         return sum;
     }
 
+    /**
+     * Checks if a given number can be written as a pandigital product.
+     * This means that its multiplicand, multiplier and product contains all digits
+     * 1 to 9 exactly once.
+     *
+     * Example: 39 x 186 = 7254
+     *
+     * @param product the product to test (checks against all divisors)
+     * @return true if given product is a pandigital product, false otherwise
+     */
     public boolean isPandigitalProduct(int product) {
         final boolean[] digits = new boolean[9];
         setDigitsOf(Integer.toString(product), digits);
