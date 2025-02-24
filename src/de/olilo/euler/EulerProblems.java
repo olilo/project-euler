@@ -23,7 +23,7 @@ public class EulerProblems {
         if (args.length >= 1 && args[0].equals("reflection")) {
             final ReflectionBasedRunner runner = new ReflectionBasedRunner();
 
-            if (args.length >= 2) {
+            if (args.length >= 2 && !args[1].isEmpty() && !args[1].equals("${problems}")) {
                 final List<Integer> problemsToRun = new ArrayList<>();
                 for (String problemAsString : args[1].split(",", -1)) {
                     problemsToRun.add(Integer.parseInt(problemAsString));
