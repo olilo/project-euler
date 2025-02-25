@@ -33,6 +33,7 @@ public class Level2Runner extends AbstractRunner {
 
     @Override
     public void runProblems(PrintStream out) throws IOException {
+        this.currentProblemNumber = 26;
         runProblems26To30(out);
         runProblems31To35(out);
         runProblems36To40(out);

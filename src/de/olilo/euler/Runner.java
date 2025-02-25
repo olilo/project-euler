@@ -3,7 +3,7 @@ package de.olilo.euler;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.List;
+import java.util.Map;
 
 public interface Runner {
 
@@ -11,6 +11,6 @@ public interface Runner {
 
     FileReader getFileReader(String alias);
 
-    List<Long> runProblemsWith(final PrintStream out) throws IOException;
+    Map<Integer, Long> runProblemsWith(final PrintStream out) throws IOException;
 
 }

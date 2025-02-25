@@ -6,8 +6,8 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Level1RunnerTest {
     @Test
@@ -18,12 +18,12 @@ public class Level1RunnerTest {
             }
         });
 
-        final List<Long> result = new ArrayList<Long>();
+        final Map<Integer, Long> result = new HashMap<>();
         final Thread levelThread = new Thread() {
             @Override
             public void run() {
                 try {
-                    result.addAll(new Level1Runner().runProblemsWith(dummyStream));
+                    result.putAll(new Level1Runner().runProblemsWith(dummyStream));
                 } catch (IOException e) {
                     throw new IllegalStateException(e);
                 }

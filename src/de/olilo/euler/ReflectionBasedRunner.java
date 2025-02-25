@@ -9,7 +9,6 @@ import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ReflectionBasedRunner extends AbstractRunner {
@@ -51,24 +50,23 @@ public class ReflectionBasedRunner extends AbstractRunner {
         }
 
         if (!this.problemsToRun.isEmpty()) {
-            problems = problems.stream().filter(new Predicate<Problem>() {
-                @Override
-                public boolean test(Problem problem) {
-                    return problemsToRun.contains(problem.getProblemNumber());
-                }
-            }).collect(Collectors.toList());
+            problems = problems.stream().filter(problem -> problemsToRun.contains(problem.getProblemNumber())).collect(Collectors.toList());
         }
 
         problems.sort(Problem.COMPARATOR);
 
+        Problem previousProblem = null;
         this.setStartTime(System.currentTimeMillis());
         for (Problem problem : problems) {
             problem.initialize(this);
             out.print("Problem " + problem.getProblemNumber() + ": " + problem.getMessage() + problem.runProblem(this));
-            problemFinished();
-            long previousUsedMilliseconds = this.timestamps.size() == 1 ? this.startTime : this.timestamps.get(this.timestamps.size() - 2);
-            long usedMilliseconds = this.timestamps.get(this.timestamps.size() - 1) - previousUsedMilliseconds;
+            problemFinished(problem);
+
+            long previousUsedMilliseconds = previousProblem == null ? this.startTime : this.timestamps.get(previousProblem.getProblemNumber());
+            long usedMilliseconds = this.timestamps.get(problem.getProblemNumber()) - previousUsedMilliseconds;
             out.println(" (used time: " + usedMilliseconds + "ms)" );
+
+            previousProblem = problem;
         }
     }
 }
