@@ -1,12 +1,30 @@
 package de.olilo.euler.level2;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.Lists;
 import de.olilo.util.PrimesIterable;
 
-class Problem41PandigitalPrime {
+public class Problem41PandigitalPrime implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The largest pandigital prime that exists is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 41;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return findLargestPandigitalPrime();
+    }
 
     protected List<List<Integer>> generateAllPandigitalNumbersWithLength(int length) {
         List<Integer> digits = new ArrayList<>();
@@ -16,7 +34,7 @@ class Problem41PandigitalPrime {
         return Lists.generatePermutation(digits);
     }
 
-    public int findLargestPandigitalPrime() {
+    protected int findLargestPandigitalPrime() {
         int largestFoundPandigitalPrime = 0;
         for (List<Integer> number : generateAllPandigitalNumbersWithLength(7)) {
             StringBuilder pandigitalAsString = new StringBuilder();
@@ -31,5 +49,4 @@ class Problem41PandigitalPrime {
 
         return largestFoundPandigitalPrime;
     }
-
 }
