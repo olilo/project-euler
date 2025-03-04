@@ -36,6 +36,20 @@ public class ReflectionBasedRunner extends AbstractRunner {
 
     @Override
     public void runProblems(PrintStream out) throws IOException {
+        List<Problem> problems = findAllProblems();
+
+        if (!this.problemsToRun.isEmpty()) {
+            problems = problems.stream().filter(problem -> problemsToRun.contains(problem.getProblemNumber())).collect(Collectors.toList());
+        } else {
+            problems = problems.stream().filter(problem -> problem.getClass().getAnnotation(Draft.class) == null).collect(Collectors.toList());
+        }
+
+        problems.sort(Problem.COMPARATOR);
+
+        runProblemsInternal(problems, out);
+    }
+
+    protected List<Problem> findAllProblems() {
         List<Problem> problems;
 
         try (ScanResult scanResult = new ClassGraph().enableAllInfo().acceptPackages("de.olilo.euler").scan()) {
@@ -49,24 +63,28 @@ public class ReflectionBasedRunner extends AbstractRunner {
             throw new RuntimeException(e);
         }
 
-        if (!this.problemsToRun.isEmpty()) {
-            problems = problems.stream().filter(problem -> problemsToRun.contains(problem.getProblemNumber())).collect(Collectors.toList());
-        }
+        return problems;
+    }
 
-        problems.sort(Problem.COMPARATOR);
-
-        Problem previousProblem = null;
+    protected void runProblemsInternal(List<Problem> problems, PrintStream out) {
         this.setStartTime(System.currentTimeMillis());
         for (Problem problem : problems) {
-            problem.initialize(this);
-            out.print("Problem " + problem.getProblemNumber() + ": " + problem.getMessage() + problem.runProblem(this));
+            long elapsed;
+            Number result;
+            try {
+                problem.initialize(this);
+                long start = System.nanoTime();
+                result = problem.runProblem(this);
+                elapsed = (System.nanoTime() - start) / 1000;
+            } catch (IOException e) {
+                out.println("Problem " + problem.getProblemNumber() + " ran into IOException: " + e.getMessage());
+                continue;
+            }
+
+            out.print("Problem " + problem.getProblemNumber() + ": " + problem.getMessage() + result);
+            out.println(" (used time: " + (elapsed > 1000 ? (elapsed / 1000) + "ms" : elapsed + "µs") + ")");
+
             problemFinished(problem);
-
-            long previousUsedMilliseconds = previousProblem == null ? this.startTime : this.timestamps.get(previousProblem.getProblemNumber());
-            long usedMilliseconds = this.timestamps.get(problem.getProblemNumber()) - previousUsedMilliseconds;
-            out.println(" (used time: " + usedMilliseconds + "ms)" );
-
-            previousProblem = problem;
         }
     }
 }
