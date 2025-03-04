@@ -1,6 +1,7 @@
 package de.olilo.euler.level2;
 
 import de.olilo.euler.AbstractRunner;
+import de.olilo.euler.Problem;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -25,6 +26,7 @@ public class Level2Runner extends AbstractRunner {
     private final Problem41PandigitalPrime problem41 = new Problem41PandigitalPrime();
     private Problem42CodedTriangleNumbers problem42 = new Problem42CodedTriangleNumbers();
     private Problem43SubStringDivisibility problem43 = new Problem43SubStringDivisibility();
+    private final Problem problem44 = new Problem44PentagonNumbers();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -113,6 +115,9 @@ public class Level2Runner extends AbstractRunner {
         problemFinished();
 
         out.println("Problem 43: " + problem43.getMessage() + problem43.runProblem(this));
+        problemFinished();
+
+        out.println("Problem 44: " + problem44.getMessage() + problem44.runProblem(this));
         problemFinished();
     }
 }
