@@ -7,13 +7,14 @@ import de.olilo.util.PrimesIterable;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
-@Draft
 public class Problem51PrimeDigitReplacements implements Problem {
 
     @Override
     public String getMessage() {
-        return "The smallest prime ";
+        return "The smallest prime with an eight prime family (e.g. 56003, 56113, 56333, 56443, 56663, 56773, and 56993 " +
+                "is a seven prime family) is: ";
     }
 
     @Override
@@ -24,11 +25,13 @@ public class Problem51PrimeDigitReplacements implements Problem {
     @Override
     public Number runProblem(Runner runner) throws IOException {
         // FIXME we should have a more clever way to generate the base number (since we have many duplicates this way)
-        for (int baseNumber = 10; baseNumber <= 1_000_000; baseNumber++) {
+        for (int baseNumber : PrimesIterable.INSTANCE) {
             final String baseNumberAsString = String.valueOf(baseNumber);
-            for (Collection<Integer> digitsList : generateDigitSets(baseNumberAsString.length())) {
-                if (getChainLengthFor(baseNumberAsString, digitsList) >= 8) {
-                    return replaceDigits(baseNumberAsString, Set.copyOf(digitsList)).get(0);
+            List<Collection<Integer>> digitsSetList = generateDigitSets(baseNumberAsString.length());
+            digitsSetList = digitsSetList.stream().filter(digitsSet -> digitsSet.size() == 3 || digitsSet.size() >= 5).collect(Collectors.toList());
+            for (Collection<Integer> digitsSet : digitsSetList) {
+                if (getChainLengthFor(baseNumberAsString, digitsSet) >= 8) {
+                    return replaceDigits(baseNumberAsString, digitsSet).get(0);
                 }
             }
         }
