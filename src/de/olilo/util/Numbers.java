@@ -12,7 +12,7 @@ public class Numbers {
 
     public static boolean isTriangleNumber(long n) {
         final double probableTriangleNumber = Math.sqrt(8 * n + 1);
-        return (int) probableTriangleNumber == probableTriangleNumber;
+        return (long) probableTriangleNumber == probableTriangleNumber;
     }
 
     public static boolean isTriangleNumber(BigInteger n) {
@@ -44,9 +44,9 @@ public class Numbers {
         return n * (2 * n - 1);
     }
 
-    public static boolean isHexagonalNumber(int n) {
+    public static boolean isHexagonalNumber(long n) {
         final double probableTriangleNumber = (Math.sqrt(8 * n + 1) + 1) / 4.0;
-        return (int) probableTriangleNumber == probableTriangleNumber;
+        return (long) probableTriangleNumber == probableTriangleNumber;
     }
 
     public static boolean isHexagonalNumber(BigInteger n) {

@@ -88,6 +88,15 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsTriangleNumberBigIntegerBigNumber() {
+        final String number = "12773512180004160017358422501628682971816312484154003989001978315535165885017" +
+                "368903215788601418998005937000053587559473984097175378557804800030178577557583188888401";
+        final boolean expected = true;
+        final boolean actual = Numbers.isTriangleNumber(new BigInteger(number));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetPentagonalNumber() {
         final long expected = 22;
         final long actual = Numbers.getPentagonalNumber(4);
@@ -162,6 +171,15 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsPentagonalNumberBigIntegerBigNumber() {
+        final String number = "38320536540012480052075267504886048915448937452462011967005934946605497655052" +
+                "106699538552944181223471848907890048999870521458508900869233779719714714408133709054001";
+        final boolean expected = true;
+        final boolean actual = Numbers.isPentagonalNumber(new BigInteger(number));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetHexagonalNumber() {
         final long expected = 45;
         final long actual = Numbers.getHexagonalNumber(5);
@@ -207,6 +225,15 @@ public class NumbersTest {
     public void testIsHexagonalNumberBigIntegerFalse() {
         final boolean expected = false;
         final boolean actual = Numbers.isHexagonalNumber(new BigInteger("450000000000000000015000000000000"));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsHexagonalNumberBigIntegerBigNumber() {
+        final String number = "5109404872001664006943369000651473188726524993661601595600791326214066354006947559769" +
+                "9935115562336204804861808279720068790139175662024948269564482782833408969136801";
+        final boolean expected = true;
+        final boolean actual = Numbers.isHexagonalNumber(new BigInteger(number));
         Assert.assertEquals(expected, actual);
     }
 
