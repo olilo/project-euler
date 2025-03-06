@@ -1,17 +1,46 @@
 package de.olilo.euler.level21;
 
+import de.olilo.euler.Draft;
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+import de.olilo.util.PrimesIterable;
+
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-public class Problem517RealRecursion {
+@Draft
+public class Problem517RealRecursion implements Problem {
 
     public BigInteger G(int n) {
         return new FunctionG(Math.sqrt(n)).apply(n);
     }
 
-    private class FunctionG {
+    @Override
+    public String getMessage() {
+        return "The sum of all G(p) where p is a prime number between 10_000_000 and 10_010_000 is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 517;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        BigInteger sum = BigInteger.ZERO;
+        // naive approach runs too long and runs out of memory
+        /*for (int i = 10_000_000; i < 10_010_000; i++) {
+            if (PrimesIterable.INSTANCE.isPrime(i)) {
+                sum = sum.add(new FunctionG(Math.sqrt(i)).apply(i));
+            }
+        }*/
+        return sum.mod(BigInteger.valueOf(1_000_000_007));
+    }
+
+    private static class FunctionG {
 
         private final double a;
         private final Map<Double, BigInteger> cache = new HashMap<>();
@@ -31,7 +60,6 @@ public class Problem517RealRecursion {
             while (!resultStack.isEmpty()) {
                 result = resultStack.pop().getResult();
             }
-            System.out.println(cache.size());
             return result;
         }
 
