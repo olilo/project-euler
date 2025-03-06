@@ -27,6 +27,7 @@ public class Level2Runner extends AbstractRunner {
     private Problem42CodedTriangleNumbers problem42 = new Problem42CodedTriangleNumbers();
     private Problem43SubStringDivisibility problem43 = new Problem43SubStringDivisibility();
     private final Problem problem44 = new Problem44PentagonNumbers();
+    private final Problem problem45 = new Problem45TriangularPentagonalHexagonal();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -118,6 +119,9 @@ public class Level2Runner extends AbstractRunner {
         problemFinished();
 
         out.println("Problem 44: " + problem44.getMessage() + problem44.runProblem(this));
+        problemFinished();
+
+        out.println("Problem 45: " + problem45.getMessage() + problem45.runProblem(this));
         problemFinished();
     }
 }

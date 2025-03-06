@@ -2,6 +2,7 @@ package de.olilo.euler.level2;
 
 import de.olilo.euler.Runner;
 import de.olilo.euler.Problem;
+import de.olilo.util.Numbers;
 import de.olilo.util.Readers;
 
 import java.io.IOException;
@@ -35,21 +36,11 @@ public class Problem42CodedTriangleNumbers implements Problem {
     protected int countTriangleWords(List<String> toTest) {
         int count = 0;
         for (String word : toTest) {
-            if (isTriangleNumber(convertToWordValue(word))){
+            if (Numbers.isTriangleNumber(convertToWordValue(word))){
                 count++;
             }
         }
         return count;
-    }
-
-    protected boolean isTriangleNumber(int number) {
-        int limit = (int) Math.ceil(2 * Math.sqrt(number));
-        for (int n = 1; n <= limit; n++) {
-            if (number == 0.5 * n * (n + 1)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     protected int convertToWordValue(String original) {
