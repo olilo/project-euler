@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class ReflectionBasedRunner extends AbstractRunner {
@@ -75,7 +76,7 @@ public class ReflectionBasedRunner extends AbstractRunner {
                 problem.initialize(this);
                 long start = System.nanoTime();
                 result = problem.runProblem(this);
-                elapsed = (System.nanoTime() - start) / 1000;
+                elapsed = TimeUnit.NANOSECONDS.toMicros (System.nanoTime() - start);
             } catch (IOException e) {
                 out.println("Problem " + problem.getProblemNumber() + " ran into IOException: " + e.getMessage());
                 continue;
