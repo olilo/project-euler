@@ -1,13 +1,40 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.math.BigInteger;
 
-class Problem8GreatestProduct {
+public class Problem8GreatestProduct implements Problem {
 
-    public BigInteger readNumberFrom(Reader input) throws IOException {
+    @Override
+    public void initialize(Runner runner) throws IOException {
+        Problem.super.initialize(runner);
+        runner.addFileReader("8", "problemfiles/problem8number.txt");
+    }
+
+    @Override
+    public String getMessage() {
+        return "The greatest product of thirteen consecutive digits in the given 1000-digit number are: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 8;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        final FileReader fileReader = runner.getFileReader("8");
+        final BigInteger bigNumber = readNumberFrom(fileReader);
+        return greatestProduct(bigNumber, 13);
+    }
+
+    protected BigInteger readNumberFrom(Reader input) throws IOException {
         final StringBuilder number = new StringBuilder();
         try {
             final BufferedReader reader = new BufferedReader(input);
@@ -22,7 +49,7 @@ class Problem8GreatestProduct {
         return new BigInteger(number.toString());
     }
 
-    public long greatestProduct(BigInteger number, int digits) {
+    protected long greatestProduct(BigInteger number, int digits) {
         final String numString = number.toString();
         long max = 0;
         for (int i = 0; i < numString.length() - digits; i++) {

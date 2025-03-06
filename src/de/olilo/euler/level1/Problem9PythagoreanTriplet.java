@@ -1,8 +1,27 @@
 package de.olilo.euler.level1;
 
-class Problem9PythagoreanTriplet {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 
-    public Triplet findPythagoreanTriplet(int sum) {
+public class Problem9PythagoreanTriplet implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The product of a, b and c of the pythagorean triplet for which a+b+c = 1000 is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 9;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        final Triplet result = findPythagoreanTriplet(1000);
+        return result.getProduct();
+    }
+
+    protected Triplet findPythagoreanTriplet(int sum) {
         int a = 1;
         int b = sum / 4;
         int c = sum - b - a;

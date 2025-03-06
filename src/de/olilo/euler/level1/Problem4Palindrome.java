@@ -1,8 +1,26 @@
 package de.olilo.euler.level1;
 
-class Problem4Palindrome {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 
-    public long findBiggestPalindromeFromTwoNDigitedNumbers(int digits) {
+public class Problem4Palindrome implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The biggest palindrome that is the product of two 3-digit numbers is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 4;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return findBiggestPalindromeFromTwoNDigitedNumbers(3);
+    }
+
+    protected long findBiggestPalindromeFromTwoNDigitedNumbers(int digits) {
         long max = (long) Math.pow(10, digits) - 1;
         long min = max - (long) Math.pow(10, digits - 1);
         long number1 = max;
@@ -24,7 +42,7 @@ class Problem4Palindrome {
         return result;
     }
 
-    boolean isPalindrome(long number) {
+    protected boolean isPalindrome(long number) {
         final String original = Long.toString(number);
         return new StringBuilder(original).reverse().toString().equalsIgnoreCase(original);
     }

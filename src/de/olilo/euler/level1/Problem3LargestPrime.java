@@ -4,8 +4,6 @@ import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
 import de.olilo.util.PrimeFactors;
 
-import java.io.IOException;
-
 public class Problem3LargestPrime implements Problem {
 
     @Override
@@ -19,7 +17,7 @@ public class Problem3LargestPrime implements Problem {
     }
 
     @Override
-    public Number runProblem(Runner runner) throws IOException {
+    public Number runProblem(Runner runner) {
         return getLargestPrimeOf(600_851_475_143L);
     }
 

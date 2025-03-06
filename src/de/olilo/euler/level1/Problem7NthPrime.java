@@ -1,8 +1,25 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.PrimesIterable;
 
-class Problem7NthPrime {
+public class Problem7NthPrime implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The 10001st prime number is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 7;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return getNthPrime(10001);
+    }
 
     public int getNthPrime(int n) {
         if (n <= 0) {
