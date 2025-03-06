@@ -46,10 +46,13 @@ public class Numbers {
     }
 
     public static boolean isHexagonalNumber(BigInteger n) {
-        // TODO fixme
         final BigInteger innerNumber = n.multiply(BigInteger.valueOf(8)).add(BigInteger.ONE);
         final BigInteger[] root = innerNumber.sqrtAndRemainder();
-        return root[1].equals(BigInteger.ZERO);
+        if (root[1].equals(BigInteger.ZERO)) {
+            return root[0].add(BigInteger.ONE).mod(BigInteger.valueOf(4)).equals(BigInteger.ZERO);
+        } else {
+            return false;
+        }
     }
 
 }

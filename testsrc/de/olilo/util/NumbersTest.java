@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigInteger;
+import java.util.Random;
 
 public class NumbersTest {
     @Test
@@ -69,6 +70,16 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsTriangleNumberBigIntegerRandom() {
+        final Random random = new Random();
+        final long randomTriangleNumber = Numbers.getTriangleNumber(random.nextInt(1_000_000));
+
+        final boolean expected = true;
+        final boolean actual = Numbers.isTriangleNumber(BigInteger.valueOf(randomTriangleNumber));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetPentagonalNumber() {
         final long expected = 22;
         final long actual = Numbers.getPentagonalNumber(4);
@@ -125,6 +136,16 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsPentagonalNumberBigIntegerRandom() {
+        final Random random = new Random();
+        final long randomPentagonalNumber = Numbers.getPentagonalNumber(random.nextInt(1_000_000));
+
+        final boolean expected = true;
+        final boolean actual = Numbers.isPentagonalNumber(BigInteger.valueOf(randomPentagonalNumber));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetHexagonalNumber() {
         final long expected = 45;
         final long actual = Numbers.getHexagonalNumber(5);
@@ -170,6 +191,16 @@ public class NumbersTest {
     public void testIsHexagonalNumberBigIntegerFalse() {
         final boolean expected = false;
         final boolean actual = Numbers.isHexagonalNumber(new BigInteger("450000000000000000015000000000000"));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsHexagonalNumberBigIntegerRandom() {
+        final Random random = new Random();
+        final long randomHexagonalNumber = Numbers.getHexagonalNumber(random.nextInt(1_000_000));
+
+        final boolean expected = true;
+        final boolean actual = Numbers.isHexagonalNumber(BigInteger.valueOf(randomHexagonalNumber));
         Assert.assertEquals(expected, actual);
     }
 
