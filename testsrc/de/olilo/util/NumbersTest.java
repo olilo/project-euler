@@ -80,6 +80,14 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsTriangleNumberBigIntegerNumberLoop() {
+        for (int n = 10; n < 1_000_000; n++) {
+            final BigInteger toTest = BigInteger.valueOf(Numbers.getTriangleNumber(n) + 5);
+            Assert.assertFalse(n + " is falsely recognized as a triangle number", Numbers.isTriangleNumber(toTest));
+        }
+    }
+
+    @Test
     public void testGetPentagonalNumber() {
         final long expected = 22;
         final long actual = Numbers.getPentagonalNumber(4);
@@ -146,6 +154,14 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsPentagonalBigIntegerNumberLoop() {
+        for (int n = 10; n < 1_000_000; n++) {
+            final BigInteger toTest = BigInteger.valueOf(Numbers.getPentagonalNumber(n) + 5);
+            Assert.assertFalse(n + " is falsely recognized as a pentagonal number", Numbers.isPentagonalNumber(toTest));
+        }
+    }
+
+    @Test
     public void testGetHexagonalNumber() {
         final long expected = 45;
         final long actual = Numbers.getHexagonalNumber(5);
@@ -202,6 +218,14 @@ public class NumbersTest {
         final boolean expected = true;
         final boolean actual = Numbers.isHexagonalNumber(BigInteger.valueOf(randomHexagonalNumber));
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsHexagonalBigIntegerNumberLoop() {
+        for (int n = 10; n < 1_000_000; n++) {
+            final BigInteger toTest = BigInteger.valueOf(Numbers.getHexagonalNumber(n) + 5);
+            Assert.assertFalse(n + " is falsely recognized as a pentagonal number", Numbers.isHexagonalNumber(toTest));
+        }
     }
 
 }

@@ -33,7 +33,11 @@ public class Numbers {
     public static boolean isPentagonalNumber(BigInteger n) {
         final BigInteger innerNumber = n.multiply(BigInteger.valueOf(24)).add(BigInteger.ONE);
         final BigInteger[] root = innerNumber.sqrtAndRemainder();
-        return root[1].equals(BigInteger.ZERO);
+        if (root[1].equals(BigInteger.ZERO)) {
+            return root[0].add(BigInteger.ONE).mod(BigInteger.valueOf(6)).equals(BigInteger.ZERO);
+        } else {
+            return false;
+        }
     }
 
     public static long getHexagonalNumber(long n) {
