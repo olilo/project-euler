@@ -36,7 +36,7 @@ public class ReflectionBasedRunner extends AbstractRunner {
     }
 
     @Override
-    public void runProblems(PrintStream out) throws IOException {
+    public void runProblems(PrintStream out) {
         List<Problem> problems = findAllProblems();
 
         if (!this.problemsToRun.isEmpty()) {
@@ -57,11 +57,14 @@ public class ReflectionBasedRunner extends AbstractRunner {
             ClassInfoList problemClasses = scanResult.getClassesImplementing("de.olilo.euler.Problem");
             problems = new ArrayList<>();
             for (Class<? extends Problem> problemClass : problemClasses.loadClasses(Problem.class)) {
-                problems.add(problemClass.getConstructor().newInstance());
+                try {
+                    problems.add(problemClass.getConstructor().newInstance());
+                } catch (NoSuchMethodException e) {
+                    System.out.println("Could not find empty public constructor for " + problemClass + " - maybe class is not public?");
+                } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                    System.out.println("Could not instantiate " + problemClass + " - maybe class is not public?");
+                }
             }
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
-            // TODO Can we do something here besides throw an exception?
-            throw new RuntimeException(e);
         }
 
         return problems;
