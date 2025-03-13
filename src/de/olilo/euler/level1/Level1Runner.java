@@ -97,7 +97,7 @@ public class Level1Runner extends AbstractRunner {
 
     private void runProblems11To15(final PrintStream out) throws IOException {
         out.println("Problem 11: Greatest product in grid: " +
-                problem11.findGreatestProductIn(new GridReader(getFileReader("11")).readGrid(), new GridFactorCount(4)));
+                problem11.findGreatestProductIn(new GridReader(getFileReader("11")).readGrid(), new Problem11GridProduct.GridFactorCount(4)));
         problemFinished();
 
         out.println("Problem 12: First Triangular number that has at least 500 divisors: " +

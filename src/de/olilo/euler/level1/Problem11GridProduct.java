@@ -1,8 +1,38 @@
 package de.olilo.euler.level1;
 
-class Problem11GridProduct {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+import de.olilo.util.GridReader;
 
-    public long findGreatestProductIn(int[][] grid, GridFactorCount factorCount) {
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Problem11GridProduct implements Problem {
+
+    @Override
+    public void initialize(Runner runner) throws IOException {
+        Problem.super.initialize(runner);
+        runner.addFileReader("11", "problemfiles/problem11grid.txt");
+    }
+
+    @Override
+    public String getMessage() {
+        return "The greatest product in the given grid (problem11grid.txt) is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 11;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        final FileReader gridReader = runner.getFileReader("11");
+        int[][] grid = new GridReader(gridReader).readGrid();
+        return findGreatestProductIn(grid, new GridFactorCount(4));
+    }
+
+    protected long findGreatestProductIn(int[][] grid, GridFactorCount factorCount) {
         // brute force approach
         long maxProduct = findGreatestProductInRows(grid, factorCount);
         maxProduct = Math.max(maxProduct, findGreatestProductInColumns(grid, factorCount));
@@ -60,6 +90,22 @@ class Problem11GridProduct {
         }
 
         return maxProduct;
+    }
+
+    /**
+     * Simple immutable wrapper around the amount of factors taken into account in problem 11 (in the grid).
+     */
+    public static class GridFactorCount {
+
+        private final int count;
+
+        public GridFactorCount(final int count) {
+            this.count = count;
+        }
+
+        public int getCount() {
+            return count;
+        }
     }
 
 }

@@ -15,7 +15,7 @@ public class Problem11GridProductTest {
 
         // largest is 2 * 5 * 8 (horizontally in top row)
         final long expected = 80;
-        final long actual = new Problem11GridProduct().findGreatestProductIn(testGrid, new GridFactorCount(3));
+        final long actual = new Problem11GridProduct().findGreatestProductIn(testGrid, new Problem11GridProduct.GridFactorCount(3));
         Assert.assertEquals(expected, actual);
     }
 
@@ -30,7 +30,7 @@ public class Problem11GridProductTest {
 
         // largest is 8 * 2 * 8 (vertically in last column)
         final long expected = 128;
-        final long actual = new Problem11GridProduct().findGreatestProductIn(testGrid, new GridFactorCount(3));
+        final long actual = new Problem11GridProduct().findGreatestProductIn(testGrid, new Problem11GridProduct.GridFactorCount(3));
         Assert.assertEquals(expected, actual);
     }
 
@@ -46,7 +46,8 @@ public class Problem11GridProductTest {
 
         // largest is 9 * 9 * 8 (diagonally from bottom left)
         final long expected = 648;
-        final long actual = new Problem11GridProduct().findGreatestProductIn(testGrid, new GridFactorCount(3));
+        final long actual = new Problem11GridProduct().findGreatestProductIn(testGrid, new Problem11GridProduct.GridFactorCount(3));
         Assert.assertEquals(expected, actual);
     }
+
 }
