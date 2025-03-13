@@ -23,16 +23,6 @@ public class Problem13LargeSumTest {
     }
 
     @Test
-    public void testSumOf() throws Exception {
-        final List<BigInteger> largeNumbers = new ArrayList<BigInteger>();
-        largeNumbers.add(new BigInteger("23424324324"));
-        largeNumbers.add(new BigInteger("12141121231"));
-        final BigInteger expected = new BigInteger("35565445555");
-        final BigInteger actual = new Problem13LargeSum().sumOf(largeNumbers);
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
     public void testFirstTenDigitsOf() throws Exception {
         final BigInteger largeNumber = new BigInteger("42325133111453462414143141412");
         final String expected = "4232513311";

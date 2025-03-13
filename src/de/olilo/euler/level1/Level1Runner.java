@@ -5,6 +5,7 @@ import de.olilo.util.GridReader;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.math.BigInteger;
 import java.util.*;
 
 public class Level1Runner extends AbstractRunner {
@@ -105,7 +106,7 @@ public class Level1Runner extends AbstractRunner {
         problemFinished();
 
         out.println("Problem 13: First ten digits of sum of numbers: " +
-                problem13.firstTenDigitsOf(problem13.sumOf(problem13.readNumbersFrom(getFileReader("13")))));
+                problem13.firstTenDigitsOf(problem13.readNumbersFrom(getFileReader("13")).stream().reduce(BigInteger.ZERO, BigInteger::add)));
         problemFinished();
 
         out.println("Problem 14: Longest Collatz sequence under 1 million: " +

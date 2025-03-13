@@ -27,7 +27,6 @@ public class Problem44PentagonalNumbers implements Problem {
                 // the difference between the first two pentagonal numbers we encounter which satisfy the condition
                 // is the minimal difference
                 if (isDifferenceAndSumPentagonalOf(i, j)) {
-                    System.out.println(i + ", " + j);
                     return Math.abs(Numbers.getPentagonalNumber(i) - Numbers.getPentagonalNumber(j));
                 }
             }
