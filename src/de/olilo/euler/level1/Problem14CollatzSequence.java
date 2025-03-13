@@ -1,44 +1,69 @@
 package de.olilo.euler.level1;
 
-class Problem14CollatzSequence {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 
-    public int findLongestSequenceUnder(int limit) {
-        // make a buffer of the found lengths at each int value
-        int[] lengths = new int[limit];
-        for (int i = 1; i < limit; i++) {
-            lengths[i] = getCollatzLength(lengths, i);
-        }
+import java.util.ArrayList;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.IntStream;
 
-        int max = 0;
-        int maxId = 0;
-        for (int i = 0; i < lengths.length; i++) {
-            if (lengths[i] > max) {
-                maxId = i;
-                max = lengths[i];
-            }
-        }
-        return maxId;
+public class Problem14CollatzSequence implements Problem {
+
+    private final List<Integer> collatzSequenceCache = new ArrayList<>();
+
+    @Override
+    public String getMessage() {
+        return "The longest Collatz sequence with a starting point of under 1 million is: ";
     }
 
-    int getCollatzLength(int[] lengths, int i) {
+    @Override
+    public int getProblemNumber() {
+        return 14;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return findLongestSequenceUnder(1_000_000);
+    }
+
+    protected int findLongestSequenceUnder(int limit) {
+        // make a cache of the found lengths at each int value
+        collatzSequenceCache.clear();
+        collatzSequenceCache.add(1);
+        for (int i = 1; i < limit; i++) {
+            collatzSequenceCache.add(getCollatzLength(i));
+        }
+
+        // find the index with the longest sequence from our cache
+        final OptionalInt result = IntStream.range(0, collatzSequenceCache.size())
+                .reduce((i, j) -> collatzSequenceCache.get(i) > collatzSequenceCache.get(j) ? i : j);
+        if (result.isPresent()) {
+            return result.getAsInt();
+        } else {
+            throw new IllegalStateException("Collatz sequence cache does not contain any values");
+        }
+    }
+
+    protected int getCollatzLength(int i) {
         int length = 1;
-        long current = i;
-        while (current != 1) {
+        for (long current = i; current > 1; current = getNextCollatzNumber(current)) {
             // check whether we already have a length
-            if (current < lengths.length && lengths[(int) current] > 0) {
-                length += lengths[(int) current] - 1;
-                break;
+            if (current < collatzSequenceCache.size() && collatzSequenceCache.get((int) current) > 0) {
+                return length + collatzSequenceCache.get((int) current) - 1;
             } else {
                 length++;
             }
-
-            if (current % 2 == 0) {
-                current /= 2;
-            } else {
-                current = 3 * current + 1;
-            }
         }
         return length;
+    }
+
+    protected long getNextCollatzNumber(long previousCollatzNumber) {
+        if (previousCollatzNumber % 2 == 0) {
+            return previousCollatzNumber / 2;
+        } else {
+            return 3 * previousCollatzNumber + 1;
+        }
     }
 
 }
