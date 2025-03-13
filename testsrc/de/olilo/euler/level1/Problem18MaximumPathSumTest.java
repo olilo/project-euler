@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem18MaximumPathSumTest {
+
     @Test
     public void testMaximumPathSumOf() throws Exception {
         final int[][] input = new int[][] {
@@ -35,4 +36,5 @@ public class Problem18MaximumPathSumTest {
         final long actual = new Problem18MaximumPathSum().maximumPathSumOf(input);
         Assert.assertEquals(expected, actual);
     }
+
 }

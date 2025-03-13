@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class Problem19CountingSundaysTest {
+
     @Test
     public void testCountFirstOfMonthIsSundayBetween() throws Exception {
         final Calendar calendar = Calendar.getInstance();
@@ -32,4 +33,5 @@ public class Problem19CountingSundaysTest {
         final int actual = new Problem19CountingSundays().countFirstOfMonthIsSundayBetween(start, finish);
         Assert.assertEquals(expected, actual);
     }
+
 }

@@ -34,4 +34,5 @@ public class Problem42CodedTriangleNumbersTest {
         final int actual = new Problem42CodedTriangleNumbers().countTriangleWords(List.of("SKY", "ape", "AbLe"));
         Assert.assertEquals(expected, actual);
     }
+
 }

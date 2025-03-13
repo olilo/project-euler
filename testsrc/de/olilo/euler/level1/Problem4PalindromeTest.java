@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem4PalindromeTest {
+
     @Test
     public void testFindBiggestPalindromeFromTwoNDigitedNumbers() throws Exception {
         final long expected = 9009;
@@ -20,4 +21,5 @@ public class Problem4PalindromeTest {
     public void testIsPalindrome4939() throws Exception {
         Assert.assertFalse(new Problem4Palindrome().isPalindrome(4939));
     }
+
 }

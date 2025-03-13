@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Problem52PermutedMultiples implements Problem {
+
     @Override
     public String getMessage() {
         return "The smallest integer that is a permuted multiple of itself and 2x, 3x, 4x, 5x and 6x of itself is: ";
@@ -51,4 +52,5 @@ public class Problem52PermutedMultiples implements Problem {
         Collections.sort(digits);
         return digits;
     }
+
 }

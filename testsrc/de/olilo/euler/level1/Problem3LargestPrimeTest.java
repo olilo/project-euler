@@ -8,6 +8,7 @@ import org.junit.Test;
  * @since 0.0
  */
 public class Problem3LargestPrimeTest {
+
     @Test
     public void testGetLargestPrimeOf13195() throws Exception {
         long expected = 29;
@@ -21,4 +22,5 @@ public class Problem3LargestPrimeTest {
         long actual = new Problem3LargestPrime().getLargestPrimeOf(29);
         Assert.assertEquals(expected, actual);
     }
+
 }

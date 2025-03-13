@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class PrimeFactorsTest {
+
     @Test
     public void testOf() throws Exception {
         final int[] expected = new int[] {2, 2, 3, 5};
@@ -59,4 +60,5 @@ public class PrimeFactorsTest {
         final int actual = PrimeFactors.countDistinct(0);
         Assert.assertEquals(expected, actual);
     }
+
 }

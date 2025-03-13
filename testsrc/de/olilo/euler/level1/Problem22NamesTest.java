@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Problem22NamesTest {
+
     @Test
     public void testSumOfNameScores() throws Exception {
         final String input = "\"MARY\",\"COLIN\"";  // (13 + 1 + 18 + 25), (3 + 15 + 12 + 9 + 14)
@@ -35,4 +36,5 @@ public class Problem22NamesTest {
         final int actual = new Problem22Names().valueOf(input, 1);
         Assert.assertEquals(expected, actual);
     }
+
 }

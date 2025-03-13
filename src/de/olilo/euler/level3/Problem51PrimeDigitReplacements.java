@@ -1,6 +1,5 @@
 package de.olilo.euler.level3;
 
-import de.olilo.euler.Draft;
 import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
 import de.olilo.util.PrimesIterable;
@@ -96,4 +95,5 @@ public class Problem51PrimeDigitReplacements implements Problem {
         }
         return number.substring(n);
     }
+
 }

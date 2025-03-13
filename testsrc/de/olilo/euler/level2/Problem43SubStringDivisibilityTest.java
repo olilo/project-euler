@@ -27,4 +27,5 @@ public class Problem43SubStringDivisibilityTest {
         final boolean actual = new Problem43SubStringDivisibility().isSubDivisible(List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
         Assert.assertEquals(expected, actual);
     }
+
 }

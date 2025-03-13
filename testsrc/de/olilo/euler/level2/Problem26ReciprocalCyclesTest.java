@@ -50,4 +50,5 @@ public class Problem26ReciprocalCyclesTest {
         final int actual = new Problem26ReciprocalCycles().getUnitFractionWithLongestRecurringCycle(10);
         Assert.assertEquals(expected, actual);
     }
+
 }

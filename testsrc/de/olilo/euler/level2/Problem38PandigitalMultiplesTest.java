@@ -39,4 +39,5 @@ public class Problem38PandigitalMultiplesTest {
         final boolean actual = new Problem38PandigitalMultiples().getBiggestPandigitalProduct() > 0;
         Assert.assertEquals(expected, actual);
     }
+
 }

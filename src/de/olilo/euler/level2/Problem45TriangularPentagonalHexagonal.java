@@ -4,9 +4,8 @@ import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
 import de.olilo.util.Numbers;
 
-import java.io.IOException;
-
 public class Problem45TriangularPentagonalHexagonal implements Problem {
+
     @Override
     public String getMessage() {
         return "The next triangle, pentagonal and hexagonal number after 40755 is: ";
@@ -18,7 +17,7 @@ public class Problem45TriangularPentagonalHexagonal implements Problem {
     }
 
     @Override
-    public Number runProblem(Runner runner) throws IOException {
+    public Number runProblem(Runner runner) {
         return findTrianglePentagonalAndHexagonalAfter(143);
     }
 

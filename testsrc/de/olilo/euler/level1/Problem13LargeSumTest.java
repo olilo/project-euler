@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Problem13LargeSumTest {
+
     @Test
     public void testReadNumbersFrom() throws Exception {
         final StringReader reader = new StringReader(
@@ -38,4 +39,5 @@ public class Problem13LargeSumTest {
         final String actual = new Problem13LargeSum().firstTenDigitsOf(largeNumber);
         Assert.assertEquals(expected, actual);
     }
+
 }

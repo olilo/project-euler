@@ -42,4 +42,5 @@ public class Problem23NonAbundantSumsTest {
         final int actual = new Problem23NonAbundantSums().sumOfNonAbundantSumsUntil(25);
         Assert.assertEquals(expected, actual);
     }
+
 }

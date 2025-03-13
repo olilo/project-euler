@@ -59,4 +59,5 @@ public class Problem31CoinSumsTest {
         final int actual = new Problem31CoinSums().getPossibleSolutionsFor(20).size();
         Assert.assertEquals(expected, actual);
     }
+
 }

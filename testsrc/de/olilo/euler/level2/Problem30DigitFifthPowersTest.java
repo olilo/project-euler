@@ -11,4 +11,5 @@ public class Problem30DigitFifthPowersTest {
         final int actual = new Problem30DigitFifthPowers().getDigitFifthPowers(221);
         Assert.assertEquals(expected, actual);
     }
+
 }

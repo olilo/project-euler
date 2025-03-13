@@ -6,6 +6,7 @@ import java.math.BigInteger;
  * TODO documentation
  */
 public class Numbers {
+
     public static long getTriangleNumber(long n) {
         return n * (n + 1) / 2;
     }

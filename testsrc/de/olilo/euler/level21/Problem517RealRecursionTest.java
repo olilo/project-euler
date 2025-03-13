@@ -28,4 +28,5 @@ public class Problem517RealRecursionTest {
         final BigInteger actual = new Problem517RealRecursion().G(6_000);
         Assert.assertEquals(expected, actual);
     }
+
 }

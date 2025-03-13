@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem2FibonacciTest {
+
     @Test
     public void testSolve15() throws Exception {
         long expected = 10L;
@@ -17,4 +18,5 @@ public class Problem2FibonacciTest {
         long actual = new Problem2Fibonacci().solve(40);
         Assert.assertEquals(expected, actual);
     }
+
 }

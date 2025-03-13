@@ -32,4 +32,5 @@ public class Problem37TruncatablePrimesTest {
         final int actual = new Problem37TruncatablePrimes().findAllTruncatablePrimes().size();
         Assert.assertEquals(expected, actual);
     }
+
 }

@@ -45,4 +45,5 @@ class LongestDurationStatistic {
         result = 31 * result + index;
         return result;
     }
+
 }

@@ -49,4 +49,5 @@ public class Problem41PandigitalPrime implements Problem {
 
         return largestFoundPandigitalPrime;
     }
+
 }

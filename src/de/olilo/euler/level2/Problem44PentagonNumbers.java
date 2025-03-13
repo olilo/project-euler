@@ -7,6 +7,7 @@ import de.olilo.util.Numbers;
 import java.io.IOException;
 
 public class Problem44PentagonNumbers implements Problem {
+
     @Override
     public String getMessage() {
         return "The smallest difference of two pentagonal numbers whose difference and sum are pentagonal too is: ";
@@ -39,4 +40,5 @@ public class Problem44PentagonNumbers implements Problem {
 
         return -1;
     }
+
 }

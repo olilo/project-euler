@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Level2RunnerTest {
+
     @Test
     public void testRunProblemsWith() throws Exception {
         final PrintStream dummyStream = new PrintStream(new OutputStream() {
@@ -55,4 +56,5 @@ public class Level2RunnerTest {
         final int actual = runner.countFinishedProblems();
         Assert.assertEquals(expected, actual);
     }
+
 }

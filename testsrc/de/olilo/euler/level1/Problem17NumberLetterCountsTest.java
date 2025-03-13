@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem17NumberLetterCountsTest {
+
     @Test
     public void testCountLettersInNumberWordsFrom1To5() throws Exception {
         final long expected = 19;
@@ -24,4 +25,5 @@ public class Problem17NumberLetterCountsTest {
         final long actual = new Problem17NumberLetterCounts().getWordLengthOfNumber(52141);
         Assert.assertEquals(expected, actual);
     }
+
 }

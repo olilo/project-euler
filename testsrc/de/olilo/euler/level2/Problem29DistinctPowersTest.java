@@ -11,4 +11,5 @@ public class Problem29DistinctPowersTest {
         final int actual = new Problem29DistinctPowers().getDistinctPowersOf2To(5, 5).size();
         Assert.assertEquals(expected, actual);
     }
+
 }

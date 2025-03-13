@@ -25,4 +25,5 @@ public class Problem35CircularPrimesTest {
         final int actual = new Problem35CircularPrimes().getCircularPrimesUntil(100).size();
         Assert.assertEquals(expected, actual);
     }
+
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class EulerProblemsTest {
+
     @Test
     public void testAverageOf() throws Exception {
         final long start = 1L;
@@ -45,4 +46,5 @@ public class EulerProblemsTest {
         final LongestDurationStatistic actual = EulerProblems.findLongestRuntime(timestamps, start);
         Assert.assertEquals(expected, actual);
     }
+
 }

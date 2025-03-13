@@ -11,4 +11,5 @@ public class Problem25FibonacciNumberTest {
         final int actual = new Problem25FibonacciNumber().fibonacciIndexWithDigitCount(3);
         Assert.assertEquals(expected, actual);
     }
+
 }

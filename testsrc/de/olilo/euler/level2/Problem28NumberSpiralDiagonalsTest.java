@@ -25,4 +25,5 @@ public class Problem28NumberSpiralDiagonalsTest {
         final int actual = new Problem28NumberSpiralDiagonals().getNumberSpiralDiagonalsFor(7);
         Assert.assertEquals(expected, actual);
     }
+
 }

@@ -18,4 +18,5 @@ public class Problem27QuadraticPrimesTest {
         final int actual = new Problem27QuadraticPrimes().getQuadraticPrimes(-79, 1601).length;
         Assert.assertEquals(expected, actual);
     }
+
 }

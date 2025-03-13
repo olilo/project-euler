@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.List;
 
 public class Problem42CodedTriangleNumbers implements Problem {
+
     @Override
     public void initialize(Runner runner) throws IOException {
         runner.addFileReader("42", "problemfiles/problem42words.txt");

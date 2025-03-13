@@ -99,4 +99,5 @@ public enum PrimesIterable implements Iterable<Integer> {
             throw new UnsupportedOperationException();
         }
     }
+
 }

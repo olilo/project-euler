@@ -76,4 +76,5 @@ public class Problem40ChampernownesConstantTest {
         final int actual = new Problem40ChampernownesConstant().getDigitProduct(10, 2);
         Assert.assertEquals(expected, actual);
     }
+
 }

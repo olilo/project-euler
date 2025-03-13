@@ -39,4 +39,5 @@ public class Problem36DoubleBasePalindromesTest {
         final int actual = new Problem36DoubleBasePalindromes().findPalindromesInBaseTenAndTwoUntil(10).size();
         Assert.assertEquals(expected, actual);
     }
+
 }

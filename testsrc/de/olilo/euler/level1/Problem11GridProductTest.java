@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem11GridProductTest {
+
     @Test
     public void testFindLargestProductInWithRowGreatest() throws Exception {
         final int[][] testGrid = {

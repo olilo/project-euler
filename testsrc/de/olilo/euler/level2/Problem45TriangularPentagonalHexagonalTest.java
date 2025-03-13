@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem45TriangularPentagonalHexagonalTest {
+
     @Test
     public void testFindTrianglePentagonalAndHexagonalAfter() {
         final long expected = 1533776805L;
@@ -17,4 +18,5 @@ public class Problem45TriangularPentagonalHexagonalTest {
         final long actual = new Problem45TriangularPentagonalHexagonal().findTrianglePentagonalAndHexagonalAfter(1);
         Assert.assertEquals(expected, actual);
     }
+
 }

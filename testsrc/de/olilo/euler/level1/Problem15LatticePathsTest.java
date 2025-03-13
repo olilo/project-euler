@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem15LatticePathsTest {
+
     @Test
     public void testLatticePathsThroughGridWithLength1() throws Exception {
         final long expected = 2;
@@ -24,4 +25,5 @@ public class Problem15LatticePathsTest {
         final long actual = new Problem15LatticePaths().latticePathsThroughGridWithLength(3);
         Assert.assertEquals(expected, actual);
     }
+
 }

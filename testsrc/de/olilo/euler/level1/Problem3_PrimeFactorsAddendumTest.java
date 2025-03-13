@@ -13,4 +13,5 @@ public class Problem3_PrimeFactorsAddendumTest {
         BigInteger actual = new Problem3PrimeFactorsAddendum().findSmallestNumberWithNDistinctPrimeFactors(5);
         Assert.assertEquals(expected, actual);
     }
+
 }

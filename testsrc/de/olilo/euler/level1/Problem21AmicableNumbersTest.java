@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class Problem21AmicableNumbersTest {
+
     @Test
     public void testAreAmicableNumbers() throws Exception {
         Assert.assertTrue(new Problem21AmicableNumbers().areAmicableNumbers(220, 284));
@@ -20,4 +21,5 @@ public class Problem21AmicableNumbersTest {
         final long actual = new Problem21AmicableNumbers().sumOfAmicableNumbersUntil(285);
         Assert.assertEquals(expected, actual);
     }
+
 }

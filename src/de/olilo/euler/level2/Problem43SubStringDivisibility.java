@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Problem43SubStringDivisibility implements Problem {
+
     @Override
     public String getMessage() {
         return "The sum of all pandigital numbers (with 0 to 9) with sub-string divisibility" +
@@ -57,4 +58,5 @@ public class Problem43SubStringDivisibility implements Problem {
         }
         return true;
     }
+
 }

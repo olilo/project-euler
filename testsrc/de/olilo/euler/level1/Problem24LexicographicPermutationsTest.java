@@ -25,4 +25,5 @@ public class Problem24LexicographicPermutationsTest {
         final int[] actual = new Problem24LexicographicPermutations().nthPermutationOf(new int[] {0, 1, 2, 3}, 8);
         Assert.assertArrayEquals(expected, actual);
     }
+
 }

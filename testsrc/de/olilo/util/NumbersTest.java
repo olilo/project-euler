@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import java.util.Random;
 
 public class NumbersTest {
+
     @Test
     public void testGetTriangleNumber() {
         final long expected = 28;

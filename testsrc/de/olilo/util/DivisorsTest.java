@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class DivisorsTest {
+
     @Test
     public void testOf() throws Exception {
         final long[] expected = {1, 2, 4, 7, 14, 28};

@@ -6,6 +6,7 @@ import org.junit.Test;
 import static de.olilo.euler.level1.Problem9PythagoreanTriplet.*;
 
 public class Problem9PythagoreanTripletTest {
+
     @Test
     public void testFindPythagoreanTriplet() throws Exception {
         final Triplet expected = new Triplet(3, 4, 5);
@@ -51,4 +52,5 @@ public class Problem9PythagoreanTripletTest {
         final Triplet t2 = new Triplet(3, 4, 5);
         Assert.assertEquals(t1.hashCode(), t2.hashCode());
     }
+
 }
