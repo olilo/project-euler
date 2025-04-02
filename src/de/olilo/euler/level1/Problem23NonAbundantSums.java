@@ -1,20 +1,37 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.Divisors;
 
 import java.util.HashSet;
 import java.util.Set;
 
-class Problem23NonAbundantSums {
+public class Problem23NonAbundantSums implements Problem {
 
-    private Set<Integer> abundantNumbers = new HashSet<>();
+    private final Set<Integer> abundantNumbers = new HashSet<>();
     private int biggestAbundantNumber = 0;
+
+    @Override
+    public String getMessage() {
+        return "The sum of all the positive integers which cannot be written as the sum of two abundant numbers is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 23;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return sumOfNonAbundantSumsUntil(28123);
+    }
 
     public boolean isAbundantNumber(int number) {
         return Divisors.sum(number) > number;
     }
 
-    void findNextAbundantNumber() {
+    protected void findNextAbundantNumber() {
         int current = biggestAbundantNumber + 1;
         while (!isAbundantNumber(current)) {
             current++;
@@ -45,4 +62,5 @@ class Problem23NonAbundantSums {
         }
         return sum;
     }
+
 }

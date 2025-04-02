@@ -1,13 +1,30 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.Divisors;
 
 import java.util.HashMap;
 import java.util.Map;
 
-class Problem21AmicableNumbers {
+public class Problem21AmicableNumbers implements Problem {
 
-    private final Map<Long, Long> divisorSumCache = new HashMap<Long, Long>();
+    private final Map<Long, Long> divisorSumCache = new HashMap<>();
+
+    @Override
+    public String getMessage() {
+        return "The sum of all amicable numbers under 10,000 is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 21;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return sumOfAmicableNumbersUntil(10_000);
+    }
 
     public long sumOfAmicableNumbersUntil(long limit) {
         long sum = 0;
@@ -16,7 +33,6 @@ class Problem21AmicableNumbers {
             if (i < j && areAmicableNumbers(i, j)) {
                 sum += i;
                 sum += j;
-                System.out.println("Found: " + i + "/" + j);
             }
         }
         return sum;
@@ -26,18 +42,18 @@ class Problem21AmicableNumbers {
         return number1 == getDivisorSum(number2) && getDivisorSum(number1) == number2;
     }
 
-    long getDivisorSum(long number1) {
-        if (divisorSumCache.containsKey(number1)) {
-            return divisorSumCache.get(number1);
+    protected long getDivisorSum(long number) {
+        if (divisorSumCache.containsKey(number)) {
+            return divisorSumCache.get(number);
         } else {
-            final long[] number1Divisors = Divisors.of(number1);
+            final long[] number1Divisors = Divisors.of(number);
             final long number1DivisorsSum = sumExceptLast(number1Divisors);
-            divisorSumCache.put(number1, number1DivisorsSum);
+            divisorSumCache.put(number, number1DivisorsSum);
             return number1DivisorsSum;
         }
     }
 
-    static long sumExceptLast(long[] divisors) {
+    protected static long sumExceptLast(long[] divisors) {
         long sum = 0;
         for (int i = 0; i < divisors.length - 1; i++) {
             sum += divisors[i];

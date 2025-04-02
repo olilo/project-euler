@@ -1,8 +1,27 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
 import java.math.BigInteger;
 
-class Problem20FactorialDigitSum {
+public class Problem20FactorialDigitSum implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The sum of the digits in the number 100! is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 20;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return getFactorialDigitSum(100);
+    }
 
     public int getFactorialDigitSum(int upTo) {
         BigInteger factorial = BigInteger.ONE;

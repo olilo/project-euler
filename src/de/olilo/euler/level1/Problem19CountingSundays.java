@@ -1,10 +1,33 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-class Problem19CountingSundays {
+public class Problem19CountingSundays implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The number of sundays that fell on the first of the month in the twentieth century are: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 19;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        final Calendar calendar = Calendar.getInstance();
+        calendar.set(1901, Calendar.JANUARY, 1);
+        final Date start = calendar.getTime();
+        calendar.set(2000, Calendar.DECEMBER, 31);
+        final Date finish = calendar.getTime();
+        return countFirstOfMonthIsSundayBetween(start, finish);
+    }
 
     public int countFirstOfMonthIsSundayBetween(final Date start, final Date finish) {
         final Calendar finishCalendar = new GregorianCalendar();
