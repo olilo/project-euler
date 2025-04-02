@@ -4,12 +4,16 @@ import io.github.classgraph.ClassGraph;
 import io.github.classgraph.ClassInfoList;
 import io.github.classgraph.ScanResult;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class ReflectionBasedRunner extends AbstractRunner {
@@ -17,11 +21,6 @@ public class ReflectionBasedRunner extends AbstractRunner {
     private long startTime;
 
     private final List<Integer> problemsToRun = new ArrayList<>();
-
-    @Override
-    protected void initFileReaders() throws IOException {
-        // file readers are added inside the Problem instances
-    }
 
     public void setStartTime(long startTime) {
         this.startTime = startTime;
@@ -33,6 +32,21 @@ public class ReflectionBasedRunner extends AbstractRunner {
 
     public void setProblemsToRun(List<Integer> problems) {
         this.problemsToRun.addAll(problems);
+    }
+
+    @Override
+    protected void initFileReaders() throws IOException {
+        final File filesDirectory = new File("problemfiles");
+        final Pattern filePattern = Pattern.compile("problem(\\d+).*");
+        for (final File problemFile : Objects.requireNonNull(filesDirectory.listFiles())) {
+            if (problemFile.isFile()) {
+                final Matcher matcher = filePattern.matcher(problemFile.getName());
+                if (matcher.find()) {
+                    final String problemNumber = matcher.group(1);
+                    addFileReader(problemNumber, problemFile.toString());
+                }
+            }
+        }
     }
 
     @Override

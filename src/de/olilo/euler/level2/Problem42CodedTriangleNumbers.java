@@ -12,11 +12,6 @@ import java.util.List;
 public class Problem42CodedTriangleNumbers implements Problem {
 
     @Override
-    public void initialize(Runner runner) throws IOException {
-        runner.addFileReader("42", "problemfiles/problem42words.txt");
-    }
-
-    @Override
     public String getMessage() {
         return "If each letter is converted to a number (A=1, B=2, etc.)," +
                 "these many words out of 2000 common words are triangle numbers: ";

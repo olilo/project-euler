@@ -10,12 +10,6 @@ import java.io.IOException;
 public class Problem11GridProduct implements Problem {
 
     @Override
-    public void initialize(Runner runner) throws IOException {
-        Problem.super.initialize(runner);
-        runner.addFileReader("11", "problemfiles/problem11grid.txt");
-    }
-
-    @Override
     public String getMessage() {
         return "The greatest product in the given grid (problem11grid.txt) is: ";
     }

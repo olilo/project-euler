@@ -13,12 +13,6 @@ import java.util.List;
 public class Problem13LargeSum implements Problem {
 
     @Override
-    public void initialize(Runner runner) throws IOException {
-        Problem.super.initialize(runner);
-        runner.addFileReader("13", "problemfiles/problem13numbers.txt");
-    }
-
-    @Override
     public String getMessage() {
         return "The first ten digits of the sum of the numbers in problem13numbers.txt are: ";
     }

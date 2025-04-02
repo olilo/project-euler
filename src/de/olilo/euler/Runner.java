@@ -7,8 +7,6 @@ import java.util.Map;
 
 public interface Runner {
 
-    void addFileReader(String alias, String filename) throws IOException;
-
     FileReader getFileReader(String alias);
 
     Map<Integer, Long> runProblemsWith(final PrintStream out) throws IOException;

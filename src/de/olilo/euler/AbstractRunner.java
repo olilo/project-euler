@@ -14,17 +14,9 @@ public abstract class AbstractRunner implements Runner {
 
     protected final Map<String, FileReader> fileReaders = new LinkedHashMap<>();
 
-    public void addFileReader(String alias, String filename) throws IOException {
+    protected void addFileReader(String alias, String filename) throws IOException {
         fileReaders.put(alias, new FileReader(filename));
     }
-
-    public FileReader getFileReader(String alias) {
-        return fileReaders.get(alias);
-    }
-
-    protected abstract void initFileReaders() throws IOException;
-
-    public abstract void runProblems(final PrintStream out) throws IOException;
 
     protected void closeFileReaders() throws IOException {
         for (final FileReader fileReader : fileReaders.values()) {
@@ -32,14 +24,6 @@ public abstract class AbstractRunner implements Runner {
         }
     }
 
-    @Override
-    public Map<Integer, Long> runProblemsWith(final PrintStream out) throws IOException {
-        initFileReaders();
-        runProblems(out);
-        closeFileReaders();
-
-        return timestamps;
-    }
 
     public int countFinishedProblems() {
         return timestamps.size();
@@ -51,6 +35,29 @@ public abstract class AbstractRunner implements Runner {
 
     public void problemFinished(Problem problem) {
         timestamps.put(problem.getProblemNumber(), System.currentTimeMillis());
+    }
+
+
+    protected abstract void initFileReaders() throws IOException;
+
+    public abstract void runProblems(final PrintStream out) throws IOException;
+
+
+    @Override
+    public FileReader getFileReader(String alias) {
+        return fileReaders.get(alias);
+    }
+
+    @Override
+    public Map<Integer, Long> runProblemsWith(final PrintStream out) throws IOException {
+        try {
+            initFileReaders();
+            runProblems(out);
+        } finally {
+            closeFileReaders();
+        }
+
+        return timestamps;
     }
 
 }

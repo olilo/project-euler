@@ -12,12 +12,6 @@ import java.math.BigInteger;
 public class Problem8GreatestProduct implements Problem {
 
     @Override
-    public void initialize(Runner runner) throws IOException {
-        Problem.super.initialize(runner);
-        runner.addFileReader("8", "problemfiles/problem8number.txt");
-    }
-
-    @Override
     public String getMessage() {
         return "The greatest product of thirteen consecutive digits in the given 1000-digit number are: ";
     }

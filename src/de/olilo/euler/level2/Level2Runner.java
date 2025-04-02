@@ -31,7 +31,7 @@ public class Level2Runner extends AbstractRunner {
 
     @Override
     protected void initFileReaders() throws IOException {
-        problem42.initialize(this);
+        addFileReader("42", "problemfiles/problem42words.txt");
     }
 
     @Override
