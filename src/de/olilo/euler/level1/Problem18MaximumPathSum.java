@@ -1,6 +1,29 @@
 package de.olilo.euler.level1;
 
-class Problem18MaximumPathSum {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+import de.olilo.util.GridReader;
+
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Problem18MaximumPathSum implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The maximum total from top to bottom of the given triangle is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 18;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        final FileReader gridReader = runner.getFileReader("18");
+        return maximumPathSumOf(new GridReader(gridReader).readGrid());
+    }
 
     public long maximumPathSumOf(int[][] triangle) {
         if (triangle.length == 0) {
@@ -15,7 +38,7 @@ class Problem18MaximumPathSum {
         }
     }
 
-    class Row {
+    private static class Row {
 
         private final int[] row;
         private final int[] maxCache;
