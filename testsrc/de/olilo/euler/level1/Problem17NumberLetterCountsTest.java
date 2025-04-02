@@ -20,7 +20,14 @@ public class Problem17NumberLetterCountsTest {
     }
 
     @Test
-    public void testGetWordLengthOfNumber() throws Exception {
+    public void testGetWordLengthOfNumber342() throws Exception {
+        final long expected = 23;
+        final long actual = new Problem17NumberLetterCounts().getWordLengthOfNumber(342);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetWordLengthOfNumber52141() throws Exception {
         final long expected = 37;
         final long actual = new Problem17NumberLetterCounts().getWordLengthOfNumber(52141);
         Assert.assertEquals(expected, actual);

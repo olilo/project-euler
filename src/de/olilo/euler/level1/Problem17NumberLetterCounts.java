@@ -1,14 +1,18 @@
 package de.olilo.euler.level1;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-class Problem17NumberLetterCounts {
+public class Problem17NumberLetterCounts implements Problem {
 
-    public static final int MILLION = 1000000;
-    public static final int BILLION = 1000000000;
+    public static final int MILLION = 1_000_000;
+    public static final int BILLION = 1_000_000_000;
 
-    private static Map<Integer, Integer> NUMBER_WORD_LENGTHS = new HashMap<Integer, Integer>();
+    private static final Map<Integer, Integer> NUMBER_WORD_LENGTHS = new HashMap<>();
 
     static {
         NUMBER_WORD_LENGTHS.put(1, "ONE".length());
@@ -41,22 +45,50 @@ class Problem17NumberLetterCounts {
         NUMBER_WORD_LENGTHS.put(80, "EIGHTY".length());
         NUMBER_WORD_LENGTHS.put(90, "NINETY".length());
 
-        NUMBER_WORD_LENGTHS.put(100, "hundred".length());
-        NUMBER_WORD_LENGTHS.put(1000, "thousand".length());
-        NUMBER_WORD_LENGTHS.put(MILLION, "million".length());
-        NUMBER_WORD_LENGTHS.put(BILLION, "billion".length());
+        NUMBER_WORD_LENGTHS.put(100, "HUNDRED".length());
+        NUMBER_WORD_LENGTHS.put(1000, "THOUSAND".length());
+        NUMBER_WORD_LENGTHS.put(MILLION, "MILLION".length());
+        NUMBER_WORD_LENGTHS.put(BILLION, "BILLION".length());
     }
 
-    public long countLettersInNumberWordsFrom1To(final int limit) {
+    @Override
+    public String getMessage() {
+        return "The letter count of all numbers from 1 to 1000 written out is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 17;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return countLettersInNumberWordsFrom1To(1000);
+    }
+
+    protected long countLettersInNumberWordsFrom1To(final int limit) {
         // brute force without cache for now
-        int sum = 0;
+        long sum = 0;
         for (int i = 1; i <= limit; i++) {
             sum += getWordLengthOfNumber(i);
         }
         return sum;
     }
 
-    long getWordLengthOfNumber(final int number) {
+    protected long getWordLengthOfNumber(final int number) {
+        if (number < 1000) {
+            return getWordCountBelow1000(number);
+        } else if (number < MILLION) {
+            return getWordCountAbove1000(number, 1000);
+        } else if (number < BILLION) {
+            return getWordCountAbove1000(number, MILLION);
+        } else {
+            // we stop at billion because int can't go further
+            return getWordCountAbove1000(number, BILLION);
+        }
+    }
+
+    private long getWordCountBelow1000(int number) {
         if (number == 0) {
             return 0;
         } else if (number < 20) {
@@ -64,27 +96,20 @@ class Problem17NumberLetterCounts {
         } else if (number < 100) {
             final int lastDigit = number % 10;
             return NUMBER_WORD_LENGTHS.get(number - lastDigit) + getWordLengthOfNumber(lastDigit);
-        } else if (number < 1000) {
+        } else {
             // first digit + "HUNDRED" + "AND" (3) + number for last two digits
             // e.g. three HUNDRED AND fifty-two
             final int firstDigit = number / 100;
             final int lastTwoDigits = number % 100;
-            int result = NUMBER_WORD_LENGTHS.get(firstDigit) + NUMBER_WORD_LENGTHS.get(100);
+            long result = NUMBER_WORD_LENGTHS.get(firstDigit) + NUMBER_WORD_LENGTHS.get(100);
             if (lastTwoDigits > 0) {
                 result += 3 + getWordLengthOfNumber(lastTwoDigits);
             }
             return result;
-        } else if (number < MILLION) {
-            return getWordCountAfter1000(number, 1000);
-        } else if (number < BILLION) {
-            return getWordCountAfter1000(number, MILLION);
-        } else {
-            // we stop at billion because int can't go further
-            return getWordCountAfter1000(number, BILLION);
         }
     }
 
-    private long getWordCountAfter1000(int number, int divisor) {
+    private long getWordCountAbove1000(int number, int divisor) {
         // we take thousand as example for the divisor
         // result is first part before thousands + "THOUSAND" + rest
         // e.g. fifty-two THOUSAND one hundred and forty-one

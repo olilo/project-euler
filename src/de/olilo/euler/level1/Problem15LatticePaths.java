@@ -1,16 +1,34 @@
 package de.olilo.euler.level1;
 
-class Problem15LatticePaths {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+public class Problem15LatticePaths implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The number of lattice Paths through a 20x20 grid is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 15;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return latticePathsThroughGridWithLength(20);
+    }
 
     public long latticePathsThroughGridWithLength(int length) {
         final Grid grid = new Grid(length);
         return grid.countPathsFrom(0, 0);
     }
 
-    class Grid {
+    protected static class Grid {
 
-        private long[][] cells;
-        private int length;
+        private final long[][] cells;
+        private final int length;
 
         public Grid(int length) {
             this.cells = new long[length + 1][length + 1];
