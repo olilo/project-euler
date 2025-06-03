@@ -3,7 +3,6 @@ package de.olilo.euler.level1;
 import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
 
-import java.io.IOException;
 import java.math.BigInteger;
 
 public class Problem25FibonacciNumber implements Problem {
@@ -19,11 +18,11 @@ public class Problem25FibonacciNumber implements Problem {
     }
 
     @Override
-    public Number runProblem(Runner runner) throws IOException {
+    public Number runProblem(Runner runner) {
         return fibonacciIndexWithDigitCount(1000);
     }
 
-    public int fibonacciIndexWithDigitCount(int digitCount) {
+    protected int fibonacciIndexWithDigitCount(int digitCount) {
         BigInteger previous = BigInteger.ZERO;
         BigInteger current = BigInteger.ONE;
         int index = 1;

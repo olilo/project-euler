@@ -1,23 +1,41 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.PrimesIterable;
 
+import java.io.IOException;
 import java.util.*;
 
-class Problem27QuadraticPrimes {
+public class Problem27QuadraticPrimes implements Problem {
 
     private Set<Integer> primes = new HashSet<>();
 
     public Problem27QuadraticPrimes() {
         for (int prime : PrimesIterable.INSTANCE) {
             primes.add(prime);
-            if (prime > 100000) {
+            if (prime > 100_000) {
                 break;
             }
         }
     }
 
-    public int getLongestChainOfQuadraticPrimes(int aLimit, int bLimit) {
+    @Override
+    public String getMessage() {
+        return "The product of coefficients a and b that produce a maximum number of primes for n² + an + b is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 27;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return getLongestChainOfQuadraticPrimes(1000, 1000);
+    }
+
+    protected int getLongestChainOfQuadraticPrimes(int aLimit, int bLimit) {
         int longestChain = 0;
         int greatestA = 0;
         int greatestB = 0;
@@ -34,7 +52,7 @@ class Problem27QuadraticPrimes {
         return greatestA * greatestB;
     }
 
-    public int[] getQuadraticPrimes(int a, int b) {
+    protected int[] getQuadraticPrimes(int a, int b) {
         List<Integer> foundPrimes = new ArrayList<>();
         int n = 0;
         while (primes.contains((int) (Math.pow(n, 2) + a * n + b))) {

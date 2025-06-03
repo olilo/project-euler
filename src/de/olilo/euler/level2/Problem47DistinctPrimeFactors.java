@@ -37,7 +37,7 @@ public class Problem47DistinctPrimeFactors implements Problem {
                 break;
             }
 
-            // current number does not have
+            // current number does not have the required distinct prime factor count
             if (primeFactorCount != n) {
                 continue;
             }

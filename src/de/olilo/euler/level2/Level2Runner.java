@@ -28,6 +28,8 @@ public class Level2Runner extends AbstractRunner {
     private Problem43SubStringDivisibility problem43 = new Problem43SubStringDivisibility();
     private final Problem problem44 = new Problem44PentagonalNumbers();
     private final Problem problem45 = new Problem45TriangularPentagonalHexagonal();
+    private final Problem problem47 = new Problem47DistinctPrimeFactors();
+    private final Problem problem48 = new Problem48SelfPowers();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -40,6 +42,8 @@ public class Level2Runner extends AbstractRunner {
         runProblems26To30(out);
         runProblems31To35(out);
         runProblems36To40(out);
+        runProblems41To45(out);
+        runProblems46To50(out);
     }
 
     private void runProblems26To30(final PrintStream out) throws IOException {
@@ -107,21 +111,31 @@ public class Level2Runner extends AbstractRunner {
         out.println("Problem 40: Champernownes constant - find digit product: " +
                 problem40.getDigitProduct(10, 6));
         problemFinished();
+    }
 
-        out.println("Problem 41: Largest 9-digit pandigital prime is: " +
-                problem41.findLargestPandigitalPrime());
-        problemFinished();
+    private void runProblems41To45(final PrintStream out) throws IOException {
+        out.println("Problem 41: " + problem41.getMessage() + problem41.runProblem(this));
+        problemFinished(problem41);
 
         out.println("Problem 42: " + problem42.getMessage() + problem42.runProblem(this));
-        problemFinished();
+        problemFinished(problem42);
 
         out.println("Problem 43: " + problem43.getMessage() + problem43.runProblem(this));
-        problemFinished();
+        problemFinished(problem43);
 
         out.println("Problem 44: " + problem44.getMessage() + problem44.runProblem(this));
-        problemFinished();
+        problemFinished(problem44);
 
         out.println("Problem 45: " + problem45.getMessage() + problem45.runProblem(this));
-        problemFinished();
+        problemFinished(problem45);
     }
+
+    private void runProblems46To50(final PrintStream out) throws IOException {
+        out.println("Problem 47: " + problem47.getMessage() + problem47.runProblem(this));
+        problemFinished(problem47);
+
+        out.println("Problem 48: " + problem48.getMessage() + problem48.runProblem(this));
+        problemFinished(problem48);
+    }
+
 }

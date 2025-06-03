@@ -1,16 +1,34 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.PrimesIterable;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class Problem26ReciprocalCycles {
+public class Problem26ReciprocalCycles implements Problem {
 
-    public int getUnitFractionWithLongestRecurringCycle(int unitFraction) {
+    @Override
+    public String getMessage() {
+        return "The longest recurring cycle for unit fractions until 1 / 1000 is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 26;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return getUnitFractionWithLongestRecurringCycle(1000);
+    }
+
+    protected int getUnitFractionWithLongestRecurringCycle(int unitFraction) {
         int longestCycle = 0;
         int result = 0;
         int count = 0;
@@ -38,11 +56,11 @@ class Problem26ReciprocalCycles {
         return result;
     }
 
-    public BigDecimal getUnitFraction(int d) {
+    protected BigDecimal getUnitFraction(int d) {
         return BigDecimal.ONE.divide(BigDecimal.valueOf(d), 10000, RoundingMode.HALF_UP);
     }
 
-    public String getRecurringCycle(BigDecimal d) {
+    protected String getRecurringCycle(BigDecimal d) {
         final String representation = d.toString();
         final StringBuilder cycle = new StringBuilder();
         final StringBuilder cycle2 = new StringBuilder();
@@ -95,7 +113,7 @@ class Problem26ReciprocalCycles {
                 			break;
                 		}
                 	}
-                	
+
                 	// test whether cycle is finished and starts again
                     if (cycle.toString().charAt(0) == c && c != '0') {
                         cycleCollected = true;
