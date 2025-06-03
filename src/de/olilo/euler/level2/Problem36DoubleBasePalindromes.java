@@ -58,12 +58,7 @@ class Problem36DoubleBasePalindromes {
     }
 
     public String reverse(String input) {
-        final StringBuilder builder = new StringBuilder();
-        final char[] inputChars = input.toCharArray();
-        for (int i = input.length() - 1; i >= 0; i--) {
-            builder.append(inputChars[i]);
-        }
-        return builder.toString();
+        return new StringBuilder(input).reverse().toString();
     }
 
 }
