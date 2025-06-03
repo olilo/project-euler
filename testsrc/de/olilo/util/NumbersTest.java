@@ -256,4 +256,60 @@ public class NumbersTest {
         }
     }
 
+    @Test
+    public void testIsPalindromeSingleDigit() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isPalindrome(BigInteger.valueOf(5));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPalindrome12321() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isPalindrome(BigInteger.valueOf(12321));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPalindromeBigNumber() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isPalindrome(new BigInteger("12345678987654321"));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPalindromeFalse() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isPalindrome(BigInteger.valueOf(12345));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReverse() {
+        final BigInteger expected = BigInteger.valueOf(54321);
+        final BigInteger actual = Numbers.reverse(BigInteger.valueOf(12345));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsLychrelNumberFalse() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isLychrelNumberBelowTenThousand(349);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsLychrelNumberTrue() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isLychrelNumberBelowTenThousand(196);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsLychrelNumber4994() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isLychrelNumberBelowTenThousand(4994);
+        Assert.assertEquals(expected, actual);
+    }
+
 }

@@ -60,4 +60,35 @@ public class Numbers {
         }
     }
 
+    public static boolean isPalindrome(BigInteger n) {
+        if (n.compareTo(BigInteger.ZERO) < 0) return false;
+
+        return n.equals(reverse(n));
+    }
+
+    public static BigInteger reverse(BigInteger n) {
+        BigInteger reversed = BigInteger.ZERO;
+
+        while (n.compareTo(BigInteger.ZERO) > 0) {
+            reversed = reversed.multiply(BigInteger.TEN).add(n.mod(BigInteger.TEN));
+            n = n.divide(BigInteger.TEN);
+        }
+
+        return reversed;
+    }
+
+    public static boolean isLychrelNumberBelowTenThousand(long n) {
+        BigInteger current = BigInteger.valueOf(n);
+
+        for (int i = 0; i < 50; i++) {
+            current = current.add(reverse(current));
+
+            if (isPalindrome(current)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
