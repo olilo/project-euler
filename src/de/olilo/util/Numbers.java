@@ -22,6 +22,11 @@ public class Numbers {
         return root[1].equals(BigInteger.ZERO);
     }
 
+    public static boolean isSquareNumber(long n) {
+        final double probableSquareNumber = Math.sqrt(n);
+        return (long) probableSquareNumber == probableSquareNumber;
+    }
+
     public static long getPentagonalNumber(long n) {
         return n * (3 * n - 1) / 2;
     }

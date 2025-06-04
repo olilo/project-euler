@@ -98,6 +98,20 @@ public class NumbersTest {
     }
 
     @Test
+    public void testIsSquareNumber() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isSquareNumber(25);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsSquareNumberFalse() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isSquareNumber(30);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
     public void testGetPentagonalNumber() {
         final long expected = 22;
         final long actual = Numbers.getPentagonalNumber(4);
