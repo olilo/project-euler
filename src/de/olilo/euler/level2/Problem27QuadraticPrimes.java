@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Problem27QuadraticPrimes implements Problem {
 
-    private Set<Integer> primes = new HashSet<>();
+    private final Set<Integer> primes = new HashSet<>();
 
     public Problem27QuadraticPrimes() {
         for (int prime : PrimesIterable.INSTANCE) {

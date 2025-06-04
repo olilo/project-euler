@@ -1,5 +1,6 @@
 package de.olilo.euler.level2;
 
+import de.olilo.util.Numbers;
 import de.olilo.util.PrimesIterable;
 
 import java.util.ArrayList;
@@ -34,12 +35,12 @@ class Problem37TruncatablePrimes {
     public boolean isTruncatablePrime(int prime) {
         final String primeString = Integer.toString(prime);
         for (int i = 1; i < primeString.length(); i++) {
-            if (!PrimesIterable.INSTANCE.isPrime(Integer.parseInt(primeString.substring(i)))) {
+            if (Numbers.isComposite(Integer.parseInt(primeString.substring(i)))) {
                 return false;
             }
         }
         for (int i = primeString.length(); i >= 1; i--) {
-            if (!PrimesIterable.INSTANCE.isPrime(Integer.parseInt(primeString.substring(0, i)))) {
+            if (Numbers.isComposite(Integer.parseInt(primeString.substring(0, i)))) {
                 return false;
             }
         }

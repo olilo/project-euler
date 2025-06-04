@@ -54,12 +54,17 @@ public class PrimesIterableTest {
 
     @Test
     public void testIsPrimeInternal() throws Exception {
-        Assert.assertTrue(PrimesIterable.INSTANCE.isPrimeInternal(11));
+        Assert.assertTrue(PrimesIterable.INSTANCE.isPrimeInternal(11L));
     }
 
     @Test
     public void testIsPrime() throws Exception {
         Assert.assertTrue(PrimesIterable.INSTANCE.isPrime(971));
+    }
+
+    @Test
+    public void testIsPrimeLong() throws Exception {
+        Assert.assertTrue(PrimesIterable.INSTANCE.isPrime( 7_427_466_391L));
     }
 
     @Test

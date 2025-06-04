@@ -7,7 +7,7 @@ import java.util.List;
 import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
 import de.olilo.util.Lists;
-import de.olilo.util.PrimesIterable;
+import de.olilo.util.Numbers;
 
 public class Problem41PandigitalPrime implements Problem {
 
@@ -42,7 +42,7 @@ public class Problem41PandigitalPrime implements Problem {
                 pandigitalAsString.append(digit);
             }
             int possiblePandigitalNumber = Integer.parseInt(pandigitalAsString.toString());
-            if (PrimesIterable.INSTANCE.isPrime(possiblePandigitalNumber) && possiblePandigitalNumber > largestFoundPandigitalPrime) {
+            if (Numbers.isPrime(possiblePandigitalNumber) && possiblePandigitalNumber > largestFoundPandigitalPrime) {
                 largestFoundPandigitalPrime = possiblePandigitalNumber;
             }
         }

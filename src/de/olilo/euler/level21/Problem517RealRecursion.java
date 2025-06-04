@@ -33,7 +33,7 @@ public class Problem517RealRecursion implements Problem {
         BigInteger sum = BigInteger.ZERO;
         // naive approach runs too long and runs out of memory
         /*for (int i = 10_000_000; i < 10_010_000; i++) {
-            if (PrimesIterable.INSTANCE.isPrime(i)) {
+            if (Numbers.isPrime(i)) {
                 sum = sum.add(new FunctionG(Math.sqrt(i)).apply(i));
             }
         }*/

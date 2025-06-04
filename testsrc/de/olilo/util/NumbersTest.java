@@ -312,4 +312,60 @@ public class NumbersTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testIsPrime() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isPrime(31);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPrimeBigNumber() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isPrime(7_427_466_391L);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPrimeFalse() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isPrime(33);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPrimeFalseBigNumber() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isPrime(123_123_123);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsCompositeInt() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isComposite(1_323_321_123);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsCompositeLong() {
+        final boolean expected = true;
+        final boolean actual = Numbers.isComposite(9_123_321_123L);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsCompositeFalse() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isComposite(31);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsCompositeLongFalse() {
+        final boolean expected = false;
+        final boolean actual = Numbers.isComposite(7_427_466_391L);
+        Assert.assertEquals(expected, actual);
+    }
+
 }

@@ -91,4 +91,20 @@ public class Numbers {
         return true;
     }
 
+    public static boolean isPrime(int n) {
+        return PrimesIterable.INSTANCE.isPrime(n);
+    }
+
+    public static boolean isPrime(long n) {
+        return PrimesIterable.INSTANCE.isPrime(n);
+    }
+
+    public static boolean isComposite(int n) {
+        return !isPrime(n);
+    }
+
+    public static boolean isComposite(long n) {
+        return !isPrime(n);
+    }
+
 }

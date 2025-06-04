@@ -50,7 +50,7 @@ public class PrimeFactorsTest {
     @Test
     public void testCountDistinctPrime() {
         final int expected = 1;
-        final int actual = PrimeFactors.countDistinct(25083391);
+        final int actual = PrimeFactors.countDistinct(25_083_391);
         Assert.assertEquals(expected, actual);
     }
 

@@ -2,7 +2,7 @@ package de.olilo.euler.level2;
 
 import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
-import de.olilo.util.PrimesIterable;
+import de.olilo.util.Numbers;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -40,8 +40,7 @@ public class Problem49PrimePermutations implements Problem {
     }
 
     protected boolean isPrimeSequence(int number, int step) {
-        return PrimesIterable.INSTANCE.isPrime(number) && PrimesIterable.INSTANCE.isPrime(number + step) &&
-                PrimesIterable.INSTANCE.isPrime(number + 2 * step);
+        return Numbers.isPrime(number) && Numbers.isPrime(number + step) && Numbers.isPrime(number + 2 * step);
     }
 
     protected boolean arePermutationsOfEachOther (int first, int second, int third) {

@@ -2,6 +2,7 @@ package de.olilo.euler.level3;
 
 import de.olilo.euler.Problem;
 import de.olilo.euler.Runner;
+import de.olilo.util.Numbers;
 import de.olilo.util.PrimesIterable;
 
 import java.io.IOException;
@@ -61,7 +62,7 @@ public class Problem51PrimeDigitReplacements implements Problem {
     protected int getChainLengthFor(String baseNumber, Collection<Integer> digits) {
         int chainLength = 0;
         for (Integer number : replaceDigits(baseNumber, digits)) {
-            if (PrimesIterable.INSTANCE.isPrime(number)) {
+            if (Numbers.isPrime(number)) {
                 chainLength++;
             }
         }

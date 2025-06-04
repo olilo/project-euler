@@ -25,6 +25,10 @@ public enum PrimesIterable implements Iterable<Integer> {
     }
 
     public boolean isPrime(int number) {
+        return isPrime((long) number);
+    }
+
+    public boolean isPrime(long number) {
         int limit = (int) Math.sqrt(number);
         while (limit > primes[primeCount - 1]) {
             preloadNextPrimes();
@@ -62,7 +66,7 @@ public enum PrimesIterable implements Iterable<Integer> {
         }
     }
 
-    boolean isPrimeInternal(int probablePrime) {
+    boolean isPrimeInternal(long probablePrime) {
         int limit = (int) Math.sqrt(probablePrime);
         for (int i = 0; i < primeCount; i++) {
             final int prime = primes[i];

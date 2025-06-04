@@ -1,5 +1,6 @@
 package de.olilo.euler.level2;
 
+import de.olilo.util.Numbers;
 import de.olilo.util.PrimesIterable;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ class Problem35CircularPrimes {
             for (int j = i; j < i + digits.length; j++) {
                 probablePrime.append(digits[j % digits.length]);
             }
-            if (!PrimesIterable.INSTANCE.isPrime(Integer.parseInt(probablePrime.toString()))) {
+            if (Numbers.isComposite(Integer.parseInt(probablePrime.toString()))) {
                 return false;
             }
         }
