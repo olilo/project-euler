@@ -91,7 +91,7 @@ public class ReflectionBasedRunner extends AbstractRunner {
             Number result;
             try {
                 problem.initialize(this);
-                long start = System.nanoTime();
+                final long start = System.nanoTime();
                 result = problem.runProblem(this);
                 elapsed = TimeUnit.NANOSECONDS.toMicros (System.nanoTime() - start);
             } catch (IOException e) {
@@ -99,8 +99,9 @@ public class ReflectionBasedRunner extends AbstractRunner {
                 continue;
             }
 
-            out.print("Problem " + problem.getProblemNumber() + ": " + problem.getMessage() + result);
-            out.println(" (used time: " + (elapsed > 1000 ? (elapsed / 1000) + "ms" : elapsed + "µs") + ")");
+            final String problemString = "Problem " + problem.getProblemNumber();
+            final String elapsedTime = elapsed > 1000 ? (elapsed / 1000) + "ms" : elapsed + "µs";
+            out.println(problemString + ": (used time: " + elapsedTime + ") " + problem.getMessage() + result);
 
             problemFinished(problem);
         }
