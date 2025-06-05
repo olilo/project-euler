@@ -220,4 +220,189 @@ public class PokerHandTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGetHandValueRoyalFlush() {
+        final PokerCard.Suit suit = PokerCard.Suit.CLUBS;
+        final PokerCard card1 = new PokerCard(PokerCard.Value.QUEEN, suit);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.JACK, suit);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.TEN, suit);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.KING, suit);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.ACE, suit);
+
+        final PokerCard.Value expected = PokerCard.Value.ACE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueStraightFlush() {
+        final PokerCard.Suit suit = PokerCard.Suit.HEARTS;
+        final PokerCard card1 = new PokerCard(PokerCard.Value.FIVE, suit);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.SIX, suit);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.NINE, suit);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, suit);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.SEVEN, suit);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueFourOfAKind() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.FIVE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueFourOfAKind2() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueFullHouse() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueFullHouse2() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.SPADES);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.FIVE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueFlush() {
+        final PokerCard.Suit suit = PokerCard.Suit.HEARTS;
+        final PokerCard card1 = new PokerCard(PokerCard.Value.SEVEN, suit);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.SIX, suit);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.ACE, suit);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, suit);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.NINE, suit);
+
+        final PokerCard.Value expected = PokerCard.Value.ACE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueStraight() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.EIGHT, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.SIX, PokerCard.Suit.DIAMONDS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.SEVEN, PokerCard.Suit.SPADES);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueThreeOfAKind() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.SIX, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueTwoPairs() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueTwoPairs2() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.KING, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.KING, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.KING;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueOnePair() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.ACE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.NINE;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueOnePair2() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.TWO, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.NINE, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.ACE, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.TWO, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.TWO;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetHandValueHighCard() {
+        final PokerCard card1 = new PokerCard(PokerCard.Value.SIX, PokerCard.Suit.HEARTS);
+        final PokerCard card2 = new PokerCard(PokerCard.Value.TEN, PokerCard.Suit.CLUBS);
+        final PokerCard card3 = new PokerCard(PokerCard.Value.QUEEN, PokerCard.Suit.DIAMONDS);
+        final PokerCard card4 = new PokerCard(PokerCard.Value.EIGHT, PokerCard.Suit.SPADES);
+        final PokerCard card5 = new PokerCard(PokerCard.Value.FIVE, PokerCard.Suit.HEARTS);
+
+        final PokerCard.Value expected = PokerCard.Value.QUEEN;
+        final PokerCard.Value actual = PokerHand.getHandValue(new PokerCard[] {card1, card2, card3, card4, card5});
+        Assert.assertEquals(expected, actual);
+    }
+
 }

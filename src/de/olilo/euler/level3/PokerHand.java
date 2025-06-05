@@ -52,6 +52,35 @@ public enum PokerHand {
         return HIGH_CARD;
     }
 
+    public static PokerCard.Value getHandValue(PokerCard[] cards) {
+        if (cards.length != 5) {
+            throw new IllegalArgumentException("Need exactly 5 Cards");
+        }
+
+        final PokerCard[] sortedCards = Arrays.copyOf(cards, 5);
+        Arrays.sort(sortedCards);
+
+        if (areSameSuit(sortedCards) || areAscending(sortedCards)) {
+            return sortedCards[4].getValue();
+        } else if (areFourOfAKind(sortedCards) || areFullHouse(sortedCards) || areThreeOfAKind(sortedCards)) {
+            return sortedCards[2].getValue();
+        } else if (areTwoPairs(sortedCards)) {
+            return sortedCards[3].getValue();
+        } else if (areOnePair(sortedCards)) {
+            if (sortedCards[3].getValue() == sortedCards[4].getValue()) {
+                return sortedCards[3].getValue();
+            } else if (sortedCards[2].getValue() == sortedCards[3].getValue()) {
+                return sortedCards[2].getValue();
+            } else if (sortedCards[1].getValue() == sortedCards[2].getValue()) {
+                return sortedCards[1].getValue();
+            } else {
+                return sortedCards[0].getValue();
+            }
+        } else {
+            return sortedCards[4].getValue();
+        }
+    }
+
     public static boolean areSameSuit(PokerCard[] cards) {
         final PokerCard.Suit suit = cards[0].getSuit();
 
