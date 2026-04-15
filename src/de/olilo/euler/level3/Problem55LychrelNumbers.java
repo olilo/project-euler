@@ -23,7 +23,7 @@ public class Problem55LychrelNumbers implements Problem {
         return countLychrelNumbersBelow(10_000);
     }
 
-    public int countLychrelNumbersBelow(int limit) {
+    protected int countLychrelNumbersBelow(int limit) {
         int counter = 0;
         for (int i = 0; i < limit; i++) {
             if (Numbers.isLychrelNumberBelowTenThousand(i)) {

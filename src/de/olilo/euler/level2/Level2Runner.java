@@ -64,7 +64,7 @@ public class Level2Runner extends AbstractRunner {
         problemFinished();
 
         out.println("Problem 30:  sum of all the numbers that can be written as the sum of fifth powers of their digits: " +
-                problem30.sumOf(problem30.getNumbersEqualTheirDigitFifthPowers(1000000)));
+                problem30.getNumbersEqualTheirDigitFifthPowers().stream().reduce(0, Integer::sum));
         problemFinished();
     }
 

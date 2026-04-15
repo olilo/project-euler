@@ -1,6 +1,26 @@
 package de.olilo.euler.level2;
 
-class Problem28NumberSpiralDiagonals {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
+
+public class Problem28NumberSpiralDiagonals implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The sum of the numbers on the diagonals of a 1001 by 1001 spiral is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 28;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return getNumberSpiralDiagonalsFor(1001);
+    }
 
     public int getNumberSpiralDiagonalsFor(int size) {
         int length = (size - 1) / 2;
