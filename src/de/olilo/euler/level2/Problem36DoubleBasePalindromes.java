@@ -1,16 +1,28 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+import de.olilo.util.Numbers;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Problem36DoubleBasePalindromes {
+public class Problem36DoubleBasePalindromes implements Problem {
 
-    public int sumOf(List<Integer> values) {
-        int sum = 0;
-        for (int value : values) {
-            sum += value;
-        }
-        return sum;
+    @Override
+    public String getMessage() {
+        return "The sum of all numbers, less than one million, which are palindromic in base 10 and base 2 is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 36;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return findPalindromesInBaseTenAndTwoUntil(1_000_000).stream().reduce(0, Integer::sum);
     }
 
     public List<Integer> findPalindromesInBaseTenAndTwoUntil(int limit) {
@@ -42,19 +54,9 @@ class Problem36DoubleBasePalindromes {
         } else {
             number = Integer.parseInt(firstPart + secondPart);
         }
-        if (isPalindrome(Integer.toBinaryString(number))) {
+        if (Numbers.isPalindrome(Integer.toBinaryString(number))) {
             result.add(number);
         }
-    }
-
-    public boolean isPalindrome(String input) {
-        final char[] chars = input.toCharArray();
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (chars[i] != chars[input.length() - i - 1]) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public String reverse(String input) {

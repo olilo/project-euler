@@ -1,11 +1,30 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Problem31CoinSums {
+public class Problem31CoinSums implements Problem {
 
-    public List<Coins> getPossibleSolutionsFor(int sum) {
+    @Override
+    public String getMessage() {
+        return "The number of different ways £2 can be made up using any number of coins is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 31;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return getPossibleSolutionsFor(200).size();
+    }
+
+    protected List<Coins> getPossibleSolutionsFor(int sum) {
         // wrapped ArrayList that "forgets" everything after the 1000th result
         // this ensures that tests can verify the correctness,
         // and outside applications can just query the size without polluting the heap

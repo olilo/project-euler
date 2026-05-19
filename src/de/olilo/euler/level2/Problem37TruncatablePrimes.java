@@ -7,14 +7,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-class Problem37TruncatablePrimes {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+import de.olilo.util.Numbers;
+import de.olilo.util.PrimesIterable;
 
-    public int sumOf(List<Integer> values) {
-        int sum = 0;
-        for (int value : values) {
-            sum += value;
-        }
-        return sum;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Problem37TruncatablePrimes implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The sum of the only eleven primes that are both truncatable from left to right and right to left is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 37;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return findAllTruncatablePrimes().stream().reduce(0, Integer::sum);
     }
 
     public List<Integer> findAllTruncatablePrimes() {

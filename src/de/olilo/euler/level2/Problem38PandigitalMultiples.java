@@ -1,6 +1,24 @@
 package de.olilo.euler.level2;
 
-class Problem38PandigitalMultiples {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+public class Problem38PandigitalMultiples implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 38;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return getBiggestPandigitalProduct();
+    }
 
     public long getBiggestPandigitalProduct() {
         long biggestPandigitalProduct = 0;

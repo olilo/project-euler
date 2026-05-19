@@ -30,6 +30,7 @@ public class Level2Runner extends AbstractRunner {
     private final Problem problem45 = new Problem45TriangularPentagonalHexagonal();
     private final Problem problem47 = new Problem47DistinctPrimeFactors();
     private final Problem problem48 = new Problem48SelfPowers();
+    private final Problem problem49 = new Problem49PrimePermutations();
 
     @Override
     protected void initFileReaders() throws IOException {
@@ -93,11 +94,11 @@ public class Level2Runner extends AbstractRunner {
 
     private void runProblems36To40(final PrintStream out) throws IOException {
         out.println("Problem 36: sum of all numbers, less than one million, which are palindromic in base 10 and base 2: " +
-                problem36.sumOf(problem36.findPalindromesInBaseTenAndTwoUntil(1_000_000)));
+                problem36.findPalindromesInBaseTenAndTwoUntil(1_000_000).stream().reduce(0, Integer::sum));
         problemFinished();
 
         out.println("Problem 37: sum of the only eleven primes that are both truncatable from left to right and right to left: " +
-                problem37.sumOf(problem37.findAllTruncatablePrimes()));
+                problem37.findAllTruncatablePrimes().stream().reduce(0, Integer::sum));
         problemFinished();
 
         out.println("Problem 38: largest 1 to 9 pandigital 9-digit number that can be formed as the concatenated product" +
@@ -136,6 +137,9 @@ public class Level2Runner extends AbstractRunner {
 
         out.println("Problem 48: " + problem48.getMessage() + problem48.runProblem(this));
         problemFinished(problem48);
+
+        out.println("Problem 49: " + problem49.getMessage() + problem49.runProblem(this));
+        problemFinished(problem49);
     }
 
 }

@@ -1,6 +1,26 @@
 package de.olilo.euler.level2;
 
-class Problem34DigitFactorials {
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
+
+public class Problem34DigitFactorials implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The sum of all numbers which are equal to the sum of the factorial of their digits is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 34;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return sumOfDigitFactorialsUntil(1_000_000);
+    }
 
     public long sumOfDigitFactorialsUntil(int limit) {
         int sum = 0;

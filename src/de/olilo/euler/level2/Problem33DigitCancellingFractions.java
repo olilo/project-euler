@@ -1,10 +1,28 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
 import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 
-class Problem33DigitCancellingFractions {
+public class Problem33DigitCancellingFractions implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The denominator of the product of digit-cancelling fractions is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 33;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) {
+        return getProductOf(getDigitCancellingFractionsBetween(10, 99)).getValue();
+    }
 
     public Map.Entry<Integer, Integer> getProductOf(Map<Integer, Integer> values) {
         int numerator = 1;

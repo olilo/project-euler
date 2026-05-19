@@ -25,7 +25,7 @@ public class Problem29DistinctPowers implements Problem {
         return getDistinctPowersOf2To(100, 100).size();
     }
 
-    public Set<BigDecimal> getDistinctPowersOf2To(int a, int b) {
+    protected Set<BigDecimal> getDistinctPowersOf2To(int a, int b) {
         final Set<BigDecimal> result = new HashSet<>();
         for (int i = 2; i <= a; i++) {
             for (int j = 2; j <= b; j++) {

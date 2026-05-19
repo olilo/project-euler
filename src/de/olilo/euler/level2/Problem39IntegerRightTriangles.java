@@ -1,9 +1,28 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Problem39IntegerRightTriangles {
+public class Problem39IntegerRightTriangles implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The value of p <= 1000 for which the number of right triangle solutions is maximised is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 39;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return getMaxSolutionCountUntil(1000);
+    }
 
     public int getMaxSolutionCountUntil(int end) {
         int maxCount = 0;

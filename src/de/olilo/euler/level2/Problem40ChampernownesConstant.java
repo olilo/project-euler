@@ -1,8 +1,28 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 
-class Problem40ChampernownesConstant {
+public class Problem40ChampernownesConstant implements Problem {
+
+    @Override
+    public String getMessage() {
+        return "The value of the product of the digits d_1 * d_10 * d_100 * d_1000 * d_10000 * d_100000 * d_1000000 " +
+                "of Champernowne's constant is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 40;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return getDigitProduct(10, 6);
+    }
 
     public BigDecimal getConstantUntil(int n) {
         final StringBuilder constant = new StringBuilder("0.");

@@ -22,7 +22,7 @@ public class Problem28NumberSpiralDiagonals implements Problem {
         return getNumberSpiralDiagonalsFor(1001);
     }
 
-    public int getNumberSpiralDiagonalsFor(int size) {
+    protected int getNumberSpiralDiagonalsFor(int size) {
         int length = (size - 1) / 2;
         // 1
         // 1 + 2 = 3; 1 + 2*2 + 1*8 = 13; 1 + 3*2 + 3*8 = 31; 1 + 4*2 + 6*8 = 56 ...

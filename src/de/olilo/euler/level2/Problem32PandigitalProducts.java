@@ -1,12 +1,31 @@
 package de.olilo.euler.level2;
 
+import de.olilo.euler.Problem;
+import de.olilo.euler.Runner;
 import de.olilo.util.Divisors;
 
+import java.io.IOException;
 import java.util.Arrays;
 
-class Problem32PandigitalProducts {
+public class Problem32PandigitalProducts implements Problem {
 
-    public int pandigitalProductSum(int limit) {
+    @Override
+    public String getMessage() {
+        return "The sum of all products whose multiplicand/multiplier/product identity can be written as a " +
+                "1 through 9 pandigital is: ";
+    }
+
+    @Override
+    public int getProblemNumber() {
+        return 32;
+    }
+
+    @Override
+    public Number runProblem(Runner runner) throws IOException {
+        return pandigitalProductSum(10000);
+    }
+
+    protected int pandigitalProductSum(int limit) {
         int sum = 0;
         for (int i = 1000; i <= limit; i++) {
             if (isPandigitalProduct(i)) {
@@ -26,7 +45,7 @@ class Problem32PandigitalProducts {
      * @param product the product to test (checks against all divisors)
      * @return true if given product is a pandigital product, false otherwise
      */
-    public boolean isPandigitalProduct(int product) {
+    protected boolean isPandigitalProduct(int product) {
         final boolean[] digits = new boolean[9];
         setDigitsOf(Integer.toString(product), digits);
         final long[] divisors = Divisors.of(product);

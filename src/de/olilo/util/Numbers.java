@@ -65,6 +65,10 @@ public class Numbers {
         }
     }
 
+    public static boolean isPalindrome(String n) {
+        return isPalindrome(new BigInteger(n));
+    }
+
     public static boolean isPalindrome(BigInteger n) {
         if (n.compareTo(BigInteger.ZERO) < 0) return false;
 
