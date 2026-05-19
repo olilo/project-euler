@@ -9,7 +9,6 @@ You can run it by checking out the sources and executing
 
 You can get ant here: https://ant.apache.org/bindownload.cgi
 
-To run only certain problems use the following command
-(WIP, half of the problems work at the moment):
+To run only certain problems use the following command:
 
-    ant -Drunner=reflection -Dproblems=1,2,10
+    ant -Dproblems=1,2,10
